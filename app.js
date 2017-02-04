@@ -13,6 +13,7 @@ require('dotenv').load();
 var index = require('./routes/index');
 var user = require('./routes/user');
 var results = require('./routes/results');
+var picks = require('./routes/picks');
 
 var app = express();
 
@@ -83,6 +84,7 @@ app.use(function (req, res, next) {
 app.use('/', index);
 app.use('/results', results);
 app.use('/user', user);
+app.use('/picks', picks);
 
 app.get('/login/facebook',
   passport.authenticate('facebook', { scope: ['public_profile', 'email', 'user_hometown']})

@@ -3,12 +3,15 @@ html
   head
     title= title
     link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=Raleway:400,700,400italic,600')
     link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css')
   body
     nav
       div.nav-wrapper
         a.brand-logo(href='/').
-          ALA NBA All-Star Spectacular
+          NBA All-Star Spectacular
+        ul.left.logo-lead.
+          A Level Above presents
         ul#nav-mobile.right.hide-on-med-and-down
           if user
             li='Welcome, ' + user.username
