@@ -4,6 +4,11 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var knex = require('./db/knex.js');
+var session = require('cookie-session');
+var passport = require('passport');
+var FacebookStrategy = require('passport-facebook').Strategy;
+require('dotenv').load();
 
 var index = require('./routes/index');
 var users = require('./routes/users');
@@ -21,9 +26,68 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(session({
+  name: 'session',
+  keys: [process.env.SESSION_KEY]
+}));
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.use('/', index);
 app.use('/users', users);
+
+passport.use('facebook', new FacebookStrategy({
+  clientID: process.env.FB_APP_ID,
+  clientSecret: process.env.FB_APP_SECRET,
+  callbackURL: 'http://localhost:3000/login/facebook/callback',
+  profileFields: ['id', 'email', 'displayName', 'photos', 'first_name', 'last_name', 'hometown', 'link']
+},
+
+  // facebook will send back the tokens + profile
+  function(accessToken, refreshToken, profile, done) {
+    var email = profile.emails[0].value;
+    var username = email.split('@')[0];
+    knex('users').first().where('email', email).then(function(user){
+      if (!user) {
+        knex('users').insert({
+          email: email,
+          username: username,
+          first_name: profile._json.first_name,
+          last_name: profile._json.last_name,
+          hometown: profile._json.hometown.name,
+          fb_profile: profile._json.link,
+          facebookid: profile.id,
+          photo: profile.photos[0].value,
+          superuser: false
+        }, '*').then(function(user){
+          done(null, user[0]);
+        });
+      } else {
+
+        done(null, user);
+      }
+    })
+  })
+)
+
+app.get('/login/facebook',
+  passport.authenticate('facebook', { scope: ['public_profile', 'email', 'user_hometown']})
+);
+
+app.get('/login/facebook/callback',
+  passport.authenticate('facebook', {
+    successRedirect: '/',
+    failureRedirect: '/login'
+  })
+);
+
+passport.serializeUser(function(user, done){
+  done(null, user);
+});
+
+passport.deserializeUser(function(obj, done){
+  done(null, obj);
+})
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
