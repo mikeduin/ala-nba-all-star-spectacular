@@ -12,6 +12,8 @@ block content
           th.
             Event
           th.
+            Type
+          th.
             Wager
           th.
             Odds
@@ -21,3 +23,15 @@ block content
             To Win
           th.
             Result
+      tbody
+        for wager in wagers
+          tr
+            td=wager.username
+            td=wager.event
+            td=wager.type
+            td=wager.wager
+            td=wager.odds
+            td=wager.risk
+            td=wager.to_win
+            td=wager.result
+              

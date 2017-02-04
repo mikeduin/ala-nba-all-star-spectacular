@@ -11,7 +11,8 @@ var FacebookStrategy = require('passport-facebook').Strategy;
 require('dotenv').load();
 
 var index = require('./routes/index');
-var users = require('./routes/users');
+var user = require('./routes/user');
+var results = require('./routes/results');
 
 var app = express();
 
@@ -80,7 +81,8 @@ app.use(function (req, res, next) {
 })
 
 app.use('/', index);
-app.use('/users', users);
+app.use('/results', results);
+app.use('/user', user);
 
 app.get('/login/facebook',
   passport.authenticate('facebook', { scope: ['public_profile', 'email', 'user_hometown']})
