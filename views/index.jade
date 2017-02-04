@@ -1,7 +1,11 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
-  a(href='/login/facebook').
-    login
+  div.row
+    div.col.s6
+    div.col.s6
+      div#slideshow
+        img(src='images/skills-challenge.jpg')
+        img(src='images/3pt-shootout.jpg')
+        img(src='images/dunk-contest.jpg')
+  

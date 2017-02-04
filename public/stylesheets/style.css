@@ -1,4 +1,16 @@
 a {
   color: #94C8EF; }
 
+.spacer {
+  margin-top: 20px; }
+
+#slideshow {
+  position: relative; }
+  #slideshow img {
+    margin-left: 12.5%;
+    max-width: 75%;
+    position: absolute;
+    left: 0;
+    top: 0; }
+
 /*# sourceMappingURL=style.css.map */
