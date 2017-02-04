@@ -1,0 +1,23 @@
+extends layout
+
+block content
+  div.row
+    span=user.username + "'s Wagers'"
+  div.row
+    table.col.s10.striped
+      thead
+        tr
+          th.
+            Username
+          th.
+            Event
+          th.
+            Wager
+          th.
+            Odds
+          th.
+            Risked
+          th.
+            To Win
+          th.
+            Result

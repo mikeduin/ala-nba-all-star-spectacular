@@ -1,0 +1,202 @@
+{
+  "events": [
+    {
+      "name": "Rising Stars Challenge",
+      "time": "2017-02-18T02:00:00",
+      "bets": [
+        {
+          "id": 1,
+          "type": "Point Spread",
+          "side": "U.S. Team",
+          "odds": xxx
+        },
+        {
+          "id": 2,
+          "type": "Point Spread",
+          "side": "World Team",
+          "odds": xxx
+        },
+        {
+          "id": 3,
+          "type": "Total Score",
+          "side": "Over [xxx]",
+          "odds": xxx
+        },
+        {
+          "id": 4,
+          "type": "Total Score",
+          "side": "Under [xxx]",
+          "odds": xxx
+        },
+      ]
+    },
+    {
+      "name": "Skills Challenge",
+      "time": "2017-02-19T01:00:00",
+      "bets": [
+        {
+          "id": 1,
+          "type": "Odds to Win",
+          "side": "Kristaps Porzingis",
+          "odds": xxx
+        },
+        {
+          "id": 2,
+          "type": "Odds to Win",
+          "side": "DeMarcus Cousins",
+          "odds": xxx
+        },
+        {
+          "id": 3,
+          "type": "Odds to Win",
+          "side": "Anthony Davis",
+          "odds": xxx
+        },
+        {
+          "id": 4,
+          "type": "Odds to Win",
+          "side": "Joel Embiid",
+          "odds": xxx
+        },
+        {
+          "id": 5,
+          "type": "Odds to Win",
+          "side": "Isaiah Thomas",
+          "odds": xxx
+        },
+        {
+          "id": 6,
+          "type": "Odds to Win",
+          "side": "Gordon Hayward",
+          "odds": xxx
+        },
+        {
+          "id": 7,
+          "type": "Odds to Win",
+          "side": "John Wall",
+          "odds": xxx
+        },
+        {
+          "id": 8,
+          "type": "Odds to Win",
+          "side": "Devin Booker",
+          "odds": xxx
+        }
+      ]
+    },
+    {
+      "name": "Three-Point Contest",
+      "time": "2017-02-19T01:00:00",
+      "bets": [
+        {
+          "id": 1,
+          "type": "Odds to Win",
+          "side": "Klay Thompson",
+          "odds": xxx
+        },
+        {
+          "id": 2,
+          "type": "Odds to Win",
+          "side": "Kyle Lowry",
+          "odds": xxx
+        },
+        {
+          "id": 3,
+          "type": "Odds to Win",
+          "side": "Eric Gordon",
+          "odds": xxx
+        },
+        {
+          "id": 4,
+          "type": "Odds to Win",
+          "side": "Kyrie Irving",
+          "odds": xxx
+        },
+        {
+          "id": 5,
+          "type": "Odds to Win",
+          "side": "CJ McCollum",
+          "odds": xxx
+        },
+        {
+          "id": 6,
+          "type": "Odds to Win",
+          "side": "Kemba Walker",
+          "odds": xxx
+        },
+        {
+          "id": 7,
+          "type": "Odds to Win",
+          "side": "Wesley Matthews",
+          "odds": xxx
+        },
+        {
+          "id": 8,
+          "type": "Odds to Win",
+          "side": "Nick Young",
+          "odds": xxx
+        }
+      ]
+    },
+    {
+      "name": "Slam Dunk Contest",
+      "time": "2017-02-19T01:00:00",
+      "bets": [
+        {
+          "id": 1,
+          "type": "Odds to Win",
+          "side": "Derrick Jones Jr.",
+          "odds": xxx
+        },
+        {
+          "id": 2,
+          "type": "Odds to Win",
+          "side": "Aaron Gordon",
+          "odds": xxx
+        },
+        {
+          "id": 3,
+          "type": "Odds to Win",
+          "side": "Glenn Robinson III",
+          "odds": xxx
+        },
+        {
+          "id": 4,
+          "type": "Odds to Win",
+          "side": "DeAndre Jordan",
+          "odds": xxx
+        },
+      ]
+    },
+    {
+      "name": "All-Star Game",
+      "time": "2017-02-20T01:00:00",
+      "bets": [
+        {
+          "id": 1,
+          "type": "Point Spread",
+          "side": "East [xxx]",
+          "odds": xxx
+        },
+        {
+          "id": 2,
+          "type": "Point Spread",
+          "side": "Western [xxx]",
+          "odds": xxx
+        },
+        {
+          "id": 3,
+          "type": "Total Score",
+          "side": "Over [xxx]",
+          "odds": xxx
+        },
+        {
+          "id": 4,
+          "type": "Total Score",
+          "side": "Under [xxx]",
+          "odds": xxx
+        },
+      ]
+    }
+  ]
+}
