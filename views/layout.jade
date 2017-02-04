@@ -7,8 +7,8 @@ html
   body
     nav
       div.nav-wrapper
-        a.brand-logo(href='$').
-          A Level Above
+        a.brand-logo(href='/').
+          ALA NBA All-Star Spectacular
         ul#nav-mobile.right.hide-on-med-and-down
           if user
             li='Welcome, ' + user.username
@@ -18,13 +18,23 @@ html
               a(href='/login/facebook').
                 Login
           li
-            a(href='/standings').
-              Standings
+            a(href='/rules').
+              Rules
+          li
+            a(href='/makepicks').
+              Make Picks
+          li
+            a(href='/results').
+              Results
           li
             a(href='http://www.alafantasysports.com').
               ALA Home
     
     div.spacer
+    //- div#background-rotate
+    //-   img(src='images/92_magic_op.jpg')
+    //-   //- img(src='images/87_shootout.jpg')
+    //-   //- img(src='images/98_west_op.jpg')
     block content
     
     script(src='https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js')

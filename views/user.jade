@@ -2,9 +2,10 @@ extends layout
 
 block content
   div.row
-    span=user.username + "'s Wagers'"
+    div.col.s12.center-align
+      span=user.username + "'s Wagers"
   div.row
-    table.col.s10.striped
+    table.col.s10.offset-s1.striped
       thead
         tr
           th.
@@ -30,8 +31,14 @@ block content
             td=wager.event
             td=wager.type
             td=wager.wager
-            td=wager.odds
-            td=wager.risk
-            td=wager.to_win
-            td=wager.result
+            if wager.odds > 0
+              td= '+' + wager.odds
+            else 
+              td=wager.odds
+            td='$' + wager.risk
+            td='$' + wager.to_win
+            if wager.result !== null
+              td='$' + wager.result
+            else 
+              td=wager.result
               

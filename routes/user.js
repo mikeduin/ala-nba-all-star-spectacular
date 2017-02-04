@@ -30,10 +30,6 @@ function Users() {
   return knex('users');
 }
 
-router.get('/', function(req, res, next){
-  console.log('full user page would go here if there was one')
-})
-
 router.get('/:username', function(req, res, next) {
   Wagers().select().where('username', req.params.username).then(function(wagers){
     res.render('user', {wagers: wagers})
