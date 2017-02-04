@@ -5,6 +5,26 @@ html
     link(rel='stylesheet', href='/stylesheets/style.css')
     link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css')
   body
+    nav
+      div.nav-wrapper
+        a.brand-logo(href='$').
+          A Level Above
+        ul#nav-mobile.right.hide-on-med-and-down
+          if user
+            li='Welcome, ' + user.username
+            
+          else 
+            li
+              a(href='/login/facebook').
+                Login
+          li
+            a(href='badges.html').
+              Components
+          li
+            a(href='http://www.alafantasysports.com').
+              ALA Home
+    
+    
     block content
     
     script(src='https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js')

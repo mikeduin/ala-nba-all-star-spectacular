@@ -19,22 +19,13 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
-// uncomment after placing your favicon in /public
-//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
-app.use(logger('dev'));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
-app.use(session({
-  name: 'session',
-  keys: [process.env.SESSION_KEY]
-}));
-app.use(passport.initialize());
-app.use(passport.session());
+passport.serializeUser(function(user, done){
+  done(null, user);
+});
 
-app.use('/', index);
-app.use('/users', users);
+passport.deserializeUser(function(obj, done){
+  done(null, obj);
+})
 
 passport.use('facebook', new FacebookStrategy({
   clientID: process.env.FB_APP_ID,
@@ -63,12 +54,33 @@ passport.use('facebook', new FacebookStrategy({
           done(null, user[0]);
         });
       } else {
-
         done(null, user);
       }
     })
   })
 )
+
+// uncomment after placing your favicon in /public
+//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+app.use(logger('dev'));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(cookieParser());
+app.use(express.static(path.join(__dirname, 'public')));
+app.use(session({
+  name: 'session',
+  keys: [process.env.SESSION_KEY]
+}));
+app.use(passport.initialize());
+app.use(passport.session());
+
+app.use(function (req, res, next) {
+  res.locals.user = req.user;
+  next()
+})
+
+app.use('/', index);
+app.use('/users', users);
 
 app.get('/login/facebook',
   passport.authenticate('facebook', { scope: ['public_profile', 'email', 'user_hometown']})
@@ -80,14 +92,6 @@ app.get('/login/facebook/callback',
     failureRedirect: '/login'
   })
 );
-
-passport.serializeUser(function(user, done){
-  done(null, user);
-});
-
-passport.deserializeUser(function(obj, done){
-  done(null, obj);
-})
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
