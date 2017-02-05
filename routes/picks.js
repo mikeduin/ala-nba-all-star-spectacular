@@ -10,9 +10,13 @@ router.get('/', function(req, res, next){
     return res.json()
   }).then(function(data){
     var wagers = [];
+    var count = 0;
     for (var i=0; i<data.events.length; i++) {
       for (var j=0; j<data.events[i].bets.length; j++) {
-        wagers.push(data.events[i].bets[j])
+        wagers.push(data.events[i].bets[j]);
+        wagers[count].event = data.events[i].name;
+        wagers[count].time = data.events[i].time;
+        count++;
       }
     };
     res.render('makepicks', {wagers: wagers})

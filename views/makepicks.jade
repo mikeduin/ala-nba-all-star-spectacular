@@ -2,8 +2,8 @@ extends layout
 
 block content
   div.row
-    div.col.s10.offset-s1
-      table
+    div.col.s9
+      table.bordered#wagerTable
         thead
           tr
             th.
@@ -23,12 +23,15 @@ block content
         tbody
           for wager in wagers
             tr              
-              td="event goes here"
+              td=wager.event
               td=wager.type
-              td=wager.side + " " + wager.odds
+              td.wager-col=wager.side
+              td=wager.odds
+              td.input-field.curr-col
+                input.risk-input(type='number')
+              td.curr-col.toWin
               td
-                input
-              td
-                input
-              td
-                button
+                button.btn.pick-btn.hoverable.
+                  PLACE BET
+    div.col.s3
+      div#ticket.z-depth-5

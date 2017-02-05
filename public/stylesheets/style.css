@@ -30,6 +30,7 @@ nav {
   .logo-lead {
     margin-top: -21px;
     margin-left: 10px; } }
+
 .spacer {
   margin-top: 20px; }
 
@@ -43,5 +44,94 @@ nav {
     left: 0;
     top: 0;
     border: solid 8px #010F3C; }
+
+#wagerTable {
+  border-collapse: collapse; }
+  #wagerTable tr {
+    line-height: 20px;
+    height: 10px;
+    padding: 0;
+    margin: 0; }
+  #wagerTable td, #wagerTable th {
+    padding-top: 0;
+    padding-bottom: 0; }
+
+.wager-col {
+  width: 200px; }
+
+.curr-col {
+  width: 80px; }
+  .curr-col input {
+    width: 60px; }
+
+.pick-btn {
+  background-color: #010F3C !important;
+  color: #999999 !important;
+  font-size: 10px;
+  font-weight: 600;
+  width: 120px; }
+  .pick-btn:hover {
+    color: white !important;
+    background-color: #053497 !important;
+    width: 120px; }
+
+#ticket {
+  height: 400px;
+  background-color: white;
+  border: solid 5px #010F3C;
+  border-radius: 20px;
+  margin-top: 30px;
+  margin-left: -20px;
+  padding-right: 20px;
+  position: fixed;
+  width: inherit; }
+
+#star-five {
+  margin: 50px 0;
+  position: relative;
+  display: block;
+  color: red;
+  width: 0px;
+  height: 0px;
+  border-right: 100px solid transparent;
+  border-bottom: 70px solid red;
+  border-left: 100px solid transparent;
+  -moz-transform: rotate(35deg);
+  -webkit-transform: rotate(35deg);
+  -ms-transform: rotate(35deg);
+  -o-transform: rotate(35deg); }
+
+#star-five:before {
+  border-bottom: 80px solid red;
+  border-left: 30px solid transparent;
+  border-right: 30px solid transparent;
+  position: absolute;
+  height: 0;
+  width: 0;
+  top: -45px;
+  left: -65px;
+  display: block;
+  content: "";
+  -webkit-transform: rotate(-35deg);
+  -moz-transform: rotate(-35deg);
+  -ms-transform: rotate(-35deg);
+  -o-transform: rotate(-35deg); }
+
+#star-five:after {
+  position: absolute;
+  display: block;
+  color: red;
+  top: 3px;
+  left: -105px;
+  width: 0px;
+  height: 0px;
+  border-right: 100px solid transparent;
+  border-bottom: 70px solid red;
+  border-left: 100px solid transparent;
+  -webkit-transform: rotate(-70deg);
+  -moz-transform: rotate(-70deg);
+  -ms-transform: rotate(-70deg);
+  -o-transform: rotate(-70deg);
+  content: ""; }
 
 /*# sourceMappingURL=style.css.map */
