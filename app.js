@@ -84,7 +84,7 @@ app.use(function (req, res, next) {
 app.use('/', index);
 app.use('/results', results);
 app.use('/user', user);
-app.use('/picks', picks);
+app.use('/makepicks', picks);
 
 app.get('/login/facebook',
   passport.authenticate('facebook', { scope: ['public_profile', 'email', 'user_hometown']})

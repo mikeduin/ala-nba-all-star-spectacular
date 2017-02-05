@@ -21,4 +21,14 @@ block content
             th.
               Confirm
         tbody
-                        
+          for wager in wagers
+            tr              
+              td="event goes here"
+              td=wager.type
+              td=wager.side + " " + wager.odds
+              td
+                input
+              td
+                input
+              td
+                button

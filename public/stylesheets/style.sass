@@ -1,5 +1,3 @@
-html
-
 body
   background: url('../images/92_magic_op.jpg') no-repeat center center fixed
   -webkit-background-size: cover
@@ -7,8 +5,6 @@ body
   -o-background-size: cover
   background-size: cover
   font-family: 'Raleway', sans-serif
-
-
 
 a
   color: #94C8EF
@@ -24,16 +20,14 @@ nav
 .brand-logo
   margin-top: 4px
 
-@media screen and (min-width: 300px)
-  .logo-lead
+.logo-lead
+  @media screen and (min-width: 300px)
     margin-top: -20px
     margin-left: 40%
     color: #B4B4B4
     font-size: 12px
     font-weight: 800
-
-@media screen and (min-width: 996px)
-  .logo-lead
+  @media screen and (min-width: 996px)
     margin-top: -21px
     margin-left: 10px
 
@@ -58,3 +52,52 @@ nav
 //     position: absolute
 //     left: 0
 //     top: 0
+
+#star-five
+   margin: 50px 0
+   position: relative
+   display: block
+   color: red
+   width: 0px
+   height: 0px
+   border-right:  100px solid transparent
+   border-bottom: 70px  solid red
+   border-left:   100px solid transparent
+   -moz-transform:    rotate(35deg)
+   -webkit-transform: rotate(35deg)
+   -ms-transform:     rotate(35deg)
+   -o-transform:      rotate(35deg)
+
+#star-five:before
+   border-bottom: 80px solid red
+   border-left: 30px solid transparent
+   border-right: 30px solid transparent
+   position: absolute
+   height: 0
+   width: 0
+   top: -45px
+   left: -65px
+   display: block
+   content: ''
+   -webkit-transform: rotate(-35deg)
+   -moz-transform:    rotate(-35deg)
+   -ms-transform:     rotate(-35deg)
+   -o-transform:      rotate(-35deg)
+
+
+#star-five:after
+   position: absolute
+   display: block
+   color: red
+   top: 3px
+   left: -105px
+   width: 0px
+   height: 0px
+   border-right: 100px solid transparent
+   border-bottom: 70px solid red
+   border-left: 100px solid transparent
+   -webkit-transform: rotate(-70deg)
+   -moz-transform:    rotate(-70deg)
+   -ms-transform:     rotate(-70deg)
+   -o-transform:      rotate(-70deg)
+   content: ''
