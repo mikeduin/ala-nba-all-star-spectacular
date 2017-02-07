@@ -103,6 +103,11 @@ app.get('/logout', function(req, res){
   res.redirect('/');
 });
 
+app.post('/wagers', function(req, res, next){
+  console.log('req is ', req.body);
+  res.json(req.body);
+})
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');

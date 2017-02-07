@@ -10,16 +10,15 @@ $(document).ready(function(){
   }, 5000)
 
   $('.risk-input').change(function(){
-    var wager = $(this)[0].value;
+    var risk = $(this)[0].value;
     var odds = $(this).parent().prev()[0].innerHTML;
     var toWin = $(this).parent().next();
     var payout = 0;
     if (odds > 0) {
-      payout = Math.round((wager * parseInt(odds)/100)*100)/100;
+      payout = Math.round((risk * parseInt(odds)/100)*100)/100;
     } else {
-      payout = Math.round((wager * 100/-parseInt(odds))*100)/100;
+      payout = Math.round((risk * 100/-parseInt(odds))*100)/100;
     };
-    console.log('payout is ', payout);
     toWin.text(payout);
   });
 
@@ -27,15 +26,34 @@ $(document).ready(function(){
     var toWin = $(this).parent().prev()[0].innerHTML
     var risk = $(this).parent().prev().prev().children()[0].value;
     var odds = $(this).parent().prev().prev().prev()[0].innerHTML;
-    if (odds > 0) {
-      payout = Math.round((wager * parseInt(odds)/100)*100)/100;
-    } else {
-      payout = Math.round((wager * 100/-parseInt(odds))*100)/100;
-    };
+    var payout = 0;
     var wager = $(this).parent().prev().prev().prev().prev()[0].innerHTML;
     var type = $(this).parent().prev().prev().prev().prev().prev()[0].innerHTML;
     var event = $(this).parent().prev().prev().prev().prev().prev().prev()[0].innerHTML;
     var user = $(this).parent().prev().prev().prev().prev().prev().prev().prev()[0].innerHTML;
+    if (odds > 0) {
+      payout = Math.round((risk * parseInt(odds)/100)*100)/100;
+    } else {
+      payout = Math.round((risk * 100/-parseInt(odds))*100)/100;
+    };
+    console.log('payout is ', payout);
+    $.ajax({
+      method: 'POST',
+      url: '/wagers',
+      data: {
+        toWin: toWin,
+        risk: risk,
+        odds: odds,
+        wager: wager,
+        payout: payout,
+        type: type,
+        event: event,
+        user: user
+      },
+      success: function(){
+        console.log('ajax success!')
+      }
+    })
 
   })
 
