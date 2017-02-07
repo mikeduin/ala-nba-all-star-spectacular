@@ -32,6 +32,13 @@ router.get('/', function(req, res, next){
       }
     };
     console.log(resObj);
+    var sortedRes = [];
+    for (var key in resObj) {
+      sortedRes.push({key: key, rising_stars: resObj[key]["Rising Stars Game"], skills: resObj[key]["Skills Challenge"], three_pt: resObj[key]["Three-Point Contest"], dunk: resObj[key]["Dunk Contest"], all_star: resObj[key]["All-Star Game"], total: resObj[key]["TOTAL"]})
+    };
+    sortedRes.sort(function(x, y){return y.total - x.total});
+    console.log('sortedRes is ', sortedRes);
+
     res.render('results');
   })
 })
