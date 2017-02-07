@@ -4,7 +4,7 @@ block content
   div.row
     div.col.s9
       div.picks-head.center-align
-        | ALL-STAR WEEKEND LINES
+        | NBA ALL-STAR WEEKEND LINES
       table.bordered#wagerTable
         thead
           tr
@@ -46,3 +46,40 @@ block content
             span#balance= '$' + user.balance
           else 
             | You are not logged in!
+        br
+        div.wager-list  
+          table
+            thead
+              tr
+                th
+                  | Event
+                th
+                  | Wager
+                th
+                  | Odds
+                th
+                  | Risk
+            tbody
+              for bet in bets
+                tr
+                  if bet.event === 'Three-Point Contest'
+                    td
+                      | 3PT
+                  else if bet.event === 'Slam Dunk Contest'
+                    td
+                      | Dunk
+                  else if bet.event === 'Skills Challenge'
+                    td
+                      | Skills
+                  else if bet.event === 'Rising Stars Challenge'
+                    td
+                      | Rising Stars
+                  else 
+                    td
+                      | ASG
+                  td=bet.wager
+                  if bet.odds > 0
+                    td='+' + bet.odds
+                  else
+                    td=bet.odds
+                  td='$' + bet.risk

@@ -3,7 +3,12 @@ var router = express.Router();
 var knex = require('../db/knex');
 var fetch = require('node-fetch');
 
+function Wagers() {
+  return knex('wagers');
+}
+
 router.get('/', function(req, res, next){
+  var user = req.user;
   fetch('http://www.mikeduin.com/nba-all-star-api', {
     method: 'GET'
   }).then(function(res){
@@ -19,7 +24,10 @@ router.get('/', function(req, res, next){
         count++;
       }
     };
-    res.render('makepicks', {wagers: wagers, user: req.user})
+    Wagers().select('event', 'wager', 'odds', 'risk').where('username', user.username).then(function(bets){
+      console.log('bets are ', bets);
+      res.render('makepicks', {wagers: wagers, user: req.user, bets: bets})
+    })
   })
 })
 
