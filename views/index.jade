@@ -3,6 +3,28 @@ extends layout
 block content
   div.row
     div.col.s6
+      div.home-box
+        div.top-sec.center-align
+          | THE WORLD'S FIRST 
+          br
+          span.white
+          | NBA ALL-STAR 
+          br
+          | GAMBLING GAME.
+        div.top-footer.center-align
+          | (...it's gotta be, right?)
+        div.bott-sec
+          div.center-align
+            | Read the 
+            a(href='/rules')
+              | RULES
+          div.center-align
+            i
+              | - or - 
+          a.center-align(href='/login/facebook')
+            img#fb-login(src='images/fb_button.png')
+            
+          
     div.col.s6
       div#slideshow
         img(src='images/skills-challenge.jpg')

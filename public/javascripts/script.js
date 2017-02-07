@@ -4,10 +4,10 @@ $(document).ready(function(){
 
   $('#slideshow img:gt(0)').hide();
   setInterval(function(){
-    $('#slideshow :first-child').fadeOut(5000)
-    .next('img').fadeIn(5000)
+    $('#slideshow :first-child').fadeOut(4000)
+    .next('img').fadeIn(4000)
     .end().appendTo('#slideshow');
-  }, 5000)
+  }, 4000)
 
   $('.risk-input').change(function(){
     var risk = $(this)[0].value;
