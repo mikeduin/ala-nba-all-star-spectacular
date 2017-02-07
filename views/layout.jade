@@ -6,39 +6,38 @@ html
     link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=Raleway:400,700,400italic,600')
     link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css')
   body
-    nav
-      div.nav-wrapper
-        a.brand-logo(href='/').
-          NBA All-Star Spectacular
-        ul.left.logo-lead.
-          A Level Above presents
-        ul#nav-mobile.right.hide-on-med-and-down
-          if user
-            li='Welcome, ' + user.username
-            
-          else 
+    div.navbar-fixed
+      nav.z-depth-3
+        div.nav-wrapper
+          a.brand-logo(href='/').
+            NBA All-Star Spectacular
+          ul.left.logo-lead.
+            A Level Above presents
+          ul#nav-mobile.right.hide-on-med-and-down
+            if user
+              li='Welcome, ' + user.username
+              li 
+                a(href='/logout')
+                  | Logout
+            else 
+              li
+                a(href='/login/facebook')
+                  | Login
             li
-              a(href='/login/facebook').
-                Login
-          li
-            a(href='/rules').
-              Rules
-          li
-            a(href='/makepicks').
-              Make Picks
-          li
-            a(href='/results').
-              Results
-          li
-            a(href='http://www.alafantasysports.com').
-              ALA Home
-    
+              a(href='/rules')
+                | Rules
+            li
+              a(href='/makepicks')
+                | Make Picks
+            li
+              a(href='/results')
+                | Results
+            li
+              a(href='http://www.alafantasysports.com')
+                | ALA Home
+      
     div.spacer
-    //- div#background-rotate
-    //-   img(src='images/92_magic_op.jpg')
-    //-   //- img(src='images/87_shootout.jpg')
-    //-   //- img(src='images/98_west_op.jpg')
-    block content
+      block content
     
     script(src='https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js')
     script( src='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js')

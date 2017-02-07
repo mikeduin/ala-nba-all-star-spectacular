@@ -16,6 +16,9 @@ nav {
   nav ul li {
     color: #C2C2C2; }
 
+.navbar-fixed {
+  height: 0; }
+
 .brand-logo {
   margin-top: 4px; }
 
@@ -46,7 +49,8 @@ nav {
     border: solid 8px #010F3C; }
 
 #wagerTable {
-  border-collapse: collapse; }
+  border-collapse: collapse;
+  background-color: white; }
   #wagerTable tr {
     line-height: 20px;
     height: 10px;
@@ -81,10 +85,21 @@ nav {
   border: solid 5px #010F3C;
   border-radius: 20px;
   margin-top: 30px;
-  margin-left: -20px;
+  margin-left: -15px;
   padding-right: 20px;
   position: fixed;
   width: inherit; }
+  #ticket .header {
+    margin-left: 20px;
+    color: #010F3C;
+    font-size: 24px;
+    font-weight: 600;
+    border-bottom: solid 1px #C2C2C2; }
+  #ticket #remaining {
+    margin-top: -20px; }
+  #ticket #balance {
+    margin-left: 3px;
+    font-weight: 600; }
 
 #star-five {
   margin: 50px 0;

@@ -19,7 +19,7 @@ router.get('/', function(req, res, next){
         count++;
       }
     };
-    res.render('makepicks', {wagers: wagers})
+    res.render('makepicks', {wagers: wagers, user: req.user})
   })
 })
 

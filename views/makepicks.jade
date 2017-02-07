@@ -6,20 +6,20 @@ block content
       table.bordered#wagerTable
         thead
           tr
-            th.
-              Event
-            th.
-              Type
-            th.
-              Wager
-            th.
-              Odds
-            th.
-              Risk
-            th.
-              To Win
-            th.
-              Confirm
+            th
+              | Event
+            th
+              | Type
+            th
+              | Wager
+            th
+              | Odds
+            th
+              | Risk
+            th
+              | To Win
+            th
+              | Confirm
         tbody
           for wager in wagers
             tr              
@@ -35,3 +35,12 @@ block content
                   PLACE BET
     div.col.s3
       div#ticket.z-depth-5
+        div.center-align.header
+          | YOUR TICKET
+        br
+        div#remaining.center-align
+          if user
+            | DOLLARS REMAINING:
+            span#balance= '$' + user.balance
+          else 
+            | You are not logged in!
