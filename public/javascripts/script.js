@@ -76,9 +76,20 @@ $(document).ready(function(){
         odds > 0 ? odds = '+' + odds : odds = odds;
         $('#ticket-rows').append('<tr><td>' + eventAbbrev + '</td><td>' + wager + '</td><td>' + odds + '</td><td> $' + risk + '</td></tr>');
         console.log('res is ', res);
-        console.log('event is ', event);
         toWinEl.innerHTML = '';
         riskEl.value = '';
+        if (res.asgBal >= 100) {
+          $('#asgmin').text('').append('<span class="min-met"> YES </span>')
+        };
+        if (res.skillsBal >= 100) {
+          $('#skillsmin').text('').append('<span class="min-met"> YES </span>')
+        };
+        if (res.dunkBal >= 100) {
+          $('#dunkmin').text('').append('<span class="min-met"> YES </span>')
+        };
+        if (res.threeptBal >= 100) {
+          $('#threeptmin').text('').append('<span class="min-met"> YES </span>')
+        };
         Materialize.toast('Your ' + wager + ' ' + odds + ' bet was successfully placed!', 4000, 'toasted');
       }
     })

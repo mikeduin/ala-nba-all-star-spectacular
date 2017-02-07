@@ -50,21 +50,37 @@ block content
           div.col.s6
             div
               | ASG?
-              span#asgmin
-                | NO
+              if asgBal < 100
+                span#asgmin
+                  | NO [$#{asgBal}]
+              else
+                span.min-met
+                  | YES
             div
               | Dunk?
-              span#dunkmin
-                | NO
+              if dunkBal < 100
+                span#dunkmin
+                  | NO [$#{dunkBal}]
+              else
+                span.min-met
+                  | YES
           div.col.s6  
             div
               | 3PT?
-              span#threeptmin
-                | NO
+              if threeptBal < 100
+                span#threeptmin
+                  | NO [$#{threeptBal}]
+              else
+                span.min-met
+                  | YES
             div
               | Skills?
-              span#skillsmin
-                | NO
+              if skillsBal < 100
+                span#skillsmin
+                  | NO [$#{skillsBal}]
+              else
+                span.min-met
+                  | YES
         
       div#ticket.z-depth-5
         div.center-align.header
