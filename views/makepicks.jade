@@ -29,7 +29,8 @@ block content
         tbody
           for wager in wagers
             tr
-              td.hidden=user.username              
+              if user
+                td.hidden=user.username              
               td=wager.event
               td=wager.type
               td.wager-col=wager.side
@@ -52,39 +53,40 @@ block content
           else 
             | You are not logged in!
         br
-        div.wager-list  
-          table
-            thead
-              tr
-                th
-                  | Event
-                th
-                  | Wager
-                th
-                  | Odds
-                th
-                  | Risk
-            tbody
-              for bet in bets
+        if user
+          div.wager-list  
+            table
+              thead
                 tr
-                  if bet.event === 'Three-Point Contest'
-                    td
-                      | 3PT
-                  else if bet.event === 'Slam Dunk Contest'
-                    td
-                      | Dunk
-                  else if bet.event === 'Skills Challenge'
-                    td
-                      | Skills
-                  else if bet.event === 'Rising Stars Game'
-                    td
-                      | RisingStars
-                  else 
-                    td
-                      | ASG
-                  td=bet.wager
-                  if bet.odds > 0
-                    td='+' + bet.odds
-                  else
-                    td=bet.odds
-                  td='$' + bet.risk
+                  th  
+                    | Event
+                  th
+                    | Wager
+                  th
+                    | Odds
+                  th
+                    | Risk
+              tbody
+                for bet in bets
+                  tr
+                    if bet.event === 'Three-Point Contest'
+                      td
+                        | 3PT
+                    else if bet.event === 'Slam Dunk Contest'
+                      td
+                        | Dunk
+                    else if bet.event === 'Skills Challenge'
+                      td
+                        | Skills
+                    else if bet.event === 'Rising Stars Game'
+                      td
+                        | RisingStars
+                    else 
+                      td
+                        | ASG
+                    td=bet.wager
+                    if bet.odds > 0
+                      td='+' + bet.odds
+                    else
+                      td=bet.odds
+                    td='$' + bet.risk

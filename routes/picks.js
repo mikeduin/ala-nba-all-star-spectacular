@@ -24,10 +24,16 @@ router.get('/', function(req, res, next){
         count++;
       }
     };
-    Wagers().select('event', 'wager', 'odds', 'risk').where('username', user.username).then(function(bets){
-      console.log('bets are ', bets);
-      res.render('makepicks', {wagers: wagers, user: req.user, bets: bets})
-    })
+    if (user) {
+      Wagers().select('event', 'wager', 'odds', 'risk').where('username', user.username).then(function(bets){
+        console.log('bets are ', bets);
+        res.render('makepicks', {wagers: wagers, user: req.user, bets: bets})
+      })
+    } else {
+      res.render('makepicks', {wagers: wagers, user: req.user})
+    }
+
+
   })
 })
 
