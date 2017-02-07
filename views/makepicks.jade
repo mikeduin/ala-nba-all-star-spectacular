@@ -5,6 +5,10 @@ block content
     div.col.s9
       div.picks-head.center-align
         | NBA ALL-STAR WEEKEND LINES
+        div.picks-desc
+          | To make a pick: enter an amount in the Risk column for your selection. The 'To Win' column will display your bet's payout. Then click the 'Place Bet' button to finalize your pick.
+        div.picks-desc
+          | Remember: you MUST wager at least $100 on each of the All-Star Saturday Night events (Skills / 3PT / Dunk), and you MUST wager at least $50 on an All-Star Game MVP. You can spread the remainder of your money out however you'd like.
       table.bordered#wagerTable
         thead
           tr
@@ -24,7 +28,8 @@ block content
               
         tbody
           for wager in wagers
-            tr              
+            tr
+              td.hidden=user.username              
               td=wager.event
               td=wager.type
               td.wager-col=wager.side
@@ -71,9 +76,9 @@ block content
                   else if bet.event === 'Skills Challenge'
                     td
                       | Skills
-                  else if bet.event === 'Rising Stars Challenge'
+                  else if bet.event === 'Rising Stars Game'
                     td
-                      | Rising Stars
+                      | RisingStars
                   else 
                     td
                       | ASG
