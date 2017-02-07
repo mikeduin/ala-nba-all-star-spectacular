@@ -23,6 +23,8 @@ $(document).ready(function(){
   });
 
   $('.pick-btn').click(function(){
+    var bal = parseInt($('#balance').text().substring(1));
+    console.log('bal is ', bal);
     var toWinEl = $(this).parent().prev()[0];
     var riskEl = $(this).parent().prev().prev().children()[0];
     var toWin = toWinEl.innerHTML;
@@ -33,6 +35,11 @@ $(document).ready(function(){
     var type = $(this).parent().prev().prev().prev().prev().prev()[0].innerHTML;
     var event = $(this).parent().prev().prev().prev().prev().prev().prev()[0].innerHTML;
     var user = $(this).parent().prev().prev().prev().prev().prev().prev().prev()[0].innerHTML;
+    if (bal - risk < 0) {
+      Materialize.toast('Your balance of $' + bal + ' is insufficient for that wager!', 4000, 'bet-error');
+      return;
+    }
+
     if (odds > 0) {
       payout = Math.round((risk * odds/100)*100)/100;
     } else {

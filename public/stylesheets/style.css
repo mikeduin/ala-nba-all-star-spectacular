@@ -171,6 +171,10 @@ nav {
   background-color: #053497 !important;
   border-radius: 10px !important; }
 
+.bet-error {
+  background-color: #972D2F !important;
+  border-radius: 10px !important; }
+
 #star-five {
   margin: 50px 0;
   position: relative;
