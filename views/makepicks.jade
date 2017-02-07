@@ -3,6 +3,8 @@ extends layout
 block content
   div.row
     div.col.s9
+      div.picks-head.center-align
+        | ALL-STAR WEEKEND LINES
       table.bordered#wagerTable
         thead
           tr
@@ -19,7 +21,7 @@ block content
             th
               | To Win
             th
-              | Confirm
+              
         tbody
           for wager in wagers
             tr              

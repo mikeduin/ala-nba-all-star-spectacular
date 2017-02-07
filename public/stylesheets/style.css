@@ -15,6 +15,8 @@ nav {
   padding-left: 10px; }
   nav ul li {
     color: #C2C2C2; }
+    nav ul li a:hover {
+      color: #94C8EF; }
 
 .navbar-fixed {
   height: 0; }
@@ -50,6 +52,8 @@ nav {
 
 #wagerTable {
   border-collapse: collapse;
+  border: solid 3px #404040;
+  border-radius: 10px;
   background-color: white; }
   #wagerTable tr {
     line-height: 20px;
@@ -59,6 +63,16 @@ nav {
   #wagerTable td, #wagerTable th {
     padding-top: 0;
     padding-bottom: 0; }
+
+.picks-head {
+  color: #010F3C;
+  font-weight: 800;
+  background-color: white;
+  border: solid 3px #404040;
+  margin-top: -10px;
+  margin-bottom: 15px;
+  font-size: 34px;
+  border-radius: 10px; }
 
 .wager-col {
   width: 200px; }
