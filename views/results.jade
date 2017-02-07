@@ -26,7 +26,10 @@ block content
         - i++
         tr
           td=i
-          td=entrant.username
+          td
+            div.chip
+              img(src=entrant.photo)
+              =entrant.username  
           td='$' + entrant.rising_stars
           td='$' + entrant.skills
           td='$' + entrant.three_pt
