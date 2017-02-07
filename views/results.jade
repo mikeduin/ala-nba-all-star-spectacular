@@ -1,41 +1,65 @@
 extends layout
 
 block content
-  table
-    thead
-      tr
-        th.
-          Rank
-        th.
-          Entrant
-        th.
-          Rising Stars
-        th.
-          Skills Challenge
-        th.
-          Three-Point Contest
-        th.
-          Slam Dunk Contest
-        th.
-          All-Star Game
-        th.
-          TOTAL $
-    tbody
-      - var i=0
-      for entrant in results
-        - i++
+  div.row
+    div.col.s10.offset-s1#resultHead.
+      :: STANDINGS ::
+    table.col.s10.offset-s1#resultTable
+      thead
         tr
-          td=i
-          td
-            div.chip
-              img(src=entrant.photo)
-              =entrant.username  
-          td='$' + entrant.rising_stars
-          td='$' + entrant.skills
-          td='$' + entrant.three_pt
-          td='$' + entrant.dunk
-          td='$' + entrant.all_star
-          td='$' + entrant.total
-            
-        
-      
+          th.
+            Rank
+          th.center-align.
+            Entrant
+          th.
+            TOTAL $
+          th.
+            Rising Stars
+          th.
+            Skills Challenge
+          th.
+            Three-Point Contest
+          th.
+            Slam Dunk Contest
+          th.
+            All-Star Game
+      tbody
+        - var i=0
+        for entrant in results
+          - i++
+          tr
+            td=i
+            td
+              div.chip
+                img(src=entrant.photo)
+                =entrant.username  
+            if entrant.total > 0
+              td.res-total='$' + entrant.total
+            else
+              - var dol = entrant.total.toString().substring(1)
+              td.res-total='-$' + dol
+            if entrant.rising_stars >= 0
+              td='$' + entrant.rising_stars
+            else
+              - var dol = entrant.rising_stars.toString().substring(1)
+              td='-$' + dol
+            if entrant.skills >= 0
+              td='$' + entrant.skills
+            else
+              - var dol = entrant.skills.toString().substring(1)
+              td='-$' + dol
+            if entrant.three_pt >= 0
+              td='$' + entrant.three_pt
+            else
+              - var dol = entrant.three_pt.toString().substring(1)
+              td='-$' + dol
+            if entrant.dunk >= 0
+              td='$' + entrant.dunk
+            else
+              - var dol = entrant.dunk.toString().substring(1)
+              td='-$' + dol
+            if entrant.all_star >= 0
+              td='$' + entrant.all_star
+            else
+              - var dol = entrant.all_star.toString().substring(1)
+              td='-$' + dol
