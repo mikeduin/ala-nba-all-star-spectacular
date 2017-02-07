@@ -86,6 +86,10 @@ app.use('/results', results);
 app.use('/user', user);
 app.use('/picks', picks);
 
+app.get('/rules', function(req, res, next){
+  res.render('rules');
+})
+
 app.get('/login/facebook',
   passport.authenticate('facebook', { scope: ['public_profile', 'email', 'user_hometown']})
 );

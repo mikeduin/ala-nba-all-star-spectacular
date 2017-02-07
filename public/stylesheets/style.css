@@ -74,6 +74,29 @@ nav {
     top: 0;
     border: solid 8px #010F3C; }
 
+#rules-box {
+  background-color: white;
+  color: #010F3C;
+  border: solid 5px #010F3C;
+  margin-left: 10px; }
+
+#rules-head {
+  font-size: 36px;
+  font-weight: 800;
+  border-bottom: solid 2px #353334; }
+
+.rules {
+  font-size: 18px; }
+  .rules li {
+    margin-top: 10px; }
+
+.mj-kobe, .phx-jerseys {
+  max-width: 300px;
+  border: solid 5px;
+  display: block;
+  margin: auto;
+  margin-bottom: 15px; }
+
 #wagerTable {
   border-collapse: collapse;
   border: solid 5px #404040;
