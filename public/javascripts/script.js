@@ -23,8 +23,10 @@ $(document).ready(function(){
   });
 
   $('.pick-btn').click(function(){
-    var toWin = $(this).parent().prev()[0].innerHTML
-    var risk = $(this).parent().prev().prev().children()[0].value;
+    var toWinEl = $(this).parent().prev()[0];
+    var riskEl = $(this).parent().prev().prev().children()[0];
+    var toWin = toWinEl.innerHTML;
+    var risk = riskEl.value;
     var odds = parseInt($(this).parent().prev().prev().prev()[0].innerHTML);
     var payout = 0;
     var wager = $(this).parent().prev().prev().prev().prev()[0].innerHTML;
@@ -68,6 +70,8 @@ $(document).ready(function(){
         $('#ticket-rows').append('<tr><td>' + eventAbbrev + '</td><td>' + wager + '</td><td>' + odds + '</td><td> $' + risk + '</td></tr>');
         console.log('res is ', res);
         console.log('event is ', event);
+        toWinEl.innerHTML = '';
+        riskEl.value = '';
       }
     })
 
