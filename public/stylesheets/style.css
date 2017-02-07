@@ -105,22 +105,50 @@ nav {
     background-color: #053497 !important;
     width: 120px; }
 
+.header {
+  margin-left: 20px;
+  color: #010F3C;
+  font-size: 24px;
+  font-weight: 600;
+  border-bottom: solid 1px #C2C2C2; }
+
+#minimums {
+  height: 15%;
+  background-color: #F9F3E4;
+  border: solid 5px #010F3C;
+  border-radius: 20px;
+  margin-left: -15px;
+  margin-top: -10px; }
+
+.min-header {
+  color: #010F3C;
+  font-size: 24px;
+  font-weight: 600;
+  border-bottom: solid 1px #C2C2C2; }
+
+#minrow {
+  margin-top: -10px; }
+
+#asgmin, #dunkmin, #threeptmin, #skillsmin {
+  margin-left: 5px;
+  color: #972D2F;
+  font-weight: 600; }
+
+.min-met {
+  margin-left: 5px;
+  color: #2F5032;
+  font-weight: 600; }
+
 #ticket {
-  height: 75%;
+  height: 65%;
   background-color: white;
   border: solid 5px #010F3C;
   border-radius: 20px;
-  margin-top: 30px;
+  margin-top: 10px;
   margin-left: -15px;
   padding-right: 20px;
   position: fixed;
   width: inherit; }
-  #ticket .header {
-    margin-left: 20px;
-    color: #010F3C;
-    font-size: 24px;
-    font-weight: 600;
-    border-bottom: solid 1px #C2C2C2; }
   #ticket #remaining {
     margin-top: -20px; }
   #ticket #balance {
@@ -138,6 +166,10 @@ nav {
     #ticket table td, #ticket table th {
       padding-top: 0;
       padding-bottom: 0; }
+
+.toasted {
+  background-color: #053497 !important;
+  border-radius: 10px !important; }
 
 #star-five {
   margin: 50px 0;

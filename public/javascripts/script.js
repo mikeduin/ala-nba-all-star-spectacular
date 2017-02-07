@@ -72,6 +72,7 @@ $(document).ready(function(){
         console.log('event is ', event);
         toWinEl.innerHTML = '';
         riskEl.value = '';
+        Materialize.toast('Your ' + wager + ' ' + odds + ' bet was successfully placed!', 4000, 'toasted');
       }
     })
 

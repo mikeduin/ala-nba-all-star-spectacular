@@ -8,7 +8,7 @@ block content
         div.picks-desc
           | To make a pick: enter an amount in the Risk column for your selection. The 'To Win' column will display your bet's payout. Then click the 'Place Bet' button to finalize your pick.
         div.picks-desc
-          | Remember: you MUST wager at least $100 on each of the All-Star Saturday Night events (Skills / 3PT / Dunk), and you MUST wager at least $50 on an All-Star Game MVP. You can spread the remainder of your money out however you'd like.
+          | Remember: you MUST wager at least $100 on each of the All-Star Saturday Night events (Skills / 3PT / Dunk) and the All-Star Game. You can spread the remainder of your money out however you'd like.
       table.bordered#wagerTable
         thead
           tr
@@ -42,6 +42,30 @@ block content
                 button.btn.pick-btn.hoverable.
                   PLACE BET
     div.col.s3
+      div#minimums.z-depth-5
+        div.center-align.min-header
+          | $100 MINIMUMS
+        br
+        div.row#minrow
+          div.col.s6
+            div
+              | ASG?
+              span#asgmin
+                | NO
+            div
+              | Dunk?
+              span#dunkmin
+                | NO
+          div.col.s6  
+            div
+              | 3PT?
+              span#threeptmin
+                | NO
+            div
+              | Skills?
+              span#skillsmin
+                | NO
+        
       div#ticket.z-depth-5
         div.center-align.header
           | YOUR TICKET
@@ -49,7 +73,7 @@ block content
         div#remaining.center-align
           if user
             | DOLLARS REMAINING:
-            span#balance= '$' + user.balance
+            span#balance= '$' + balance
           else 
             | You are not logged in!
         br

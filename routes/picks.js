@@ -28,13 +28,16 @@ router.get('/', function(req, res, next){
         count++;
       }
     };
-    if (user) {
-      Wagers().select('event', 'wager', 'odds', 'risk').where({username: user.username}).then(function(bets){
-        res.render('picks', {wagers: wagers, user: req.user, bets: bets})
-      })
-    } else {
-      res.render('picks', {wagers: wagers, user: req.user})
-    }
+    Users().select('balance').where({username: user.username}).then(function(userBal){
+      var bal = userBal[0].balance;
+      if (user) {
+        Wagers().select('event', 'wager', 'odds', 'risk').where({username: user.username}).then(function(bets){
+          res.render('picks', {wagers: wagers, user: req.user, bets: bets, balance: bal})
+        })
+      } else {
+        res.render('picks', {wagers: wagers, user: req.user})
+      }
+    })
   })
 })
 
