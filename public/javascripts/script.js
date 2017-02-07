@@ -25,21 +25,21 @@ $(document).ready(function(){
   $('.pick-btn').click(function(){
     var toWin = $(this).parent().prev()[0].innerHTML
     var risk = $(this).parent().prev().prev().children()[0].value;
-    var odds = $(this).parent().prev().prev().prev()[0].innerHTML;
+    var odds = parseInt($(this).parent().prev().prev().prev()[0].innerHTML);
     var payout = 0;
     var wager = $(this).parent().prev().prev().prev().prev()[0].innerHTML;
     var type = $(this).parent().prev().prev().prev().prev().prev()[0].innerHTML;
     var event = $(this).parent().prev().prev().prev().prev().prev().prev()[0].innerHTML;
     var user = $(this).parent().prev().prev().prev().prev().prev().prev().prev()[0].innerHTML;
     if (odds > 0) {
-      payout = Math.round((risk * parseInt(odds)/100)*100)/100;
+      payout = Math.round((risk * odds/100)*100)/100;
     } else {
-      payout = Math.round((risk * 100/-parseInt(odds))*100)/100;
+      payout = Math.round((risk * 100/-odds)*100)/100;
     };
     console.log('payout is ', payout);
     $.ajax({
       method: 'POST',
-      url: '/wagers',
+      url: '/picks/submit',
       data: {
         toWin: toWin,
         risk: risk,
@@ -50,8 +50,24 @@ $(document).ready(function(){
         event: event,
         user: user
       },
-      success: function(){
-        console.log('ajax success!')
+      success: function(res){
+        $('#balance').text('$' + res.newBal);
+        var eventAbbrev;
+        if (event === 'Rising Stars Game') {
+          eventAbbrev = 'RisingStars'
+        } else if (event === 'Three-Point Contest') {
+          eventAbbrev = '3PT'
+        } else if (event === 'Dunk Contest') {
+          eventAbbrev = 'Dunk'
+        } else if (event === 'Skills Challenge') {
+          eventAbbrev = 'Skills'
+        } else {
+          eventAbbrev = 'ASG'
+        };
+        odds > 0 ? odds = '+' + odds : odds = odds;
+        $('#ticket-rows').append('<tr><td>' + eventAbbrev + '</td><td>' + wager + '</td><td>' + odds + '</td><td> $' + risk + '</td></tr>');
+        console.log('res is ', res);
+        console.log('event is ', event);
       }
     })
 

@@ -7,6 +7,10 @@ function Wagers() {
   return knex('wagers');
 }
 
+function Users() {
+  return knex('users');
+}
+
 router.get('/', function(req, res, next){
   var user = req.user;
   fetch('http://www.mikeduin.com/nba-all-star-api', {
@@ -25,15 +29,35 @@ router.get('/', function(req, res, next){
       }
     };
     if (user) {
-      Wagers().select('event', 'wager', 'odds', 'risk').where('username', user.username).then(function(bets){
-        console.log('bets are ', bets);
-        res.render('makepicks', {wagers: wagers, user: req.user, bets: bets})
+      Wagers().select('event', 'wager', 'odds', 'risk').where({username: user.username}).then(function(bets){
+        res.render('picks', {wagers: wagers, user: req.user, bets: bets})
       })
     } else {
-      res.render('makepicks', {wagers: wagers, user: req.user})
+      res.render('picks', {wagers: wagers, user: req.user})
     }
+  })
+})
 
-
+router.post('/submit', function(req, res, next){
+  Wagers().insert({
+    username: req.body.user,
+    event: req.body.event,
+    wager: req.body.wager,
+    odds: req.body.odds,
+    risk: req.body.risk,
+    to_win: req.body.toWin,
+    type: req.body.type
+  }).then(function(){
+    Users().select('balance').where({username: req.body.user})
+    .then(function(userBal){
+      var oldBal = userBal[0].balance;
+      var newBal = oldBal - req.body.risk;
+      Users().where({username: req.body.user}).update({balance: newBal}).then(function(){
+        res.json({
+          newBal: newBal
+        });
+      })
+    })
   })
 })
 

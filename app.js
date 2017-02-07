@@ -84,7 +84,7 @@ app.use(function (req, res, next) {
 app.use('/', index);
 app.use('/results', results);
 app.use('/user', user);
-app.use('/makepicks', picks);
+app.use('/picks', picks);
 
 app.get('/login/facebook',
   passport.authenticate('facebook', { scope: ['public_profile', 'email', 'user_hometown']})
@@ -102,11 +102,6 @@ app.get('/logout', function(req, res){
   req.session = null;
   res.redirect('/');
 });
-
-app.post('/wagers', function(req, res, next){
-  console.log('req is ', req.body);
-  res.json(req.body);
-})
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
