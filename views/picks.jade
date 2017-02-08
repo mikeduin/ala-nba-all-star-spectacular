@@ -27,19 +27,21 @@ block content
             th  
         tbody
           for wager in wagers
-            tr
-              if user
-                td.hidden=user.username              
-              td=wager.event
-              td=wager.type
-              td.wager-col=wager.side
-              td=wager.odds
-              td.input-field.curr-col
-                input.risk-input(type='number')
-              td.curr-col.toWin
-              td
-                button.btn.pick-btn.hoverable.
-                  PLACE BET
+            if (moment(wager.time)).isAfter(moment())
+              tr
+                td.hidden=wager.time
+                if user
+                  td.hidden=user.username              
+                td=wager.event
+                td=wager.type
+                td.wager-col=wager.side
+                td=wager.odds
+                td.input-field.curr-col
+                  input.risk-input(type='number')
+                td.curr-col.toWin
+                td
+                  button.btn.pick-btn.hoverable.
+                    PLACE BET
     div.col.s3
       div#minimums.z-depth-5
         div.center-align.min-header

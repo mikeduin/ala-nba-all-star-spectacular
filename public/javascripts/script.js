@@ -1,5 +1,3 @@
-console.log('sanity check')
-
 $(document).ready(function(){
 
   $('#slideshow img:gt(0)').hide();
@@ -36,10 +34,15 @@ $(document).ready(function(){
     var type = $(this).parent().prev().prev().prev().prev().prev()[0].innerHTML;
     var event = $(this).parent().prev().prev().prev().prev().prev().prev()[0].innerHTML;
     var user = $(this).parent().prev().prev().prev().prev().prev().prev().prev()[0].innerHTML;
+    var time = $(this).parent().prev().prev().prev().prev().prev().prev().prev().prev()[0].innerHTML;
     if (bal - risk < 0) {
       Materialize.toast('Your balance of $' + bal + ' is insufficient for that wager!', 4000, 'bet-error');
       return;
     }
+    if (moment(time).isBefore(moment())) {
+      Materialize.toast('Sorry, this event has already started!', 4000, 'bet-error');
+      return;
+    };
 
     if (odds > 0) {
       payout = Math.round((risk * odds/100)*100)/100;

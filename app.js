@@ -82,6 +82,8 @@ app.use(function (req, res, next) {
   next();
 })
 
+app.locals.moment = require('moment');
+
 app.use('/', index);
 app.use('/results', results);
 app.use('/user', user);

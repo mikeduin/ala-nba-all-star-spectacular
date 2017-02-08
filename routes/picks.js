@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var knex = require('../db/knex');
 var fetch = require('node-fetch');
+var moment = require('moment');
 
 function Wagers() {
   return knex('wagers');
@@ -39,7 +40,7 @@ router.get('/', function(req, res, next){
           res.render('picks', {wagers: wagers, user: req.user, bets: bets, balance: bal, asgBal: asgBal, dunkBal: dunkBal, skillsBal: skillsBal, threeptBal: threeptBal})
         })
       } else {
-        res.render('picks', {wagers: wagers, user: req.user})
+        res.render('picks', {wagers: wagers, user: req.user, time: now})
       }
     })
   })
