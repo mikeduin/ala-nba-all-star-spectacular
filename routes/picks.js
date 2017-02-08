@@ -56,6 +56,7 @@ router.post('/submit', function(req, res, next){
     odds: req.body.odds,
     risk: risk,
     to_win: req.body.toWin,
+    start_time: req.body.time,
     type: req.body.type
   }).then(function(){
     Users().select('balance', 'asg', 'threept', 'skills', 'dunk').where({username: req.body.user})

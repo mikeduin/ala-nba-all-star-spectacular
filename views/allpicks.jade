@@ -5,6 +5,9 @@ block content
     div.col.s10.offset-s1
       div.resultHead.
         :: ALL PICKS ::
+      div.subHead.center-align
+        i
+          | Picks will be revealed here once their event has started.
       table.bordered.wagerTable
         thead
           tr
@@ -26,12 +29,13 @@ block content
               | Result
         tbody
           for wager in wagers
-            tr
-              td=wager.username
-              td=wager.event
-              td=wager.type
-              td=wager.wager
-              td=wager.odds
-              td=wager.risk
-              td=wager.to_win
-              td=wager.net_total
+            if (moment()).isAfter(moment(wager.start_time))
+              tr
+                td=wager.username
+                td=wager.event
+                td=wager.type
+                td=wager.wager
+                td=wager.odds
+                td=wager.risk
+                td=wager.to_win
+                td=wager.net_total

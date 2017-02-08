@@ -60,7 +60,8 @@ $(document).ready(function(){
         payout: payout,
         type: type,
         event: event,
-        user: user
+        user: user,
+        time: time
       },
       success: function(res){
         $('#balance').text('$' + res.newBal);
