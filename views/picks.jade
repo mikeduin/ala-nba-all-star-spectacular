@@ -31,6 +31,7 @@ block content
           for wager in wagers
             if (moment(wager.time)).isAfter(moment())
               tr
+                td.hidden=wager.id
                 td.hidden=wager.time
                 if user
                   td.hidden=user.username              

@@ -56,6 +56,7 @@ router.post('/submit', function(req, res, next){
     odds: req.body.odds,
     risk: risk,
     to_win: req.body.toWin,
+    api_id: req.body.api_id,
     start_time: req.body.time,
     type: req.body.type
   }).then(function(){

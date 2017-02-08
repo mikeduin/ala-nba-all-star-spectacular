@@ -25,16 +25,17 @@ $(document).ready(function(){
   $('.pick-btn').click(function(){
     var bal = parseInt($('#balance').text().substring(1));
     var toWinEl = $(this).parent().prev()[0];
-    var riskEl = $(this).parent().prev().prev().children()[0];
+    var riskEl = $(this).parent().prevAll().eq(1).children()[0];
     var toWin = toWinEl.innerHTML;
     var risk = riskEl.value;
-    var odds = parseInt($(this).parent().prev().prev().prev()[0].innerHTML);
+    var odds = parseInt($(this).parent().prevAll().eq(2)[0].innerHTML);
     var payout = 0;
-    var wager = $(this).parent().prev().prev().prev().prev()[0].innerHTML;
-    var type = $(this).parent().prev().prev().prev().prev().prev()[0].innerHTML;
-    var event = $(this).parent().prev().prev().prev().prev().prev().prev()[0].innerHTML;
-    var user = $(this).parent().prev().prev().prev().prev().prev().prev().prev()[0].innerHTML;
-    var time = $(this).parent().prev().prev().prev().prev().prev().prev().prev().prev()[0].innerHTML;
+    var wager = $(this).parent().prevAll().eq(3)[0].innerHTML;
+    var type = $(this).parent().prevAll().eq(4)[0].innerHTML;
+    var event = $(this).parent().prevAll().eq(5)[0].innerHTML;
+    var user = $(this).parent().prevAll().eq(6)[0].innerHTML;
+    var time = $(this).parent().prevAll().eq(7)[0].innerHTML;
+    var api_id = $(this).parent().prevAll().eq(8)[0].innerHTML;
     if (bal - risk < 0) {
       Materialize.toast('Your balance of $' + bal + ' is insufficient for that wager!', 4000, 'bet-error');
       return;
@@ -59,6 +60,7 @@ $(document).ready(function(){
         wager: wager,
         payout: payout,
         type: type,
+        api_id: api_id,
         event: event,
         user: user,
         time: time
