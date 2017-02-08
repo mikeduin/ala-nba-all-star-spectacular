@@ -116,7 +116,7 @@ nav {
   #resultTable tr td {
     text-align: center; }
 
-#resultHead {
+.resultHead {
   background-color: white;
   color: #010F3C;
   border: solid 5px #010F3C;
@@ -125,17 +125,17 @@ nav {
   font-weight: 800;
   text-align: center; }
 
-#wagerTable {
+.wagerTable {
   border-collapse: collapse;
   border: solid 5px #010F3C;
-  border-radius: 10px;
+  border-top: dashed 2px #D0D0D0;
   background-color: white; }
-  #wagerTable tr {
+  .wagerTable tr {
     line-height: 20px;
     height: 10px;
     padding: 0;
     margin: 0; }
-  #wagerTable td, #wagerTable th {
+  .wagerTable td {
     padding-top: 0;
     padding-bottom: 0; }
 
@@ -144,10 +144,10 @@ nav {
   font-weight: 800;
   background-color: white;
   border: solid 5px #010F3C;
+  border-bottom: none;
   margin-top: -10px;
-  margin-bottom: 15px;
   font-size: 34px;
-  border-radius: 10px; }
+  padding-bottom: 0px; }
 
 .picks-desc {
   color: black;
@@ -157,6 +157,10 @@ nav {
   display: block;
   margin-left: 5px;
   margin-bottom: 10px; }
+
+.bott {
+  margin-bottom: 0;
+  padding-bottom: 10px; }
 
 .hidden {
   display: none; }
@@ -188,7 +192,6 @@ nav {
   border-bottom: solid 1px #C2C2C2; }
 
 #minimums {
-  height: 110px;
   background-color: #F9F3E4;
   border: solid 5px #010F3C;
   border-radius: 20px;
