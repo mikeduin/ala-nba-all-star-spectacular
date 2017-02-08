@@ -7,7 +7,9 @@ $(document).ready(function(){
     $('#slideshow :first-child').fadeOut(4000)
     .next('img').fadeIn(4000)
     .end().appendTo('#slideshow');
-  }, 4000)
+  }, 4000);
+
+  $(".dropdown-button").dropdown();
 
   $('.risk-input').change(function(){
     var risk = $(this)[0].value;
@@ -24,7 +26,6 @@ $(document).ready(function(){
 
   $('.pick-btn').click(function(){
     var bal = parseInt($('#balance').text().substring(1));
-    console.log('bal is ', bal);
     var toWinEl = $(this).parent().prev()[0];
     var riskEl = $(this).parent().prev().prev().children()[0];
     var toWin = toWinEl.innerHTML;
@@ -45,7 +46,6 @@ $(document).ready(function(){
     } else {
       payout = Math.round((risk * 100/-odds)*100)/100;
     };
-    console.log('payout is ', payout);
     $.ajax({
       method: 'POST',
       url: '/picks/submit',
@@ -75,7 +75,6 @@ $(document).ready(function(){
         };
         odds > 0 ? odds = '+' + odds : odds = odds;
         $('#ticket-rows').append('<tr><td>' + eventAbbrev + '</td><td>' + wager + '</td><td>' + odds + '</td><td> $' + risk + '</td></tr>');
-        console.log('res is ', res);
         toWinEl.innerHTML = '';
         riskEl.value = '';
         if (res.asgBal >= 100) {

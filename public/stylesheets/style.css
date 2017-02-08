@@ -21,6 +21,14 @@ nav {
 .navbar-fixed {
   height: 0; }
 
+#dropdown {
+  margin-top: 64px;
+  background-color: #94C8EF; }
+  #dropdown a {
+    color: white; }
+    #dropdown a:hover {
+      color: black; }
+
 .brand-logo {
   margin-top: 4px; }
 
@@ -119,7 +127,7 @@ nav {
 
 #wagerTable {
   border-collapse: collapse;
-  border: solid 5px #404040;
+  border: solid 5px #010F3C;
   border-radius: 10px;
   background-color: white; }
   #wagerTable tr {
@@ -135,7 +143,7 @@ nav {
   color: #010F3C;
   font-weight: 800;
   background-color: white;
-  border: solid 5px #404040;
+  border: solid 5px #010F3C;
   margin-top: -10px;
   margin-bottom: 15px;
   font-size: 34px;
@@ -219,7 +227,8 @@ nav {
   position: fixed;
   width: inherit; }
   #ticket #remaining {
-    margin-top: -20px; }
+    margin-top: -20px;
+    font-size: 18px; }
   #ticket #balance {
     margin-left: 3px;
     font-weight: 600; }

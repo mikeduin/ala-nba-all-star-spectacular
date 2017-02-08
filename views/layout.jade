@@ -5,7 +5,15 @@ html
     link(rel='stylesheet', href='/stylesheets/style.css')
     link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=Raleway:400,700,400italic,600')
     link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css')
+    script(src='https://use.fontawesome.com/7c4332140c.js')
   body
+    ul#dropdown.dropdown-content
+      li
+        a(href='/results')
+          | Standings
+      li
+        a(href='/allpicks')
+          | All Picks
     div.navbar-fixed
       nav.z-depth-3
         div.nav-wrapper
@@ -30,8 +38,9 @@ html
               a(href='/picks')
                 | Make Picks
             li
-              a(href='/results')
-                | Results
+              a.dropdown-button(href='#!' data-activates='dropdown')
+                | Results 
+                i.fa.fa-chevron-circle-down(aria-hidden='true')
             li
               a(href='http://www.alafantasysports.com')
                 | ALA Home
