@@ -14,6 +14,11 @@ html
       li
         a(href='/allpicks')
           | All Picks
+      if user
+        if user.superuser === true
+          li
+            a(href='/grade')
+              | Grade Picks
     div.navbar-fixed
       nav.z-depth-3
         div.nav-wrapper

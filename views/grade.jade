@@ -1,0 +1,27 @@
+extends layout
+
+block content
+  div.row
+    div.col.s8.offset-s2
+      table.wagerTable
+        thead
+          tr
+            th
+              | Event
+            th
+              | Type
+            th
+              | Wager
+            th
+              | Grade
+        tbody
+          for line in lines
+            tr
+              td=line.event
+              td=line.type
+              td=line.side
+              td
+                button.btn.grade-btn
+                  | Grade
+                  
+            

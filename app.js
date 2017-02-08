@@ -15,6 +15,7 @@ var user = require('./routes/user');
 var results = require('./routes/results');
 var picks = require('./routes/picks');
 var allpicks = require('./routes/allpicks');
+var grade = require('./routes/grade');
 
 var app = express();
 
@@ -88,7 +89,8 @@ app.use('/', index);
 app.use('/results', results);
 app.use('/user', user);
 app.use('/picks', picks);
-app.use('/allpicks', allpicks)
+app.use('/allpicks', allpicks);
+app.use('/grade', grade);
 
 app.get('/rules', function(req, res, next){
   res.render('rules');
