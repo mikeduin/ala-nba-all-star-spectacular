@@ -102,7 +102,7 @@ app.get('/login/facebook',
 
 app.get('/login/facebook/callback',
   passport.authenticate('facebook', {
-    successRedirect: '/',
+    successRedirect: 'back',
     failureRedirect: '/login'
   })
 );
@@ -110,7 +110,7 @@ app.get('/login/facebook/callback',
 app.get('/logout', function(req, res){
   req.logOut();
   req.session = null;
-  res.redirect('/');
+  res.redirect('back');
 });
 
 // catch 404 and forward to error handler

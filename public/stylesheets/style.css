@@ -181,6 +181,9 @@ nav {
   .curr-col input {
     width: 60px; }
 
+.not-logged {
+  margin-top: -15px; }
+
 .pick-btn {
   background-color: #010F3C !important;
   color: #999999 !important;

@@ -53,41 +53,45 @@ block content
         div.center-align.min-header
           | $100 MINIMUMS MET?
         br
-        div.row#minrow
-          div.col.s6
-            div
-              | ASG?
-              if asgBal < 100
-                span#asgmin
-                  | NO [$#{asgBal}]
-              else
-                span.min-met
-                  | YES
-            div
-              | Dunk?
-              if dunkBal < 100
-                span#dunkmin
-                  | NO [$#{dunkBal}]
-              else
-                span.min-met
-                  | YES
-          div.col.s6  
-            div
-              | 3PT?
-              if threeptBal < 100
-                span#threeptmin
-                  | NO [$#{threeptBal}]
-              else
-                span.min-met
-                  | YES
-            div
-              | Skills?
-              if skillsBal < 100
-                span#skillsmin
-                  | NO [$#{skillsBal}]
-              else
-                span.min-met
-                  | YES
+        if user  
+          div.row#minrow
+            div.col.s6
+              div
+                | ASG?
+                if asgBal < 100
+                  span#asgmin
+                    | NO [$#{asgBal}]
+                else
+                  span.min-met
+                    | YES
+              div
+                | Dunk?
+                if dunkBal < 100
+                  span#dunkmin
+                    | NO [$#{dunkBal}]
+                else
+                  span.min-met
+                    | YES
+            div.col.s6  
+              div
+                | 3PT?
+                if threeptBal < 100
+                  span#threeptmin
+                    | NO [$#{threeptBal}]
+                else
+                  span.min-met
+                    | YES
+              div
+                | Skills?
+                if skillsBal < 100
+                  span#skillsmin
+                    | NO [$#{skillsBal}]
+                else
+                  span.min-met
+                    | YES
+        else
+          div.center-align.not-logged
+            | You are not logged in! 
         
       div#ticket.z-depth-5
         div.center-align.header

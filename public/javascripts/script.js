@@ -143,8 +143,6 @@ $(document).ready(function(){
     var time;
     if (event === 'Rising Stars Game') {
       time = '2017-02-18T02:00:00'
-    } else if (event === 'All-Star Game') {
-      time = '2017-02-20T01:00:00'
     } else {
       time = '2017-02-19T01:00:00'
     };

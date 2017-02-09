@@ -20,21 +20,21 @@ function Lines() {
 router.get('/', function(req, res, next){
   var user = req.user;
   Lines().orderBy('id').then(function(lines){
-    Users().select('balance', 'asg', 'threept', 'skills', 'dunk').where({username: user.username}).then(function(userData){
-      var bal = userData[0].balance;
-      var asgBal = userData[0].asg;
-      var dunkBal = userData[0].dunk;
-      var skillsBal = userData[0].skills;
-      var threeptBal = userData[0].threept;
-      if (user) {
+    if (user) {
+      Users().select('balance', 'asg', 'threept', 'skills', 'dunk').where({username: user.username}).then(function(userData){
+        var bal = userData[0].balance;
+        var asgBal = userData[0].asg;
+        var dunkBal = userData[0].dunk;
+        var skillsBal = userData[0].skills;
+        var threeptBal = userData[0].threept;
         Wagers().select('event', 'wager', 'odds', 'risk', 'net_total').where({username: user.username}).then(function(bets){
           console.log('bets are ', bets);
           res.render('picks', {wagers: lines, user: req.user, bets: bets, balance: bal, asgBal: asgBal, dunkBal: dunkBal, skillsBal: skillsBal, threeptBal: threeptBal})
         })
-      } else {
-        res.render('picks', {wagers: wagers, user: req.user})
-      }
-    })
+      })
+    } else {
+      res.render('picks', {wagers: lines, user: req.user})
+    }
   })
 })
 
