@@ -2,9 +2,9 @@ extends layout
 
 block content
   div.row
-    div.col.s10.offset-s1.gradeHead.
+    div.col.s12.gradeHead.
       :: EDIT LINES ::
-    div.col.s10.offset-s1.test
+    div.col.s12.test
       table.wagerTable
         thead
           tr
@@ -68,7 +68,14 @@ block content
                 else
                   td
                     input.inp-sm(value='+' + line.odds)
-                td=line.result
+                if line.result === true
+                  td
+                    | WIN
+                else if line.result === false
+                  td
+                    | LOSS
+                else
+                  td
                 td.center-align
                   button.btn.hoverable.win-btn
                     | WIN
@@ -77,3 +84,5 @@ block content
                 td
                   button.btn.hoverable.update-btn
                     | UPDATE
+                  button.btn.hoverable.delete-btn
+                    | X

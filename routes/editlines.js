@@ -14,7 +14,7 @@ function Lines () {
 
 
 router.get('/', function(req, res, next){
-  Lines().then(function(lines){
+  Lines().orderBy('id').then(function(lines){
     res.render('editlines', {lines: lines})
   })
 })
@@ -37,7 +37,7 @@ router.post('/win', function(req, res, next){
       }
     }).then(function(){
       res.json({
-        success: 'yes'
+        success: true
       })
     })
   })
@@ -67,6 +67,17 @@ router.put('/update', function(req, res, next){
     odds: req.body.odds
   }).then(function(){
     res.json(line)
+  })
+})
+
+router.delete('/delete', function(req, res, next){
+  var id = req.body.id;
+  Lines().where('id', id).del().then(function(){
+    Wagers().where('api_id', id).del().then(function(){
+      res.json({
+        success: true
+      })
+    })
   })
 })
 

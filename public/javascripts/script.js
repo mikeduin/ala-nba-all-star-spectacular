@@ -169,9 +169,6 @@ $(document).ready(function(){
   $('.win-btn').click(function(){
     var result = $(this).parent().prev();
     var id = $(this).parent().prevAll().eq(5)[0].innerHTML;
-    console.log('id is ', id);
-    var lossBtn = $(this).next();
-    console.log('lossBtn is ', lossBtn);
     $.ajax({
       method: 'POST',
       url: '/editlines/win',
@@ -180,6 +177,20 @@ $(document).ready(function(){
       },
       success: function(){
         result.append('<span> WIN </span>')
+      }
+    })
+  })
+
+  $('.delete-btn').click(function(){
+    var id = $(this).parent().prevAll().eq(6)[0].innerHTML;
+    $.ajax({
+      method: 'DELETE',
+      url: '/editlines/delete',
+      data: {
+        id: id
+      },
+      success: function(){
+        Materialize.toast('Event ' + id + ' has been deleted', 4000, 'bet-error');
       }
     })
   })

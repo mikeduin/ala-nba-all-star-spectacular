@@ -19,7 +19,7 @@ function Lines() {
 
 router.get('/', function(req, res, next){
   var user = req.user;
-  Lines().then(function(lines){
+  Lines().orderBy('id').then(function(lines){
     Users().select('balance', 'asg', 'threept', 'skills', 'dunk').where({username: user.username}).then(function(userData){
       var bal = userData[0].balance;
       var asgBal = userData[0].asg;
