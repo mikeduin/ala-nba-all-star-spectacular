@@ -22,7 +22,7 @@ router.get('/', function(req, res, next){
       count++;
     }
   };
-  res.render('grade', {lines: bets})
+  res.render('editlines', {lines: bets})
 })
 
 router.post('/win', function(req, res, next){

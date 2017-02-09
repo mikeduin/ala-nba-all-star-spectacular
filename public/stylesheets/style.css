@@ -274,6 +274,14 @@ nav {
   margin-top: 3px;
   background-color: #972D2F !important; }
 
+.update-btn {
+  margin-bottom: 3px;
+  margin-top: 3px;
+  background-color: #0842B8 !important; }
+
+.add-btn {
+  background-color: #94C8EF !important; }
+
 .gradeHead {
   background-color: white;
   color: #010F3C;
@@ -288,6 +296,15 @@ nav {
 
 .test {
   padding: 0px !important; }
+
+.inp-sm {
+  width: 50px !important; }
+
+.inp-md {
+  width: 110px !important; }
+
+.inp-lg {
+  width: 130px !important; }
 
 #star-five {
   margin: 50px 0;

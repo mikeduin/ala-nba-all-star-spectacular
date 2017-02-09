@@ -8,10 +8,11 @@ $(document).ready(function(){
   }, 4000);
 
   $(".dropdown-button").dropdown();
+  $('select').material_select();
 
   $('.risk-input').change(function(){
     var risk = $(this)[0].value;
-    var odds = $(this).parent().prev()[0].innerHTML;
+    var odds = parseInt($(this).parent().prev()[0].innerHTML);
     var toWin = $(this).parent().next();
     var payout = 0;
     if (odds > 0) {
@@ -101,17 +102,19 @@ $(document).ready(function(){
   })
 
   $('.win-btn').click(function(){
-    var id = $(this).parent().prevAll().eq(3)[0].innerHTML;
+    var result = $(this).parent().prev();
+    var id = $(this).parent().prevAll().eq(5)[0].innerHTML;
+    console.log('id is ', id);
     var lossBtn = $(this).next();
     console.log('lossBtn is ', lossBtn);
     $.ajax({
       method: 'POST',
-      url: '/grade/win',
+      url: '/editlines/win',
       data: {
         id: id
       },
       success: function(){
-        lossBtn.addClass('hidden');
+        result.append('<span> WIN </span>')
       }
     })
   })

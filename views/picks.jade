@@ -38,7 +38,10 @@ block content
                 td=wager.event
                 td=wager.type
                 td.wager-col=wager.side
-                td=wager.odds
+                if wager.odds < 0 
+                  td=wager.odds
+                else
+                  td='+'+ wager.odds
                 td.input-field.curr-col
                   input.risk-input(type='number')
                 td.curr-col.toWin

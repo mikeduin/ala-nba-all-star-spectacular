@@ -1,0 +1,79 @@
+extends layout
+
+block content
+  div.row
+    div.col.s10.offset-s1.gradeHead.
+      :: EDIT LINES ::
+    div.col.s10.offset-s1.test
+      table.wagerTable
+        thead
+          tr
+            th
+              | API_id
+            th
+              | Event
+            th
+              | Type
+            th
+              | Wager
+            th
+              | Odds
+            th
+              | Result?
+            th.center-align
+              | Grade?
+            th.center-align
+              | Update?
+        tbody
+          tr
+            td
+              | TBD
+            td
+              select(name='event-select').inp-lg#ins-event
+                option(disabled selected value='')
+                  | Choose Event
+                option(value='Rising Stars Game')
+                  | Rising Stars Game
+                option(value='Skills Challenge')
+                  | Skills Challenge
+                option(value='Three-Point Contest')
+                  | Three-Point Contest
+                option(value='Dunk Contest')
+                  | Dunk Contest
+                option(value='All-Star Game')
+                  | All-Star Game
+            td
+              input.inp-md#ins-type
+            td
+              input#ins-side
+            td
+              input.inp-sm#ins-odds
+            td
+            td
+            td
+              button.btn.add-btn
+                | ADD EVENT
+          for line in lines
+              tr
+                td=line.id
+                td
+                  input.inp-lg(value=line.event)
+                td
+                  input.inp-md(value=line.type)
+                td
+                  input(value=line.side)
+                td
+                  input.inp-sm(value=line.odds)
+                td=line.result
+                if line.result === null
+                  td.center-align
+                    button.btn.hoverable.win-btn
+                      | WIN
+                    button.btn.hoverable.lose-btn
+                      | LOSS
+                else
+                  td
+                    | GRADED: #{line.result}
+                td
+                  button.btn.hoverable.update-btn
+                    | UPDATE
