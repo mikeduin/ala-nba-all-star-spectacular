@@ -8,6 +8,10 @@ function Wagers () {
   return knex('wagers')
 }
 
+function Lines () {
+  return knex('lines')
+}
+
 
 router.get('/', function(req, res, next){
   var user = req.user;
@@ -44,6 +48,19 @@ router.post('/win', function(req, res, next){
     res.json({
       success: 'yes'
     })
+  })
+})
+
+router.post('/add', function(req, res, next){
+  var line = req.body;
+  Lines().insert({
+    event: req.body.event,
+    time: req.body.time,
+    type: req.body.type,
+    side: req.body.side,
+    odds: req.body.odds
+  }).then(function(){
+    res.json(line)
   })
 })
 

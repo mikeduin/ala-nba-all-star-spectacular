@@ -101,6 +101,32 @@ $(document).ready(function(){
     })
   })
 
+  $('.add-btn').click(function(){
+    var event = $('#ins-event')[0].value;
+    var type = $('#ins-type')[0].value;
+    var side = $('#ins-side')[0].value;
+    var odds = parseInt($('#ins-odds')[0].value);
+    var time;
+    if (event === 'Rising Stars Game') {
+      time = '2017-02-18T02:00:00'
+    } else if (event === 'All-Star Game') {
+      time = '2017-02-20T01:00:00'
+    } else {
+      time = '2017-02-19T01:00:00'
+    };
+    $.ajax({
+      method: 'POST',
+      url: '/editlines/add',
+      data: {
+        event: event,
+        time: time,
+        type: type,
+        side: side,
+        odds: odds
+      }
+    })
+  })
+
   $('.win-btn').click(function(){
     var result = $(this).parent().prev();
     var id = $(this).parent().prevAll().eq(5)[0].innerHTML;
