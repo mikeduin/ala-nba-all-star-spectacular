@@ -24,11 +24,11 @@ router.post('/win', function(req, res, next){
   Lines().where('id', id).update({
     result: true
   }).then(function(){
-    Wagers().where('id', id).then(function(wagers){
+    Wagers().where('api_id', id).then(function(wagers){
       for (var i=0; i<wagers.length; i++){
         var win = wagers[i].to_win;
-        var betId = wagers[i].id;
-        Wagers().where('id', betId).update({
+        var betId = wagers[i].api_id;
+        Wagers().where('api_id', betId).update({
           result: true,
           net_total: win
         }).then(function(){

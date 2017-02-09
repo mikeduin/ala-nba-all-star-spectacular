@@ -11,17 +11,6 @@ var checkLoggedIn = function(req, res, next) {
   }
 };
 
-// var checkAuthor = function(req, res, next) {
-//   knex('stories').first().where('id', req.params.id).then(function(story) {
-//     if (req.user.id !== story.user_id) {
-//       res.redirect('/');
-//     }
-//     else {
-//       next();
-//     }
-//   });
-// };
-
 function Wagers() {
   return knex('wagers');
 }

@@ -62,8 +62,12 @@ block content
                   input.inp-md(value=line.type)
                 td
                   input(value=line.side)
-                td
-                  input.inp-sm(value=line.odds)
+                if line.odds < 0
+                  td
+                    input.inp-sm(value=line.odds)
+                else
+                  td
+                    input.inp-sm(value='+' + line.odds)
                 td=line.result
                 td.center-align
                   button.btn.hoverable.win-btn

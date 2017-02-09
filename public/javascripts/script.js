@@ -123,6 +123,13 @@ $(document).ready(function(){
         type: type,
         side: side,
         odds: odds
+      },
+      success: function(){
+        $('#ins-event').val('');
+        $('#ins-type').val('');
+        $('#ins-side').val('');
+        $('#ins-odds').val('');
+        Materialize.toast('Event successfully added!', 4000, 'toasted');
       }
     })
   })
@@ -153,7 +160,8 @@ $(document).ready(function(){
         odds: odds
       },
       success: function(res){
-        console.log(res)
+        // console.log(res)
+        Materialize.toast('Event updated!', 4000, 'toasted');
       }
     })
   })
