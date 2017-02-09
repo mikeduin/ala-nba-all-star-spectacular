@@ -13,32 +13,27 @@ function Users() {
   return knex('users');
 }
 
+function Lines() {
+  return knex('lines');
+}
+
 router.get('/', function(req, res, next){
-  var data = JSON.parse(fs.readFileSync('public/javascripts/odds.json'));
   var user = req.user;
-  var wagers = [];
-  var count = 0;
-  for (var i=0; i<data.events.length; i++) {
-    for (var j=0; j<data.events[i].bets.length; j++) {
-      wagers.push(data.events[i].bets[j]);
-      wagers[count].event = data.events[i].name;
-      wagers[count].time = data.events[i].time;
-      count++;
-    }
-  };
-  Users().select('balance', 'asg', 'threept', 'skills', 'dunk').where({username: user.username}).then(function(userData){
-    var bal = userData[0].balance;
-    var asgBal = userData[0].asg;
-    var dunkBal = userData[0].dunk;
-    var skillsBal = userData[0].skills;
-    var threeptBal = userData[0].threept;
-    if (user) {
-      Wagers().select('event', 'wager', 'odds', 'risk').where({username: user.username}).then(function(bets){
-        res.render('picks', {wagers: wagers, user: req.user, bets: bets, balance: bal, asgBal: asgBal, dunkBal: dunkBal, skillsBal: skillsBal, threeptBal: threeptBal})
-      })
-    } else {
-      res.render('picks', {wagers: wagers, user: req.user, time: now})
-    }
+  Lines().then(function(lines){
+    Users().select('balance', 'asg', 'threept', 'skills', 'dunk').where({username: user.username}).then(function(userData){
+      var bal = userData[0].balance;
+      var asgBal = userData[0].asg;
+      var dunkBal = userData[0].dunk;
+      var skillsBal = userData[0].skills;
+      var threeptBal = userData[0].threept;
+      if (user) {
+        Wagers().select('event', 'wager', 'odds', 'risk').where({username: user.username}).then(function(bets){
+          res.render('picks', {wagers: lines, user: req.user, bets: bets, balance: bal, asgBal: asgBal, dunkBal: dunkBal, skillsBal: skillsBal, threeptBal: threeptBal})
+        })
+      } else {
+        res.render('picks', {wagers: wagers, user: req.user, time: now})
+      }
+    })
   })
 })
 

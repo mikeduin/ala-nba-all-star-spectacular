@@ -65,15 +65,11 @@ block content
                 td
                   input.inp-sm(value=line.odds)
                 td=line.result
-                if line.result === null
-                  td.center-align
-                    button.btn.hoverable.win-btn
-                      | WIN
-                    button.btn.hoverable.lose-btn
-                      | LOSS
-                else
-                  td
-                    | GRADED: #{line.result}
+                td.center-align
+                  button.btn.hoverable.win-btn
+                    | WIN
+                  button.btn.hoverable.lose-btn
+                    | LOSS
                 td
                   button.btn.hoverable.update-btn
                     | UPDATE

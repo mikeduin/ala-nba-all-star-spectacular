@@ -127,6 +127,37 @@ $(document).ready(function(){
     })
   })
 
+  $('.update-btn').click(function(){
+    var id = $(this).parent().prevAll().eq(6)[0].innerHTML;
+    var event = $(this).parent().prevAll().eq(5)[0].children[0].value;
+    var type = $(this).parent().prevAll().eq(4)[0].children[0].value;
+    var side = $(this).parent().prevAll().eq(3)[0].children[0].value;
+    var odds = $(this).parent().prevAll().eq(2)[0].children[0].value;
+    var time;
+    if (event === 'Rising Stars Game') {
+      time = '2017-02-18T02:00:00'
+    } else if (event === 'All-Star Game') {
+      time = '2017-02-20T01:00:00'
+    } else {
+      time = '2017-02-19T01:00:00'
+    };
+    $.ajax({
+      method: 'PUT',
+      url: '/editlines/update',
+      data: {
+        id: id,
+        event: event,
+        time: time,
+        type: type,
+        side: side,
+        odds: odds
+      },
+      success: function(res){
+        console.log(res)
+      }
+    })
+  })
+
   $('.win-btn').click(function(){
     var result = $(this).parent().prev();
     var id = $(this).parent().prevAll().eq(5)[0].innerHTML;
