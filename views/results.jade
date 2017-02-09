@@ -2,14 +2,15 @@ extends layout
 
 block content
   div.row
-    div.col.s10.offset-s1.resultHead.
-      :: STANDINGS ::
     table.col.s10.offset-s1#resultTable
       thead
+        tr.resultHead
+          th(colspan=8).
+            :: STANDINGS :: 
         tr
           th.
             Rank
-          th.center-align.
+          th.
             Entrant
           th.
             TOTAL $

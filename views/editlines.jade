@@ -2,11 +2,12 @@ extends layout
 
 block content
   div.row
-    div.col.s12.gradeHead.
-      :: EDIT LINES ::
-    div.col.s12.test
+    div.col.s12
       table.wagerTable
         thead
+          tr.resultHead
+            th(colspan=8)
+              | :: EDIT LINES ::
           tr
             th
               | API_id
@@ -25,7 +26,7 @@ block content
             th.center-align
               | Update?
         tbody
-          tr
+          tr#ins-row
             td
               | TBD
             td

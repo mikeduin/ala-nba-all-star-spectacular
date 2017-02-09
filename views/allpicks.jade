@@ -3,13 +3,15 @@ extends layout
 block content
   div.row
     div.col.s10.offset-s1
-      div.resultHead.
-        :: ALL PICKS ::
-      div.subHead.center-align
-        i
-          | Picks will be revealed here once their event has locked for selection.
-      table.bordered.wagerTable
+      table.wagerTable
         thead
+          tr.resultHead
+            th(colspan=8).
+              :: ALL PICKS ::
+          tr.subHead.center-align
+            th(colspan=8)
+              i
+                | Picks will be revealed here once their event has locked for selection.
           tr
             th
               | Username
