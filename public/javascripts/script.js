@@ -98,7 +98,22 @@ $(document).ready(function(){
         Materialize.toast('Your ' + wager + ' ' + odds + ' bet was successfully placed!', 4000, 'toasted');
       }
     })
+  })
 
+  $('.win-btn').click(function(){
+    var id = $(this).parent().prevAll().eq(3)[0].innerHTML;
+    var lossBtn = $(this).next();
+    console.log('lossBtn is ', lossBtn);
+    $.ajax({
+      method: 'POST',
+      url: '/grade/win',
+      data: {
+        id: id
+      },
+      success: function(){
+        lossBtn.addClass('hidden');
+      }
+    })
   })
 
 });

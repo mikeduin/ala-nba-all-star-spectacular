@@ -1,0 +1,230 @@
+{
+  "events": [
+    {
+      "name": "Rising Stars Game",
+      "time": "2017-02-18T02:00:00",
+      "bets": [
+        {
+          "id": 1,
+          "type": "Point Spread",
+          "side": "U.S. Team",
+          "odds": "-110",
+          "result": null
+        },
+        {
+          "id": 2,
+          "type": "Point Spread",
+          "side": "World Team",
+          "odds": "-110",
+          "result": null
+        },
+        {
+          "id": 3,
+          "type": "Total Score",
+          "side": "Over [xxx]",
+          "odds": "+100",
+          "result": null
+        },
+        {
+          "id": 4,
+          "type": "Total Score",
+          "side": "Under [xxx]",
+          "odds": "-120",
+          "result": null
+        }
+      ]
+    },
+    {
+      "name": "Skills Challenge",
+      "time": "2017-02-19T01:00:00",
+      "bets": [
+        {
+          "id": 5,
+          "type": "Odds to Win",
+          "side": "Kristaps Porzingis",
+          "odds": "xxx",
+          "result": null
+        },
+        {
+          "id": 6,
+          "type": "Odds to Win",
+          "side": "DeMarcus Cousins",
+          "odds": "xxx",
+          "result": null
+        },
+        {
+          "id": 7,
+          "type": "Odds to Win",
+          "side": "Anthony Davis",
+          "odds": "xxx",
+          "result": null
+        },
+        {
+          "id": 8,
+          "type": "Odds to Win",
+          "side": "Joel Embiid",
+          "odds": "xxx",
+          "result": null
+        },
+        {
+          "id": 9,
+          "type": "Odds to Win",
+          "side": "Isaiah Thomas",
+          "odds": "xxx",
+          "result": null
+        },
+        {
+          "id": 10,
+          "type": "Odds to Win",
+          "side": "Gordon Hayward",
+          "odds": "xxx",
+          "result": null
+        },
+        {
+          "id": 11,
+          "type": "Odds to Win",
+          "side": "John Wall",
+          "odds": "xxx",
+          "result": null
+        },
+        {
+          "id": 12,
+          "type": "Odds to Win",
+          "side": "Devin Booker",
+          "odds": "xxx",
+          "result": null
+        }
+      ]
+    },
+    {
+      "name": "Three-Point Contest",
+      "time": "2017-02-19T01:00:00",
+      "bets": [
+        {
+          "id": 13,
+          "type": "Odds to Win",
+          "side": "Klay Thompson",
+          "odds": "xxx",
+          "result": null
+        },
+        {
+          "id": 14,
+          "type": "Odds to Win",
+          "side": "Kyle Lowry",
+          "odds": "xxx",
+          "result": null
+        },
+        {
+          "id": 15,
+          "type": "Odds to Win",
+          "side": "Eric Gordon",
+          "odds": "xxx",
+          "result": null
+        },
+        {
+          "id": 16,
+          "type": "Odds to Win",
+          "side": "Kyrie Irving",
+          "odds": "xxx",
+          "result": null
+        },
+        {
+          "id": 17,
+          "type": "Odds to Win",
+          "side": "CJ McCollum",
+          "odds": "xxx",
+          "result": null
+        },
+        {
+          "id": 18,
+          "type": "Odds to Win",
+          "side": "Kemba Walker",
+          "odds": "xxx",
+          "result": null
+        },
+        {
+          "id": 19,
+          "type": "Odds to Win",
+          "side": "Wesley Matthews",
+          "odds": "xxx",
+          "result": null
+        },
+        {
+          "id": 20,
+          "type": "Odds to Win",
+          "side": "Nick Young",
+          "odds": "xxx",
+          "result": null
+        }
+      ]
+    },
+    {
+      "name": "Slam Dunk Contest",
+      "time": "2017-02-19T01:00:00",
+      "bets": [
+        {
+          "id": 21,
+          "type": "Odds to Win",
+          "side": "Derrick Jones Jr.",
+          "odds": "xxx",
+          "result": null
+        },
+        {
+          "id": 22,
+          "type": "Odds to Win",
+          "side": "Aaron Gordon",
+          "odds": "xxx",
+          "result": null
+        },
+        {
+          "id": 23,
+          "type": "Odds to Win",
+          "side": "Glenn Robinson III",
+          "odds": "xxx",
+          "result": null
+        },
+        {
+          "id": 24,
+          "type": "Odds to Win",
+          "side": "DeAndre Jordan",
+          "odds": "xxx",
+          "result": null
+        }
+      ]
+    },
+    {
+      "name": "All-Star Game",
+      "time": "2017-02-20T01:00:00",
+      "bets": [
+        {
+          "id": 25,
+          "type": "Point Spread",
+          "side": "East [xxx]",
+          "odds": "xxx",
+          "result": null
+        },
+        {
+          "id": 26,
+          "type": "Point Spread",
+          "side": "Western [xxx]",
+          "odds": "xxx",
+          "result": null
+        },
+        {
+          "id": 27,
+          "type": "Total Score",
+          "side": "Over [xxx]",
+          "odds": "xxx",
+          "result": null
+        },
+        {
+          "id": 28,
+          "type": "Total Score",
+          "side": "Under [xxx]",
+          "odds": "xxx",
+          "result": null
+        }
+      ]
+    }
+  ]
+}
