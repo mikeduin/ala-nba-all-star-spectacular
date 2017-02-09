@@ -171,12 +171,29 @@ $(document).ready(function(){
     var id = $(this).parent().prevAll().eq(5)[0].innerHTML;
     $.ajax({
       method: 'POST',
-      url: '/editlines/win',
+      url: '/editlines/grade',
       data: {
+        grade: 'win',
         id: id
       },
       success: function(){
-        result.append('<span> WIN </span>')
+        result.text('WIN');
+      }
+    })
+  })
+
+  $('.lose-btn').click(function(){
+    var result = $(this).parent().prev();
+    var id = $(this).parent().prevAll().eq(5)[0].innerHTML;
+    $.ajax({
+      method: 'POST',
+      url: '/editlines/grade',
+      data: {
+        grade: 'loss',
+        id: id
+      },
+      success: function(){
+        result.text('LOSS');
       }
     })
   })

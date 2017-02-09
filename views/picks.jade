@@ -115,30 +115,25 @@ block content
                     | Risk
               tbody#ticket-rows
                 for bet in bets
-                  if bet.net_total > 0
-                    tr.winner
-                  else if bet.net_total < 0
-                    tr.loser
-                  else
-                    tr
-                      if bet.event === 'Three-Point Contest'
-                        td
-                          | 3PT
-                      else if bet.event === 'Slam Dunk Contest'
-                        td
-                          | Dunk
-                      else if bet.event === 'Skills Challenge'
-                        td
-                          | Skills
-                      else if bet.event === 'Rising Stars Game'
-                        td
-                          | RisingStars
-                      else 
-                        td
-                          | ASG
-                      td=bet.wager
-                      if bet.odds > 0
-                        td='+' + bet.odds
-                      else
-                        td=bet.odds
-                      td='$' + bet.risk
+                  tr
+                    if bet.event === 'Three-Point Contest'
+                      td
+                        | 3PT
+                    else if bet.event === 'Slam Dunk Contest'
+                      td
+                        | Dunk
+                    else if bet.event === 'Skills Challenge'
+                      td
+                        | Skills
+                    else if bet.event === 'Rising Stars Game'
+                      td
+                        | RisingStars
+                    else 
+                      td
+                        | ASG
+                    td=bet.wager
+                    if bet.odds > 0
+                      td='+' + bet.odds
+                    else
+                      td=bet.odds
+                    td='$' + bet.risk

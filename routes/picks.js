@@ -27,11 +27,12 @@ router.get('/', function(req, res, next){
       var skillsBal = userData[0].skills;
       var threeptBal = userData[0].threept;
       if (user) {
-        Wagers().select('event', 'wager', 'odds', 'risk').where({username: user.username}).then(function(bets){
+        Wagers().select('event', 'wager', 'odds', 'risk', 'net_total').where({username: user.username}).then(function(bets){
+          console.log('bets are ', bets);
           res.render('picks', {wagers: lines, user: req.user, bets: bets, balance: bal, asgBal: asgBal, dunkBal: dunkBal, skillsBal: skillsBal, threeptBal: threeptBal})
         })
       } else {
-        res.render('picks', {wagers: wagers, user: req.user, time: now})
+        res.render('picks', {wagers: wagers, user: req.user})
       }
     })
   })

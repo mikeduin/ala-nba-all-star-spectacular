@@ -19,18 +19,22 @@ router.get('/', function(req, res, next){
   })
 })
 
-router.post('/win', function(req, res, next){
+router.post('/grade', function(req, res, next){
   var id = req.body.id;
+  var result, payout, grade = req.body.grade;
+  grade === 'win' ? result = true : result = false;
   Lines().where('id', id).update({
-    result: true
+    result: result
   }).then(function(){
     Wagers().where('api_id', id).then(function(wagers){
       for (var i=0; i<wagers.length; i++){
+        var risk = wagers[i].risk;
         var win = wagers[i].to_win;
         var betId = wagers[i].api_id;
+        result === true ? payout = win : payout = -risk;
         Wagers().where('api_id', betId).update({
-          result: true,
-          net_total: win
+          result: result,
+          net_total: payout
         }).then(function(){
           console.log('wager updated');
         })

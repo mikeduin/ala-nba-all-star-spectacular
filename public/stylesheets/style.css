@@ -181,12 +181,6 @@ nav {
   .curr-col input {
     width: 60px; }
 
-.winner {
-  color: #2F5032; }
-
-.loser {
-  color: #972D2F; }
-
 .pick-btn {
   background-color: #010F3C !important;
   color: #999999 !important;
