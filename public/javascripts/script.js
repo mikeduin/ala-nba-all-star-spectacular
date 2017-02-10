@@ -210,12 +210,13 @@ $(document).ready(function(){
     })
   })
 
-  $('#user-filter').change(function(){
+  $('.picks-filter').change(function(){
     var user = $('#user-filter')[0].value;
+    var event = $('#event-filter')[0].value;
     var table = $('#allPicksBody');
     $.ajax({
       method: 'GET',
-      url: '/allpicks/user/' + user,
+      url: '/allpicks/user/' + user + '/event/' + event,
       success: function(bets){
         wagers = bets.wagers;
         table.empty();

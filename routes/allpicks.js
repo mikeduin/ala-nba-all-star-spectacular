@@ -14,7 +14,7 @@ router.get('/', function(req, res, next){
   })
 })
 
-router.get('/user/all', function(req, res, next){
+router.get('/user/all/event/all', function(req, res, next){
   Wagers().orderBy('username').then(function(wagers){
     res.json({
       wagers: wagers
@@ -22,9 +22,28 @@ router.get('/user/all', function(req, res, next){
   })
 })
 
-router.get('/user/:user', function(req, res, next){
+router.get('/user/:user/event/all', function(req, res, next){
   var user = req.params.user;
   Wagers().where({username: user}).then(function(wagers){
+    res.json({
+      wagers: wagers
+    })
+  })
+})
+
+router.get('/user/all/event/:event', function(req, res, next){
+  var event = req.params.event;
+  Wagers().where({event: event}).orderBy('username').then(function(wagers){
+    res.json({
+      wagers: wagers
+    })
+  })
+})
+
+router.get('/user/:user/event/:event', function(req, res, next){
+  var user = req.params.user;
+  var event = req.params.event;
+  Wagers().where({username: user, event: event}).then(function(wagers){
     res.json({
       wagers: wagers
     })

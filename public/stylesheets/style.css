@@ -282,6 +282,9 @@ nav {
   padding-bottom: 2.5%;
   text-align: left !important; }
 
+ul.dropdown-content.select-dropdown li span {
+  color: #94C8EF; }
+
 .win-btn {
   margin-bottom: 3px;
   margin-top: 3px;

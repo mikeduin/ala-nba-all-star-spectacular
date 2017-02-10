@@ -14,14 +14,14 @@ block content
                 | Picks will be revealed here once their event has locked for selection.
           tr
             th.select-pad
-              select#user-filter
+              select#user-filter.picks-filter
                 option(selected value='all')
                   | All Users
                 for user in users
                   option(value=user.username).
                     #{user.username}
             th.select-pad
-              select#event-filter
+              select#event-filter.picks-filter
                 option(selected value='all')
                   | All Events
                 option(value='Rising Stars Game')
