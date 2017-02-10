@@ -15,15 +15,15 @@ block content
           tr
             th.select-pad
               select#user-filter
-                option(disabled selected value='')
-                  | Filter by User
+                option(selected value='all')
+                  | All Users
                 for user in users
                   option(value=user.username).
                     #{user.username}
             th.select-pad
               select#event-filter
-                option(disabled selected value='')
-                  | Filter By Event
+                option(selected value='all')
+                  | All Events
                 option(value='Rising Stars Game')
                   | Rising Stars Game
                 option(value='Skills Challenge')
