@@ -3,19 +3,24 @@ extends layout
 block content
   div.row
     div.col.s10.offset-s1
-      table.wagerTable.allpicks
+      table.wagerTable
         thead
           tr.resultHead
-            th(colspan=2)
+            th(colspan=8).
+              :: ALL PICKS ::
+          tr.subHead.center-align
+            th(colspan=8)
+              i
+                | Picks will be revealed here once their event has locked for selection.
+          tr
+            th.select-pad
               select#user-filter
                 option(disabled selected value='')
                   | Filter by User
                 for user in users
                   option(value=user.username).
                     #{user.username}
-            th(colspan=4).
-              :: ALL PICKS ::
-            th(colspan=2)
+            th.select-pad
               select#event-filter
                 option(disabled selected value='')
                   | Filter By Event
@@ -29,30 +34,21 @@ block content
                   | Dunk Contest
                 option(value='All-Star Game')
                   | All-Star Game
-          tr.subHead.center-align
-            th(colspan=8)
-              i
-                | Picks will be revealed here once their event has locked for selection.
-          tr
-            th
-              | Username
-            th
-              | Event
-            th
+            th.th-pad
               | Type
-            th
+            th.th-pad
               | Wager
-            th
+            th.th-pad
               | Odds
-            th
+            th.th-pad
               | Risk
-            th
+            th.th-pad
               | To Win
-            th
+            th.th-pad
               | Result
-        tbody
+        tbody#allPicksBody
           for wager in wagers
-            if (moment()).isAfter(moment(wager.start_time))
+            if (moment()).isBefore(moment(wager.start_time))
               tr
                 td=wager.username
                 td=wager.event

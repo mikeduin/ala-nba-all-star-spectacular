@@ -274,8 +274,13 @@ nav {
   background-color: #972D2F !important;
   border-radius: 10px !important; }
 
-#user-filter, #event-filter {
-  width: 100px; }
+.select-pad {
+  padding-top: 0px;
+  padding-bottom: 0px; }
+
+.th-pad {
+  padding-bottom: 2.5%;
+  text-align: left !important; }
 
 .win-btn {
   margin-bottom: 3px;
