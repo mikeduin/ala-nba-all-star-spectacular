@@ -45,4 +45,9 @@ router.get('/', function(req, res, next){
   })
 })
 
+router.get('/mypicks', function(req, res, next){
+  var user = req.user;
+  
+})
+
 module.exports = router;

@@ -6,15 +6,17 @@ html
     link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=Raleway:400,700,400italic,600')
     link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css')
     link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css')
-    //- script(src='https://use.fontawesome.com/7c4332140c.js')
+    link(rel='stylesheet', href='http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css')
+    //- link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css')
   body
     ul#dropdown.dropdown-content
       li
         a(href='/results')
           | Standings
-      li
-        a(href='/results')
-          | My Scorecard
+      //- if user
+      //-   li
+      //-     a(href='/results')
+      //-       | My Scorecard
       li
         a(href='/allpicks')
           | All Picks
@@ -49,7 +51,6 @@ html
             li
               a.dropdown-button(href='#!' data-activates='dropdown')
                 | Results 
-                //- i.fa.fa-chevron-down
             li
               a(href='http://www.alafantasysports.com')
                 | ALA Home

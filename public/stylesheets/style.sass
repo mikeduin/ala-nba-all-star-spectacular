@@ -51,17 +51,20 @@ nav
 .home-box
   height: 400px
   background-color: transparent
-  margin-top: 3%
   font-size: 48px
   font-weight: 800
   color: #010F3C
 
+.stars
+  margin-top: -10px
+  margin-bottom: -10px
+
+.rule-line
+  margin-top: -20px
+
 .top-footer
   font-size: 18px
   margin-bottom: 10px
-
-.bott-sec
-  border-top: solid 1px black
 
 .white
   color: white !important
@@ -82,6 +85,10 @@ nav
     left: 0
     top: 0
     border: solid 8px #010F3C
+
+.or
+  font-size: 24px
+  margin-top: -10px
 
 // RULES PAGE STYLES
 #rules-box
@@ -129,6 +136,7 @@ nav
   line-height: 20px
 
 .subHead
+  margin-top: -10px !important
   border-bottom: dashed 2px #D0D0D0
   line-height: 1px !important
 
@@ -161,6 +169,11 @@ nav
     padding-bottom: 0
   .resultHead
     border-bottom: none
+
+.allpicks
+  th
+    padding-top: 5px !important
+    padding-bottom: 10px !important
 
 .bott
   margin-bottom: 0
@@ -267,8 +280,11 @@ nav
   background-color: #972D2F !important
   border-radius: 10px !important
 
-// EDIT LINES STYLES
+// ALL PICKS STYLES
+#user-filter, #event-filter
+  width: 100px
 
+// EDIT LINES STYLES
 .win-btn
   margin-bottom: 3px
   margin-top: 3px
@@ -315,51 +331,92 @@ nav
 #ins-row
   border-bottom: dashed 2px black
 
+// ANIMATION STYLES
+
 #star-five
   margin: 50px 0
   position: relative
-  display: block
-  color: red
+  display: inline block
+  color: #010F3C
   width: 0px
   height: 0px
-  border-right:  100px solid transparent
-  border-bottom: 70px  solid red
-  border-left:   100px solid transparent
+  border-right:  50px solid transparent
+  border-bottom: 35px  solid #010F3C
+  border-left:   50px solid transparent
   -moz-transform:    rotate(35deg)
   -webkit-transform: rotate(35deg)
   -ms-transform:     rotate(35deg)
   -o-transform:      rotate(35deg)
 
 #star-five:before
-  border-bottom: 80px solid red
-  border-left: 30px solid transparent
-  border-right: 30px solid transparent
+  border-bottom: 40px solid #010F3C
+  border-left: 15px solid transparent
+  border-right: 15px solid transparent
   position: absolute
   height: 0
   width: 0
-  top: -45px
-  left: -65px
-  display: block
+  top: -22.5px
+  left: -32.5px
+  display: inline block
   content: ''
   -webkit-transform: rotate(-35deg)
   -moz-transform:    rotate(-35deg)
   -ms-transform:     rotate(-35deg)
   -o-transform:      rotate(-35deg)
 
-
 #star-five:after
   position: absolute
-  display: block
-  color: red
-  top: 3px
-  left: -105px
+  display: inline block
+  color: #010F3C
+  top: 1.5px
+  left: -52.5px
   width: 0px
   height: 0px
-  border-right: 100px solid transparent
-  border-bottom: 70px solid red
-  border-left: 100px solid transparent
+  border-right: 50px solid transparent
+  border-bottom: 35px solid #010F3C
+  border-left: 50px solid transparent
   -webkit-transform: rotate(-70deg)
   -moz-transform:    rotate(-70deg)
   -ms-transform:     rotate(-70deg)
   -o-transform:      rotate(-70deg)
   content: ''
+
+.animated-slow
+  -webkit-animation-duration: 6s
+  animation-duration: 6s
+  -webkit-animation-fill-mode: both
+  animation-fill-mode: both
+
+.animated-med
+  -webkit-animation-duration: 4s
+  animation-duration: 4s
+  -webkit-animation-fill-mode: both
+  animation-fill-mode: both
+
+.animated-fast
+  -webkit-animation-duration: 2s
+  animation-duration: 2s
+  -webkit-animation-fill-mode: both
+  animation-fill-mode: both
+
+@-webkit-keyframes zoomIn
+  from
+    opacity: 0
+    -webkit-transform: scale3d(.3, .3, .3)
+    transform: scale3d(.3, .3, .3)
+
+  50%
+    opacity: 1
+
+@keyframes zoomIn
+  from
+    opacity: 0
+    -webkit-transform: scale3d(.3, .3, .3)
+    transform: scale3d(.3, .3, .3)
+
+  50%
+    opacity: 1
+
+.zoomIn
+  -webkit-animation-name: zoomIn
+  animation-name: zoomIn

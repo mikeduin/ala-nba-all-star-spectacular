@@ -3,11 +3,32 @@ extends layout
 block content
   div.row
     div.col.s10.offset-s1
-      table.wagerTable
+      table.wagerTable.allpicks
         thead
           tr.resultHead
-            th(colspan=8).
+            th(colspan=2)
+              select#user-filter
+                option(disabled selected value='')
+                  | Filter by User
+                for user in users
+                  option(value=user.username).
+                    #{user.username}
+            th(colspan=4).
               :: ALL PICKS ::
+            th(colspan=2)
+              select#event-filter
+                option(disabled selected value='')
+                  | Filter By Event
+                option(value='Rising Stars Game')
+                  | Rising Stars Game
+                option(value='Skills Challenge')
+                  | Skills Challenge
+                option(value='Three-Point Contest')
+                  | Three-Point Contest
+                option(value='Dunk Contest')
+                  | Dunk Contest
+                option(value='All-Star Game')
+                  | All-Star Game
           tr.subHead.center-align
             th(colspan=8)
               i

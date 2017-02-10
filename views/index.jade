@@ -3,26 +3,34 @@ extends layout
 block content
   div.row
     div.col.s6
-      div.home-box
-        div.top-sec.center-align
-          | THE WORLD'S FIRST 
+      div.home-box.center-align
+        div
+          span.bounceIn.animated-fast
+            | THE WORLD'S FIRST 
           br
-          span.white
-          | NBA ALL-STAR 
+          span.bounceIn.animated-med
+            | NBA ALL-STAR 
           br
-          | GAMBLING GAME.
-        div.top-footer.center-align
+          span.bounceIn.animated-slow
+            | GAMBLING GAME.
+        div.top-footer
           | (...it's gotta be, right?)
-        div.bott-sec
-          div.center-align
-            | Read the 
-            a(href='/rules')
-              | RULES
-          div.center-align
-            i
-              | - or - 
-          a.center-align(href='/login/facebook')
-            img#fb-login(src='images/fb_button.png')
+        div.row.stars
+          div.col.s2.offset-s3
+            div#star-five.zoomIn.animated-fast
+          div.col.s2
+            div#star-five.zoomIn.animated-med
+          div.col.s2
+            div#star-five.zoomIn.animated-slow
+        div.rule-line
+          | Read the 
+          a(href='/rules')
+            | RULES
+        div.or
+          i
+            | - or - 
+        a(href='/login/facebook')
+          img#fb-login(src='images/fb_button.png')
             
           
     div.col.s6
