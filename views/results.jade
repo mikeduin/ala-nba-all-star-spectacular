@@ -34,11 +34,11 @@ block content
               div.chip
                 img(src=entrant.photo)
                 =entrant.username  
-            if entrant.total > 0
-              td.res-total='$' + entrant.total
-            else
+            if entrant.total < 0
               - var dol = entrant.total.toString().substring(1)
               td.res-total='-$' + dol
+            else
+              td.res-total='$' + entrant.total
             if entrant.rising_stars >= 0
               td='$' + entrant.rising_stars
             else

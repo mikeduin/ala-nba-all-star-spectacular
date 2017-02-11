@@ -13,10 +13,6 @@ html
       li
         a(href='/results')
           | Standings
-      //- if user
-      //-   li
-      //-     a(href='/results')
-      //-       | My Scorecard
       li
         a(href='/allpicks')
           | All Picks
@@ -25,14 +21,16 @@ html
           li
             a(href='/editlines')
               | Edit Lines
-    div.navbar-fixed
+    div
       nav.z-depth-3
         div.nav-wrapper
+          a.button-collapse(href='#' data-activates='mobile-nav')
+            i.fa.fa-bars
           a.brand-logo(href='/').
             NBA All-Star Spectacular
           ul.left.logo-lead.
             A Level Above presents
-          ul#nav-mobile.right.hide-on-med-and-down
+          ul.right.hide-on-med-and-down
             if user
               li='Welcome, ' + user.username
               li 
@@ -51,6 +49,31 @@ html
             li
               a.dropdown-button(href='#!' data-activates='dropdown')
                 | Results 
+            li
+              a(href='http://www.alafantasysports.com')
+                | ALA Home
+          ul#mobile-nav.side-nav
+            if user
+              li='Welcome, ' + user.username
+              li 
+                a(href='/logout')
+                  | Logout
+            else 
+              li
+                a(href='/login/facebook')
+                  | Login
+            li
+              a(href='/rules')
+                | Rules
+            li
+              a(href='/picks')
+                | Make Picks
+            li
+              a(href='/results')
+                | Standings
+            li
+              a(href='/allpicks')
+                | All Picks
             li
               a(href='http://www.alafantasysports.com')
                 | ALA Home

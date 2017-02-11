@@ -7,8 +7,15 @@ $(document).ready(function(){
     .end().appendTo('#slideshow');
   }, 4000);
 
-  $(".dropdown-button").dropdown();
+  $('.dropdown-button').dropdown({
+    belowOrigin: true
+  });
   $('select').material_select();
+  $('.button-collapse').sideNav({
+      menuWidth: 360,
+      edge: 'left',
+      closeOnClick: true
+    });
 
   $('.risk-input').change(function(){
     var risk = $(this)[0].value;

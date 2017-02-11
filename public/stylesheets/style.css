@@ -21,8 +21,10 @@ nav {
 .navbar-fixed {
   height: 0; }
 
+.fa-bars {
+  font-size: 28px !important; }
+
 #dropdown {
-  margin-top: 64px;
   background-color: #010F3C; }
   #dropdown a {
     color: #C2C2C2; }
@@ -35,7 +37,7 @@ nav {
 @media screen and (min-width: 300px) {
   .logo-lead {
     margin-top: -20px;
-    margin-left: 40%;
+    margin-left: 30%;
     color: #B4B4B4;
     font-size: 12px;
     font-weight: 800; } }
@@ -115,6 +117,9 @@ nav {
 .res-total {
   font-size: 20px;
   font-weight: 600; }
+
+.chip {
+  white-space: nowrap; }
 
 #resultTable {
   background-color: white;
