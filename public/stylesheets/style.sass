@@ -47,11 +47,17 @@ nav
     margin-top: -21px
     margin-left: 10px
 
+.parallax-container
+  height: 350px !important
+
+.para-top
+  margin-top: -20px
+
 .spacer
   margin-top: 20px
 
 .home-box
-  height: 400px
+  margin-top: 10px
   background-color: transparent
   font-size: 48px
   font-weight: 800
@@ -67,12 +73,10 @@ nav
 .top-footer
   font-size: 18px
   margin-bottom: 10px
-
-.white
-  color: white !important
+  font-style: italic
 
 #fb-login
-  max-width: 400px
+  max-width: 300px
   display: block
   margin: auto
   margin-top: -5%
@@ -80,9 +84,10 @@ nav
 #slideshow
   position: relative
   img
-    margin-left: 12.5%
-    margin-top: 3%
-    max-width: 75%
+    margin-left: 17%
+    // max-width: 75%
+    max-height: 250px
+    // margin-top: 33%
     position: absolute
     left: 0
     top: 0
@@ -90,10 +95,18 @@ nav
 
 .or
   font-size: 24px
-  margin-top: -10px
+  margin-top: -15px
+  margin-bottom: 2px
 
 // SIDENAV STYLES
-  
+.side-nav
+  background-color: #010F3C !important
+  li
+    color: white !important
+  a
+    color: #C2C2C2 !important
+    &:hover
+      color: #94C8EF !important
 
 // RULES PAGE STYLES
 #rules-box
@@ -351,7 +364,7 @@ ul.dropdown-content.select-dropdown li span
 // ANIMATION STYLES
 
 #star-five
-  margin: 50px 0
+  margin: 30px 0 0 25px
   position: relative
   display: inline block
   color: #010F3C
@@ -399,22 +412,28 @@ ul.dropdown-content.select-dropdown li span
   content: ''
 
 .animated-slow
-  -webkit-animation-duration: 6s
-  animation-duration: 6s
+  -webkit-animation-duration: 2.1s
+  animation-duration: 2.1s
   -webkit-animation-fill-mode: both
   animation-fill-mode: both
+  animation-iteration-count: infinite
+  animation-direction: alternate
 
 .animated-med
-  -webkit-animation-duration: 4s
-  animation-duration: 4s
+  -webkit-animation-duration: 2.05s
+  animation-duration: 2.05s
   -webkit-animation-fill-mode: both
   animation-fill-mode: both
+  animation-iteration-count: infinite
+  animation-direction: alternate
 
 .animated-fast
   -webkit-animation-duration: 2s
   animation-duration: 2s
   -webkit-animation-fill-mode: both
   animation-fill-mode: both
+  animation-iteration-count: infinite
+  animation-direction: alternate
 
 @-webkit-keyframes zoomIn
   from
@@ -425,6 +444,11 @@ ul.dropdown-content.select-dropdown li span
   50%
     opacity: 1
 
+  100%
+    opacity: 0
+    -webkit-transform: scale3d(.3, .3, .3)
+    transform: scale3d(.3, .3, .3)
+
 @keyframes zoomIn
   from
     opacity: 0
@@ -433,6 +457,11 @@ ul.dropdown-content.select-dropdown li span
 
   50%
     opacity: 1
+
+  // 100%
+  //   opacity: 0
+  //   -webkit-transform: scale3d(.3, .3, .3)
+  //   transform: scale3d(.3, .3, .3)
 
 .zoomIn
   -webkit-animation-name: zoomIn

@@ -57,4 +57,5 @@ block content
                 td=wager.odds
                 td=wager.risk
                 td=wager.to_win
-                td=wager.net_total
+                - var total = Math.round(wager.net_total*100)/100
+                td=total

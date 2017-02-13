@@ -7,6 +7,7 @@ $(document).ready(function(){
     .end().appendTo('#slideshow');
   }, 4000);
 
+  $('.parallax').parallax();
   $('.dropdown-button').dropdown({
     belowOrigin: true
   });

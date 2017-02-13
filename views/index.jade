@@ -1,39 +1,43 @@
 extends layout
 
 block content
+  div.parallax-container.para-top
+    div.parallax
+      img(src='images/all-star-17-logo.jpg')
   div.row
-    div.col.s6
-      div.home-box.center-align
-        div.lead
-          div.bounceIn.animated-fast
-            | THE WORLD'S FIRST 
-          div.bounceIn.animated-med
-            | NBA ALL-STAR 
-          div.bounceIn.animated-slow
-            | GAMBLING GAME.
-        div.top-footer
-          | (...it's gotta be, right?)
-        div.row.stars
-          div.col.s2.offset-s3
-            div#star-five.zoomIn.animated-fast
-          div.col.s2
-            div#star-five.zoomIn.animated-med
-          div.col.s2
-            div#star-five.zoomIn.animated-slow
-        div.rule-line
-          | Read the 
-          a(href='/rules')
-            | RULES
-        div.or
-          i
-            | - or - 
-        a(href='/login/facebook')
-          img#fb-login(src='images/fb_button.png')
-            
-          
-    div.col.s6
+    div.col.s12.center-align.home-box
+      div
+        | The World's First NBA All-Star Weekend Pool.
+      div.top-footer
+        | (...it's gotta be, right?)
+    //- div.col.s12
+    //-     div.row.stars
+    //-       div.col.s2.offset-s3
+    //-         div#star-five.zoomIn.animated-fast
+    //-       div.col.s2
+    //-         div#star-five.zoomIn.animated-med
+    //-       div.col.s2
+    //-         div#star-five.zoomIn.animated-slow
+  div.row
+    div.col.s4
+    div.col.s4
       div#slideshow
         img(src='images/skills-challenge.jpg')
         img(src='images/3pt-shootout.jpg')
-        img(src='images/dunk-contest.jpg')
+        img(src='images/dunk-contest.jpg')    
+    div.col.s4
+      //-         
+      //-     div.rule-line
+      //-       | Read the 
+      //-       a(href='/rules')
+      //-         | RULES
+      //-     div.or
+      //-       i
+      //-         | - or - 
+      //-     a(href='/login/facebook')
+      //-       img#fb-login(src='images/fb_button.png')
+      //- div.col.s3
   
+  div.parallax-container
+    div.parallax
+      img(src='images/kobe-lebron.jpg')
