@@ -21,6 +21,21 @@ nav {
 .navbar-fixed {
   height: 0; }
 
+@media screen and (min-width: 300px) {
+  .page-footer {
+    height: 200px !important;
+    background-color: #010F3C !important;
+    text-align: center;
+    color: white;
+    font-size: 48px; }
+    .page-footer div {
+      margin-top: 20px; }
+    .page-footer a {
+      color: #B6102A; } }
+
+#sidenav-overlay {
+  z-index: 0 !important; }
+
 .fa-bars {
   font-size: 28px !important; }
 
@@ -51,6 +66,10 @@ nav {
 
 .spacer {
   margin-top: 20px; }
+
+.fb {
+  color: #010F3C;
+  margin-top: -10px; }
 
 .home-box {
   background-color: transparent;
@@ -122,13 +141,17 @@ nav {
   margin-bottom: 2px; }
 
 .side-nav {
+  z-index: 5;
   background-color: #010F3C !important; }
   .side-nav li {
-    color: white !important; }
+    color: white !important;
+    font-size: 24px !important; }
   .side-nav a {
-    color: #C2C2C2 !important; }
+    color: #C2C2C2 !important;
+    font-size: 36px !important;
+    margin-bottom: 10px !important; }
     .side-nav a:hover {
-      color: #94C8EF !important; }
+      color: #B6102A !important; }
 
 #rules-box {
   background-color: white;
@@ -239,7 +262,7 @@ nav {
   width: 120px; }
   .pick-btn:hover {
     color: white !important;
-    background-color: #053497 !important;
+    background-color: #B6102A !important;
     width: 120px; }
 
 .header {
