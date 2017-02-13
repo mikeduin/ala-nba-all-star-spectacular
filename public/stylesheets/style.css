@@ -16,7 +16,7 @@ nav {
   nav ul li {
     color: #C2C2C2; }
     nav ul li a:hover {
-      color: #94C8EF; }
+      color: #B6102A; }
 
 .navbar-fixed {
   height: 0; }
@@ -46,9 +46,6 @@ nav {
     margin-top: -21px;
     margin-left: 10px; } }
 
-.parallax-container {
-  height: 350px !important; }
-
 .para-top {
   margin-top: -20px; }
 
@@ -56,15 +53,29 @@ nav {
   margin-top: 20px; }
 
 .home-box {
-  margin-top: 10px;
   background-color: transparent;
-  font-size: 48px;
+  font-size: 40px;
   font-weight: 800;
   color: #010F3C; }
+  @media screen and (min-width: 1060px) {
+    .home-box {
+      font-size: 48px; } }
 
-.stars {
-  margin-top: -10px;
-  margin-bottom: -10px; }
+.fa-star {
+  font-size: 200px !important;
+  color: #010F3C; }
+  .fa-star:hover {
+    color: #B6102A; }
+    .fa-star:hover + .splash {
+      color: #B6102A; }
+
+.splash {
+  font-size: 36px;
+  color: #010F3C;
+  font-weight: 800; }
+
+.mid {
+  height: 450px; }
 
 .rule-line {
   margin-top: -20px; }
@@ -83,12 +94,27 @@ nav {
 #slideshow {
   position: relative; }
   #slideshow img {
-    margin-left: 17%;
-    max-height: 250px;
+    margin-left: 3%;
+    max-height: 300px;
     position: absolute;
     left: 0;
     top: 0;
     border: solid 8px #010F3C; }
+    @media screen and (min-width: 1060px) {
+      #slideshow img {
+        margin-left: 5%; } }
+    @media screen and (min-width: 1200px) {
+      #slideshow img {
+        margin-left: 8%; } }
+    @media screen and (min-width: 1250px) {
+      #slideshow img {
+        margin-left: 11%; } }
+    @media screen and (min-width: 1250px) {
+      #slideshow img {
+        margin-left: 14%; } }
+    @media screen and (min-width: 1350px) {
+      #slideshow img {
+        margin-left: 17%; } }
 
 .or {
   font-size: 24px;
@@ -348,99 +374,5 @@ ul.dropdown-content.select-dropdown li span {
 
 #ins-row {
   border-bottom: dashed 2px black; }
-
-#star-five {
-  margin: 30px 0 0 25px;
-  position: relative;
-  display: inline block;
-  color: #010F3C;
-  width: 0px;
-  height: 0px;
-  border-right: 50px solid transparent;
-  border-bottom: 35px solid #010F3C;
-  border-left: 50px solid transparent;
-  -moz-transform: rotate(35deg);
-  -webkit-transform: rotate(35deg);
-  -ms-transform: rotate(35deg);
-  -o-transform: rotate(35deg); }
-
-#star-five:before {
-  border-bottom: 40px solid #010F3C;
-  border-left: 15px solid transparent;
-  border-right: 15px solid transparent;
-  position: absolute;
-  height: 0;
-  width: 0;
-  top: -22.5px;
-  left: -32.5px;
-  display: inline block;
-  content: "";
-  -webkit-transform: rotate(-35deg);
-  -moz-transform: rotate(-35deg);
-  -ms-transform: rotate(-35deg);
-  -o-transform: rotate(-35deg); }
-
-#star-five:after {
-  position: absolute;
-  display: inline block;
-  color: #010F3C;
-  top: 1.5px;
-  left: -52.5px;
-  width: 0px;
-  height: 0px;
-  border-right: 50px solid transparent;
-  border-bottom: 35px solid #010F3C;
-  border-left: 50px solid transparent;
-  -webkit-transform: rotate(-70deg);
-  -moz-transform: rotate(-70deg);
-  -ms-transform: rotate(-70deg);
-  -o-transform: rotate(-70deg);
-  content: ""; }
-
-.animated-slow {
-  -webkit-animation-duration: 2.1s;
-  animation-duration: 2.1s;
-  -webkit-animation-fill-mode: both;
-  animation-fill-mode: both;
-  animation-iteration-count: infinite;
-  animation-direction: alternate; }
-
-.animated-med {
-  -webkit-animation-duration: 2.05s;
-  animation-duration: 2.05s;
-  -webkit-animation-fill-mode: both;
-  animation-fill-mode: both;
-  animation-iteration-count: infinite;
-  animation-direction: alternate; }
-
-.animated-fast {
-  -webkit-animation-duration: 2s;
-  animation-duration: 2s;
-  -webkit-animation-fill-mode: both;
-  animation-fill-mode: both;
-  animation-iteration-count: infinite;
-  animation-direction: alternate; }
-
-@-webkit-keyframes zoomIn {
-  from {
-    opacity: 0;
-    -webkit-transform: scale3d(0.3, 0.3, 0.3);
-    transform: scale3d(0.3, 0.3, 0.3); }
-  50% {
-    opacity: 1; }
-  100% {
-    opacity: 0;
-    -webkit-transform: scale3d(0.3, 0.3, 0.3);
-    transform: scale3d(0.3, 0.3, 0.3); } }
-@keyframes zoomIn {
-  from {
-    opacity: 0;
-    -webkit-transform: scale3d(0.3, 0.3, 0.3);
-    transform: scale3d(0.3, 0.3, 0.3); }
-  50% {
-    opacity: 1; } }
-.zoomIn {
-  -webkit-animation-name: zoomIn;
-  animation-name: zoomIn; }
 
 /*# sourceMappingURL=style.css.map */
