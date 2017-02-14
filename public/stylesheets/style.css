@@ -36,6 +36,13 @@ nav {
 #sidenav-overlay {
   z-index: 0 !important; }
 
+#side-nav-logo {
+  max-height: 150px; }
+
+.nav-div {
+  display: flex;
+  justify-content: center; }
+
 .fa-bars {
   font-size: 28px !important; }
 
