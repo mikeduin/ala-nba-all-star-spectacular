@@ -48,7 +48,11 @@ $(document).ready(function(){
     if (bal - risk < 0) {
       Materialize.toast('Your balance of $' + bal + ' is insufficient for that wager!', 4000, 'bet-error');
       return;
-    }
+    };
+    if (risk < 5) {
+      Materialize.toast('The minimum wager amount is $5.', 4000, 'bet-error');
+      return;
+    };
     if (moment(time).isBefore(moment())) {
       Materialize.toast('Sorry, this event has already started!', 4000, 'bet-error');
       return;
@@ -229,9 +233,8 @@ $(document).ready(function(){
         wagers = bets.wagers;
         table.empty();
         for (var i=0; i<wagers.length; i++) {
-          wagers[i].result === null ? result = 0 : result = wagers.result;
           if (moment(wagers[i].start_time).isAfter(moment())) {
-            table.append('<tr><td>' + wagers[i].username + '</td><td>' + wagers[i].event + '</td><td>' + wagers[i].type + '</td><td>' + wagers[i].wager + '</td><td>' + wagers[i].odds + '</td><td>' + wagers[i].risk + '</td><td>' + wagers[i].to_win + '</td><td>' + result + '</td></tr>');
+            table.append('<tr><td>' + wagers[i].username + '</td><td>' + wagers[i].event + '</td><td>' + wagers[i].type + '</td><td>' + wagers[i].wager + '</td><td>' + wagers[i].odds + '</td><td>' + wagers[i].risk + '</td><td>' + wagers[i].to_win + '</td><td>' + wagers[i].net_total + '</td></tr>');
           }
         }
       }
