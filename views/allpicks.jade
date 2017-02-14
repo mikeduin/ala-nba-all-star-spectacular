@@ -48,7 +48,7 @@ block content
               | Result
         tbody#allPicksBody
           for wager in wagers
-            if (moment()).isBefore(moment(wager.start_time))
+            if (moment()).isAfter(moment(wager.start_time))
               tr
                 td=wager.username
                 td=wager.event

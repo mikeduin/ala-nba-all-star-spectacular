@@ -11,7 +11,7 @@ exports.up = function(knex, Promise) {
     t.string('facebookid');
     t.string('photo');
     t.boolean('superuser');
-    t.float('balance');
+    t.float('balance').defaultTo(1000);
     t.float('asg').defaultTo(0);
     t.float('dunk').defaultTo(0);
     t.float('threept').defaultTo(0);

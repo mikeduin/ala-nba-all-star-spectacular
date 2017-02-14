@@ -31,6 +31,8 @@ passport.deserializeUser(function(obj, done){
   done(null, obj);
 })
 
+// dev callback URI: 'http://localhost:3000/login/facebook/callback'
+
 passport.use('facebook', new FacebookStrategy({
   clientID: process.env.FB_APP_ID,
   clientSecret: process.env.FB_APP_SECRET,

@@ -53,6 +53,10 @@ $(document).ready(function(){
       Materialize.toast('The minimum wager amount is $5.', 4000, 'bet-error');
       return;
     };
+    if (risk > 700) {
+      Materialize.toast('The max wager amount is $700, otherwise you could not meet the event minimum requirements.', 4000, 'bet-error');
+      return;
+    };
     if (moment(time).isBefore(moment())) {
       Materialize.toast('Sorry, this event has already started!', 4000, 'bet-error');
       return;
@@ -98,16 +102,24 @@ $(document).ready(function(){
         riskEl.value = '';
         if (res.asgBal >= 100) {
           $('#asgmin').text('').append('<span class="min-met"> YES </span>')
+        } else {
+          $('#asgmin').text('').append('<span> NO [$' + res.asgBal + '] </span>')
         };
         if (res.skillsBal >= 100) {
           $('#skillsmin').text('').append('<span class="min-met"> YES </span>')
-        };
+        } else {
+          $('#skillsmin').text('').append('<span> NO [$' + res.skillsBal + '] </span>')
+        }
         if (res.dunkBal >= 100) {
           $('#dunkmin').text('').append('<span class="min-met"> YES </span>')
-        };
+        } else {
+          $('#dunkmin').text('').append('<span> NO [$' + res.dunkBal + '] </span>')
+        }
         if (res.threeptBal >= 100) {
           $('#threeptmin').text('').append('<span class="min-met"> YES </span>')
-        };
+        } else {
+          $('#threeptmin').text('').append('<span> NO [$' + res.threeptBal + '] </span>')
+        }
         Materialize.toast('Your ' + wager + ' ' + odds + ' bet was successfully placed!', 4000, 'toasted');
       }
     })

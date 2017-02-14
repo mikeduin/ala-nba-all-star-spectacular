@@ -2,11 +2,15 @@ extends layout
 
 block content
   div.row
-    table.col.s10.offset-s1#resultTable
+    table.col.s10.offset-s1.wagerTable
       thead
         tr.resultHead
           th(colspan=8).
             :: STANDINGS :: 
+        tr.subHead.center-align
+          th(colspan=8)
+            i
+              | Users will appear in the standings once they have placed a wager.
         tr
           th.
             Rank
