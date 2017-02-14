@@ -15,7 +15,8 @@ $(document).ready(function(){
   $('.button-collapse').sideNav({
       menuWidth: 360,
       edge: 'left',
-      closeOnClick: true
+      closeOnClick: true,
+      draggable: true
     });
 
   $('.risk-input').change(function(){
