@@ -5,17 +5,20 @@ block content
     div.col.s9
       table.bordered.wagerTable
         thead
-          tr.resultHead
-            th(colspan=7)
-              | :: NBA ALL-STAR WEEKEND LINES ::
+           tr.resultHead
+             th(colspan=7)
+               | :: NBA ALL-STAR WEEKEND LINES ::
+           tr
+             th(colspan=7).picks-desc
+               | To make a pick: enter an amount in the Risk column for your selection. The 'To Win' column will display your bet's payout. Then click the 'Place Bet' button to finalize your pick.
+               b 
+                | Once a bet is placed, it is final and cannot be taken back.
           tr
             th(colspan=7).picks-desc
-              | To make a pick: enter an amount in the Risk column for your selection. The 'To Win' column will display your bet's payout. Then click the 'Place Bet' button to finalize your pick.
-              b 
-               | Once a bet is placed, it is final and cannot be taken back.
-         tr
-           th(colspan=7).picks-desc#desc-bott
-             | Remember: you MUST wager at least $100 on each of the All-Star Saturday Night events (Skills / 3PT / Dunk) and the All-Star Game. You can spread the remainder of your money out however you'd like.
+              | Remember: you MUST wager at least $100 on each of the All-Star Saturday Night events (Skills / 3PT / Dunk) and the All-Star Game. You can spread the remainder of your money out however you'd like.
+          tr
+            th(colspan=7).picks-desc#desc-bott.red-text
+              | Lines for the Rising Stars and All-Star Games will be posted as soon as they are made available by Vegas.
           tr#picks-header
             th
               | Event
@@ -51,11 +54,12 @@ block content
                 td.curr-col.toWin
                 td
                   if wager.event !== 'Rising Stars Game' && wager.event !== 'All-Star Game'
-                    button.btn.pick-btn.hoverable.
-                      PLACE BET
+                    button.btn.pick-btn.hoverable
+                      | PLACE BET
                   else
-                    i
-                      | odds TBD
+                    button.btn.pick-btn.hoverable.disabled
+                      | PLACE BET
+
     div.col.s3
       div#minimums.z-depth-5
         div.center-align.min-header
