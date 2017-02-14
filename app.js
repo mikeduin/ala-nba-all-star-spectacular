@@ -34,7 +34,7 @@ passport.deserializeUser(function(obj, done){
 passport.use('facebook', new FacebookStrategy({
   clientID: process.env.FB_APP_ID,
   clientSecret: process.env.FB_APP_SECRET,
-  callbackURL: 'http://localhost:3000/login/facebook/callback',
+  callbackURL: 'http://nba-all-star-spectacular.herokuapp.com/login/facebook/callback',
   profileFields: ['id', 'email', 'displayName', 'photos', 'first_name', 'last_name', 'hometown', 'link']
 },
 
