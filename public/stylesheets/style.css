@@ -183,14 +183,6 @@ nav {
 .chip {
   white-space: nowrap; }
 
-#resultTable {
-  background-color: white;
-  border: solid 5px #010F3C; }
-  #resultTable th {
-    text-align: center; }
-  #resultTable tr td {
-    text-align: center; }
-
 .resultHead {
   color: #010F3C;
   font-size: 36px;
@@ -231,6 +223,10 @@ nav {
     padding-bottom: 0; }
   .wagerTable .resultHead {
     border-bottom: none; }
+  .wagerTable #results-body td {
+    text-align: center; }
+  .wagerTable #picks-header th {
+    text-align: left; }
 
 .allpicks th {
   padding-top: 5px !important;

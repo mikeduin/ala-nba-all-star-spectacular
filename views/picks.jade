@@ -16,7 +16,7 @@ block content
          tr
            th(colspan=7).picks-desc#desc-bott
              | Remember: you MUST wager at least $100 on each of the All-Star Saturday Night events (Skills / 3PT / Dunk) and the All-Star Game. You can spread the remainder of your money out however you'd like.
-          tr
+          tr#picks-header
             th
               | Event
             th
@@ -30,6 +30,7 @@ block content
             th
               | To Win
             th  
+              | Place Bet
         tbody
           for wager in wagers
             if (moment(wager.time)).isAfter(moment())
@@ -49,8 +50,12 @@ block content
                   input.risk-input(type='number')
                 td.curr-col.toWin
                 td
-                  button.btn.pick-btn.hoverable.
-                    PLACE BET
+                  if wager.event !== 'Rising Stars Game' && wager.event !== 'All-Star Game'
+                    button.btn.pick-btn.hoverable.
+                      PLACE BET
+                  else
+                    i
+                      | odds TBD
     div.col.s3
       div#minimums.z-depth-5
         div.center-align.min-header
