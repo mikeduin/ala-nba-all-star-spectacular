@@ -181,7 +181,8 @@ nav {
   font-weight: 600; }
 
 .chip {
-  white-space: nowrap; }
+  white-space: nowrap;
+  margin-top: 3px; }
 
 .resultHead {
   color: #010F3C;
