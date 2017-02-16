@@ -51,7 +51,6 @@ passport.use('facebook', new FacebookStrategy({
           username: username,
           first_name: profile._json.first_name,
           last_name: profile._json.last_name,
-          hometown: profile._json.hometown.name,
           fb_profile: profile._json.link,
           facebookid: profile.id,
           photo: profile.photos[0].value,
