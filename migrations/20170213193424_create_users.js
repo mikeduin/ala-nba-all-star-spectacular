@@ -6,7 +6,6 @@ exports.up = function(knex, Promise) {
     t.string('username');
     t.string('first_name');
     t.string('last_name');
-    t.string('hometown');
     t.string('fb_profile');
     t.string('facebookid');
     t.string('photo');
