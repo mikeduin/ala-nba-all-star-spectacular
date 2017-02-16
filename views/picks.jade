@@ -56,12 +56,8 @@ block content
                   input.risk-input(type='number')
                 td.curr-col.toWin
                 td
-                  if wager.event !== 'Rising Stars Game' && wager.event !== 'All-Star Game'
-                    button.btn.pick-btn.hoverable
-                      | PLACE BET
-                  else
-                    button.btn.pick-btn.hoverable.disabled
-                      | PLACE BET
+                  button.btn.pick-btn.hoverable
+                    | PLACE BET
 
     div.col.s3
       div#minimums.z-depth-5
