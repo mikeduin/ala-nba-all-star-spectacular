@@ -36,8 +36,24 @@ router.get('/', function(req, res, next){
         }
       };
       var sortedRes = [];
-      for (var key in resObj) {
-        sortedRes.push({username: key, photo: photoObj[key], rising_stars: resObj[key]["Rising Stars Game"], skills: resObj[key]["Skills Challenge"], three_pt: resObj[key]["Three-Point Contest"], dunk: resObj[key]["Dunk Contest"], all_star: resObj[key]["All-Star Game"], total: resObj[key]["TOTAL"]})
+      for (var key in photoObj) {
+        var rsTotal, skTotal, tpTotal, dunkTotal, asgTotal, total;
+        if (resObj[key] === undefined) {
+          rsTotal = 0
+          skTotal = 0;
+          tpTotal = 0;
+          dunkTotal = 0;
+          asgTotal = 0;
+          total = 0
+        } else {
+          rsTotal = resObj[key]["Rising Stars Game"];
+          skTotal = resObj[key]["Skills Challenge"];
+          tpTotal = resObj[key]["Three-Point Contest"];
+          dunkTotal = resObj[key]["Dunk Contest"];
+          asgTotal = resObj[key]["All-Star Game"];
+          total = resObj[key]["TOTAL"];
+        };
+        sortedRes.push({username: key, photo: photoObj[key], rising_stars: rsTotal, skills: skTotal, three_pt: tpTotal, dunk: dunkTotal, all_star: asgTotal, total: total})
       };
       sortedRes.sort(function(x, y){return y.total - x.total});
       res.render('results', {results: sortedRes});
