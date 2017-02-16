@@ -104,7 +104,7 @@ app.get('/login/facebook',
 
 app.get('/login/facebook/callback',
   passport.authenticate('facebook', {
-    successRedirect: 'back',
+    successRedirect: '/',
     failureRedirect: '/login'
   })
 );
