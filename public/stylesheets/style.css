@@ -198,6 +198,9 @@ nav {
   border-bottom: dashed 2px #D0D0D0;
   line-height: 20px; }
 
+.resBorder {
+  border-bottom: dashed 2px #D0D0D0; }
+
 .subHead {
   margin-top: -10px !important;
   border-bottom: dashed 2px #D0D0D0;
@@ -235,6 +238,26 @@ nav {
     text-align: center; }
   .wagerTable #picks-header th {
     text-align: left; }
+
+.rs-style {
+  color: #630A1B;
+  font-weight: 800; }
+
+.threept-style {
+  color: #053497;
+  font-weight: 800; }
+
+.skills-style {
+  color: #C9B057;
+  font-weight: 800; }
+
+.dunk-style {
+  color: #2F5032;
+  font-weight: 800; }
+
+.asg-style {
+  color: #010F3C;
+  font-weight: 800; }
 
 .allpicks th {
   padding-top: 5px !important;
