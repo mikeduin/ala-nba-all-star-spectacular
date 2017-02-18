@@ -253,14 +253,14 @@ $(document).ready(function(){
             odds = wagers[i].odds
           };
           if (wagers[i].net_total > 0) {
-            netTotal = '$' + wagers[i].net_total
+            netTotal = '<td.green-text> $' + wagers[i].net_total + '</td>'
           } else if (wagers[i].net_total < 0) {
-            netTotal = '-$' + wagers[i].net_total
+            netTotal = '<td.red-text> -$' + wagers[i].net_total + '</td>'
           } else {
-            netTotal = ''
+            netTotal = '<td> </td>'
           };
           if (moment(wagers[i].start_time).subtract(8, 'hours').isBefore(moment())) {
-            table.append('<tr><td>' + wagers[i].username + '</td><td>' + wagers[i].event + '</td><td>' + wagers[i].type + '</td><td>' + wagers[i].wager + '</td><td>' + odds + '</td><td> $' + wagers[i].risk + '</td><td> $' + wagers[i].to_win + '</td><td>' + netTotal + '</td></tr>');
+            table.append('<tr><td>' + wagers[i].username + '</td><td>' + wagers[i].event + '</td><td>' + wagers[i].type + '</td><td>' + wagers[i].wager + '</td><td>' + odds + '</td><td> $' + wagers[i].risk + '</td><td> $' + wagers[i].to_win + '</td>' + netTotal + '</tr>');
           }
         }
       }
