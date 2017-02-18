@@ -247,7 +247,7 @@ $(document).ready(function(){
         table.empty();
         console.log('wagers are ', wagers);
         for (var i=0; i<wagers.length; i++) {
-          if ((moment(wagers[i].start_time).subtract(8, 'hours').isBefore(moment())) {
+          if (moment(wagers[i].start_time).isBefore(moment())) {
             table.append('<tr><td>' + wagers[i].username + '</td><td>' + wagers[i].event + '</td><td>' + wagers[i].type + '</td><td>' + wagers[i].wager + '</td><td>' + wagers[i].odds + '</td><td>' + wagers[i].risk + '</td><td>' + wagers[i].to_win + '</td><td>' + wagers[i].net_total + '</td></tr>');
           }
         }
