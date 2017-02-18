@@ -5,25 +5,47 @@ block content
     table.col.s10.offset-s1.wagerTable
       thead
         tr.resultHead
-          th(colspan=8).
+          th(colspan=13).
             :: STANDINGS :: 
         tr
-          th.
+          th(rowspan=2).
             Rank
-          th.
+          th(rowspan=2).
             Entrant
-          th.
+          th(rowspan=2).
             TOTAL $
-          th.
+          th(colspan=2).
             Rising Stars
-          th.
+          th(colspan=2).
             Skills Challenge
-          th.
+          th(colspan=2).
             Three-Point Contest
-          th.
+          th(colspan=2).
             Slam Dunk Contest
-          th.
+          th(colspan=2).
             All-Star Game
+        tr
+          th.i-col.
+            wagered
+          th.b-col.
+            profit
+          th.i-col.
+            wagered
+          th.b-col.
+            profit
+          th.i-col.
+            wagered
+          th.b-col.
+            profit
+          th.i-col.
+            wagered
+          th.b-col.
+            profit
+          th.i-col.
+            wagered
+          th.b-col.
+            profit
+          
       tbody#results-body
         - var i=0
         for entrant in results
@@ -39,28 +61,33 @@ block content
               td.res-total='-$' + dol
             else
               td.res-total='$' + entrant.total
+            td.i-col='$' + entrant.wag_rs
             if entrant.rising_stars >= 0
-              td='$' + entrant.rising_stars
+              td.b-col='$' + entrant.rising_stars
             else
               - var dol = entrant.rising_stars.toString().substring(1)
-              td='-$' + dol
+              td.b-col='-$' + dol
+            td.i-col='$' + entrant.wag_skills
             if entrant.skills >= 0
-              td='$' + entrant.skills
+              td.b-col='$' + entrant.skills
             else
               - var dol = entrant.skills.toString().substring(1)
-              td='-$' + dol
+              td.b-col='-$' + dol
+            td.i-col='$' + entrant.wag_threept
             if entrant.three_pt >= 0
-              td='$' + entrant.three_pt
+              td.b-col='$' + entrant.three_pt
             else
               - var dol = entrant.three_pt.toString().substring(1)
-              td='-$' + dol
+              td.b-col='-$' + dol
+            td.i-col='$' + entrant.wag_dunk
             if entrant.dunk >= 0
-              td='$' + entrant.dunk
+              td.b-col='$' + entrant.dunk
             else
               - var dol = entrant.dunk.toString().substring(1)
-              td='-$' + dol
+              td.b-col='-$' + dol
+            td.i-col='$' + entrant.wag_asg
             if entrant.all_star >= 0
-              td='$' + entrant.all_star
+              td.b-col='$' + entrant.all_star
             else
               - var dol = entrant.all_star.toString().substring(1)
-              td='-$' + dol
+              td.b-col='-$' + dol

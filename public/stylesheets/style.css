@@ -187,6 +187,16 @@ nav {
   font-size: 20px;
   font-weight: 600; }
 
+.i-col {
+  font-size: 10px;
+  font-weight: 400;
+  font-style: italic; }
+
+.b-col {
+  font-size: 14px;
+  font-weight: 600;
+  color: #010F3C; }
+
 .chip {
   white-space: nowrap;
   margin-top: 3px; }
@@ -228,12 +238,15 @@ nav {
       padding-bottom: 8px;
       border-bottom: dashed 2px #D0D0D0; }
   .wagerTable th {
-    text-align: center; }
+    text-align: center;
+    padding: 0px 5px; }
   .wagerTable td {
     padding-top: 0;
     padding-bottom: 0; }
   .wagerTable .resultHead {
     border-bottom: none; }
+    .wagerTable .resultHead th {
+      padding: 15px 5px; }
   .wagerTable #results-body td {
     text-align: center; }
   .wagerTable #picks-header th {

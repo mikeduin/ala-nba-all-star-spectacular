@@ -13,10 +13,19 @@ function Users() {
 router.get('/', function(req, res, next){
   var resObj = {};
   var photoObj = {};
-  Users().select('username', 'photo').then(function(photos){
-    for (var i=0; i<photos.length; i++) {
-      photoObj[photos[i].username] = photos[i].photo
+  Users().then(function(users){
+    // console.log('users are ', users);
+    for (var i=0; i<users.length; i++) {
+      var wag_rs = 1000 - users[i].balance - users[i].threept - users[i].dunk - users[i].skills - users[i].asg;
+      photoObj[users[i].username] = {};
+      photoObj[users[i].username]['photo'] = users[i].photo;
+      photoObj[users[i].username]['wag_threept'] = users[i].threept;
+      photoObj[users[i].username]['wag_dunk'] = users[i].dunk;
+      photoObj[users[i].username]['wag_asg'] = users[i].asg;
+      photoObj[users[i].username]['wag_skills'] = users[i].skills;
+      photoObj[users[i].username]['wag_rs'] = wag_rs;
     };
+    console.log('photoObj is ', photoObj);
     Wagers().select('username', 'event').sum('net_total').groupBy('username', 'event').orderBy('event').then(function(results){
       for (var i=0; i<results.length; i++) {
         if (resObj[results[i].username] === undefined) {
@@ -53,7 +62,7 @@ router.get('/', function(req, res, next){
           asgTotal = resObj[key]["All-Star Game"];
           total = resObj[key]["TOTAL"];
         };
-        sortedRes.push({username: key, photo: photoObj[key], rising_stars: rsTotal, skills: skTotal, three_pt: tpTotal, dunk: dunkTotal, all_star: asgTotal, total: total})
+        sortedRes.push({username: key, photo: photoObj[key]['photo'], rising_stars: rsTotal, skills: skTotal, three_pt: tpTotal, dunk: dunkTotal, all_star: asgTotal, total: total, wag_rs: photoObj[key]['wag_rs'], wag_skills: photoObj[key]['wag_skills'], wag_threept: photoObj[key]['wag_threept'], wag_dunk: photoObj[key]['wag_dunk'], wag_asg: photoObj[key]['wag_asg']})
       };
       sortedRes.sort(function(x, y){return y.total - x.total});
       res.render('results', {results: sortedRes});
