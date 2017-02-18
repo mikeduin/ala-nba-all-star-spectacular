@@ -66,28 +66,28 @@ block content
               td.b-col='$' + entrant.rising_stars
             else
               - var dol = entrant.rising_stars.toString().substring(1)
-              td.b-col='-$' + dol
+              td.red-text.b-col='-$' + dol
             td.i-col='$' + entrant.wag_skills
             if entrant.skills >= 0
               td.b-col='$' + entrant.skills
             else
               - var dol = entrant.skills.toString().substring(1)
-              td.b-col='-$' + dol
+              td.red-text.b-col='-$' + dol
             td.i-col='$' + entrant.wag_threept
             if entrant.three_pt >= 0
               td.b-col='$' + entrant.three_pt
             else
               - var dol = entrant.three_pt.toString().substring(1)
-              td.b-col='-$' + dol
+              td.red-text.b-col='-$' + dol
             td.i-col='$' + entrant.wag_dunk
             if entrant.dunk >= 0
               td.b-col='$' + entrant.dunk
             else
               - var dol = entrant.dunk.toString().substring(1)
-              td.b-col='-$' + dol
+              td.red-text.b-col='-$' + dol
             td.i-col='$' + entrant.wag_asg
             if entrant.all_star >= 0
               td.b-col='$' + entrant.all_star
             else
               - var dol = entrant.all_star.toString().substring(1)
-              td.b-col='-$' + dol
+              td.red-text.b-col='-$' + dol

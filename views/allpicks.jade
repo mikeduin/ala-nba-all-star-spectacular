@@ -54,8 +54,16 @@ block content
                 td=wager.event
                 td=wager.type
                 td=wager.wager
-                td=wager.odds
-                td=wager.risk
-                td=wager.to_win
-                - var total = Math.round(wager.net_total*100)/100
-                td=total
+                if wager.odds > 0
+                  td='+' + wager.odds
+                else
+                  td=wager.odds
+                td='$' + wager.risk
+                td='$' + wager.to_win
+                - var total = (Math.round(wager.net_total*100)/100).toString();
+                if total > 0
+                  td.green-text='$' + total
+                else if total < 0
+                  td.red-text='-$' + total.substring(1)
+                else
+                  td.total
