@@ -31,8 +31,9 @@ router.post('/grade', function(req, res, next){
         var risk = wagers[i].risk;
         var win = wagers[i].to_win;
         var betId = wagers[i].api_id;
+        var wagerId = wagers[i].id;
         result === true ? payout = win : payout = -risk;
-        Wagers().where('api_id', betId).update({
+        Wagers().where('id', wagerId).update({
           result: result,
           net_total: payout
         }).then(function(){
