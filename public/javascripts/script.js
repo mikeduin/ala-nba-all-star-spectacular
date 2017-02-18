@@ -245,11 +245,20 @@ $(document).ready(function(){
       success: function(bets){
         wagers = bets.wagers;
         table.empty();
-        // console.log('wagers are ', wagers);
         for (var i=0; i<wagers.length; i++) {
-          // console.log(moment(wagers[i].start_time).subtract(8, 'hours'));
+          var odds, netTotal;
+          if (wagers[i].odds > 0) {
+            odds = '+' + wagers[i].odds
+          } else {
+            odds = wagers[i].odds
+          };
+          if (wagers[i].net_total > 0) {
+            netTotal = '$' + wagers[i].net_total
+          } else {
+            netTotal = '-$' + wagers[i].net_total
+          }
           if (moment(wagers[i].start_time).subtract(8, 'hours').isBefore(moment())) {
-            table.append('<tr><td>' + wagers[i].username + '</td><td>' + wagers[i].event + '</td><td>' + wagers[i].type + '</td><td>' + wagers[i].wager + '</td><td>' + wagers[i].odds + '</td><td>' + wagers[i].risk + '</td><td>' + wagers[i].to_win + '</td><td>' + wagers[i].net_total + '</td></tr>');
+            table.append('<tr><td>' + wagers[i].username + '</td><td>' + wagers[i].event + '</td><td>' + wagers[i].type + '</td><td>' + wagers[i].wager + '</td><td>' + odds + '</td><td> $' + wagers[i].risk + '</td><td> $' + wagers[i].to_win + '</td><td>' + netTotal + '</td></tr>');
           }
         }
       }
