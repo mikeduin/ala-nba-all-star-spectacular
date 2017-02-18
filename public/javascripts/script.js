@@ -259,7 +259,7 @@ $(document).ready(function(){
           } else {
             netTotal
           }
-          if (moment(wagers[i].start_time).subtract(8, 'hours').isAfter(moment())) {
+          if (moment(wagers[i].start_time).subtract(8, 'hours').isBefore(moment())) {
             table.append('<tr><td>' + wagers[i].username + '</td><td>' + wagers[i].event + '</td><td>' + wagers[i].type + '</td><td>' + wagers[i].wager + '</td><td>' + odds + '</td><td> $' + wagers[i].risk + '</td><td> $' + wagers[i].to_win + '</td><td>' + netTotal + '</td></tr>');
           }
         }
