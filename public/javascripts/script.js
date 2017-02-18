@@ -255,7 +255,7 @@ $(document).ready(function(){
           if (wagers[i].net_total > 0) {
             netTotal = '$' + wagers[i].net_total
           } else if (wagers[i].net_total < 0) {
-            netTotal = '-$' + wagers[i].net_total
+            netTotal = '-$' + wagers[i].net_total.toString().substring(1)
           } else {
             netTotal
           }
