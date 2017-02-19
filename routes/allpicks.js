@@ -9,7 +9,7 @@ function Wagers () {
 router.get('/', function(req, res, next){
   Wagers().orderBy('username').then(function(wagers){
     Wagers().distinct('username').select().orderBy('username').then(function(users){
-      res.render('allpicks', {wagers: wagers, users:users})
+      res.render('allpicks', {wagers: wagers, users: users})
     })
   })
 })

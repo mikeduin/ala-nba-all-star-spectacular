@@ -36,34 +36,33 @@ block content
               | Place Bet
         tbody
           for wager in wagers
-            if (moment(wager.time)).isAfter(moment())
-              tr
-                td.hidden=wager.id
-                td.hidden=wager.time
-                if user
-                  td.hidden=user.username
-                if wager.event === 'Rising Stars Game'              
-                  td.rs-style=wager.event
-                else if wager.event === 'Skills Challenge'
-                  td.skills-style=wager.event
-                else if wager.event === 'Three-Point Contest'
-                  td.threept-style=wager.event
-                else if wager.event === 'Dunk Contest'
-                  td.dunk-style=wager.event
-                else
-                  td.asg-style=wager.event
-                td=wager.type
-                td.wager-col(style='font-weight: 800')=wager.side
-                if wager.odds < 0 
-                  td=wager.odds
-                else
-                  td='+'+ wager.odds
-                td.input-field.curr-col
-                  input.risk-input(type='number')
-                td.curr-col.toWin
-                td
-                  button.btn.pick-btn.hoverable
-                    | PLACE BET
+            tr
+              td.hidden=wager.id
+              td.hidden=wager.time
+              if user
+                td.hidden=user.username
+              if wager.event === 'Rising Stars Game'              
+                td.rs-style=wager.event
+              else if wager.event === 'Skills Challenge'
+                td.skills-style=wager.event
+              else if wager.event === 'Three-Point Contest'
+                td.threept-style=wager.event
+              else if wager.event === 'Dunk Contest'
+                td.dunk-style=wager.event
+              else
+                td.asg-style=wager.event
+              td=wager.type
+              td.wager-col(style='font-weight: 800')=wager.side
+              if wager.odds < 0 
+                td=wager.odds
+              else
+                td='+'+ wager.odds
+              td.input-field.curr-col
+                input.risk-input(type='number')
+              td.curr-col.toWin
+              td
+                button.btn.pick-btn.hoverable.disabled
+                  | PLACE BET
 
     div.col.s3
       div#minimums.z-depth-5
