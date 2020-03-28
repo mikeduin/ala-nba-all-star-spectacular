@@ -4,12 +4,12 @@ module.exports = {
 
   development: {
     client: 'pg',
-    connection: process.env.MAIN_DB_URI
+    connection: process.env.USERS_DB_URI
   },
 
   production: {
     client: 'pg',
-    connection: process.env.MAIN_DB_URI
+    connection: process.env.USERS_DB_URI
   }
 
 };
