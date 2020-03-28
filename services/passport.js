@@ -97,12 +97,13 @@ passport.use(new GoogleStrategy({
   })
 );
 
-// dev callback URI: 'http://localhost:3000/login/facebook/callback'
+// dev callback URI: 'http://localhost:3000/auth/facebook/callback'
 
 passport.use('facebook', new FacebookStrategy({
   clientID: process.env.FB_APP_ID,
   clientSecret: process.env.FB_APP_SECRET,
-  callbackURL: 'https://nba-all-star-spectacular.herokuapp.com/auth/facebook/callback',
+  callbackURL: 'http://localhost:3000/auth/facebook/callback',
+  // callbackURL: 'https://nba-all-star-spectacular.herokuapp.com/auth/facebook/callback',
   profileFields: ['id', 'email', 'displayName', 'photos', 'first_name', 'last_name', 'hometown', 'link']
 },
 

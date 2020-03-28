@@ -7,11 +7,11 @@ var bodyParser = require('body-parser');
 var knex = require('./db/knex.js');
 var session = require('cookie-session');
 var passport = require('passport');
+require('dotenv').config();
 require('./services/passport');
-require('dotenv').load();
 
 var index = require('./routes/index');
-var auth = require('./roues/auth');
+var auth = require('./routes/auth');
 var user = require('./routes/user');
 var results = require('./routes/results');
 var picks = require('./routes/picks');

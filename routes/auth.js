@@ -69,7 +69,7 @@ router.post('/register', async (req, res, next) => {
   })
 })
 
-router.post('/auth/login', (req, res, next) => {
+router.post('/login', (req, res, next) => {
   if(!req.body.username || !req.body.password){
     return res.status(400).json({message: 'You forgot to include either your username or your password!'});
   };
