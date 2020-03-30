@@ -1,53 +1,41 @@
-var express = require('express');
-var router = express.Router();
-var knex = require('../db/knex')
+const express = require('express');
+const router = express.Router();
+const knex = require('../db/knex');
+const mainDb = knex.mainDb;
+const userDb = knex.userDb;
 
 function Wagers () {
-  return knex('wagers')
+  return mainDb('wagers')
 };
 
-router.get('/', function(req, res, next){
-  Wagers().orderBy('username').then(function(wagers){
-    Wagers().distinct('username').select().orderBy('username').then(function(users){
-      res.render('allpicks', {wagers: wagers, users: users})
-    })
-  })
+router.get('/', async (req, res, next) => {
+  const wagers = await Wagers().orderBy('username');
+  const users = await Wagers().distinct('username').select().orderBy('username');
+  res.render('allpicks', {wagers: wagers, users: users});
 })
 
-router.get('/user/all/event/all', function(req, res, next){
-  Wagers().orderBy('username').then(function(wagers){
-    res.json({
-      wagers: wagers
-    })
-  })
+router.get('/user/all/event/all', async (req, res, next) => {
+  const wagers = await Wagers().orderBy('username');
+  res.json({wagers: wagers})
 })
 
-router.get('/user/:user/event/all', function(req, res, next){
-  var user = req.params.user;
-  Wagers().where({username: user}).then(function(wagers){
-    res.json({
-      wagers: wagers
-    })
-  })
+router.get('/user/:user/event/all', async (req, res, next) => {
+  const user = req.params.user;
+  const wagers = await Wagers().where({username: user});
+  res.json({wagers: wagers});
 })
 
-router.get('/user/all/event/:event', function(req, res, next){
-  var event = req.params.event;
-  Wagers().where({event: event}).orderBy('username').then(function(wagers){
-    res.json({
-      wagers: wagers
-    })
-  })
+router.get('/user/all/event/:event', async (req, res, next) => {
+  const event = req.params.event;
+  const wagers = await Wagers().where({event: event}).orderBy('username');
+  res.json({wagers: wagers});
 })
 
-router.get('/user/:user/event/:event', function(req, res, next){
-  var user = req.params.user;
-  var event = req.params.event;
-  Wagers().where({username: user, event: event}).then(function(wagers){
-    res.json({
-      wagers: wagers
-    })
-  })
+router.get('/user/:user/event/:event', async (req, res, next) => {
+  const user = req.params.user;
+  const event = req.params.event;
+  const wagers = await Wagers().where({username: user, event: event});
+  res.json({wagers: wagers});
 })
 
 module.exports = router;

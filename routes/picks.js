@@ -1,9 +1,11 @@
-var express = require('express');
-var router = express.Router();
-var knex = require('../db/knex');
-var fetch = require('node-fetch');
-var moment = require('moment');
-var fs = require('fs');
+const express = require('express');
+const router = express.Router();
+const knex = require('../db/knex');
+const fetch = require('node-fetch');
+const moment = require('moment');
+const fs = require('fs');
+const userDb = knex.userDb;
+const mainDb = knex.mainDb;
 
 function Wagers() {
   return knex('wagers');
