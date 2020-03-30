@@ -100,28 +100,28 @@ passport.use(new GoogleStrategy({
 // dev callback URI: 'http://localhost:3000/auth/facebook/callback'
 
 passport.use('facebook', new FacebookStrategy({
-  clientID: process.env.FB_APP_ID,
-  clientSecret: process.env.FB_APP_SECRET,
-  callbackURL: 'http://localhost:3000/auth/facebook/callback',
-  // callbackURL: 'https://nba-all-star-spectacular.herokuapp.com/auth/facebook/callback',
-  profileFields: ['id', 'email', 'displayName', 'photos', 'first_name', 'last_name', 'hometown', 'link']
-},
+    clientID: process.env.FB_APP_ID,
+    clientSecret: process.env.FB_APP_SECRET,
+    // callbackURL: 'https://localhost:3000/auth/facebook/callback',
+    callbackURL: 'https://nba-all-star-spectacular.herokuapp.com/auth/facebook/callback',
+    profileFields: ['id', 'email', 'displayName', 'photos', 'first_name', 'last_name', 'hometown', 'link']
+  },
 
   // facebook will send back the tokens + profile
   function(accessToken, refreshToken, profile, done) {
     var email = profile.emails[0].value;
     var username = email.split('@')[0];
-    knex('users').first().where('email', email).then(function(user){
+    Users().where('email', email).then(function(user){
       if (!user) {
-        knex('users').insert({
+        Users().insert({
           email: email,
           username: username,
-          first_name: profile._json.first_name,
-          last_name: profile._json.last_name,
+          nameFirst: profile._json.first_name,
+          nameLast: profile._json.last_name,
           fb_profile: profile._json.link,
           facebookid: profile.id,
-          photo: profile.photos[0].value,
-          superuser: false
+          photo_url: profile.photos[0].value,
+          admin: false
         }, '*').then(function(user){
           done(null, user[0]);
         });

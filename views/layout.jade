@@ -18,7 +18,7 @@ html
         a(href='/allpicks')
           | All Picks
       if user
-        if user.superuser === true
+        if user.admin === true
           li
             a(href='/editlines')
               | Edit Lines
@@ -109,29 +109,19 @@ html
                   | Back
             div.row
               div.col.s12.center-align
-                | First time here?
+                | Need an ALA account?
                 br
                 | Registering is quick and easy.
             div.row
               div.col.s12.center-align
                 | - or - 
             div.row.center-align
-              div.login-img-box
+              a.login-img-box(href='/auth/google')
                 img(src='/images/sign-in-with-google.svg')
             div.row.center-align
               <div class="fb-login-button" data-width="" data-size="large" data-button-type="continue_with" data-layout="default" data-auto-logout-link="false" data-use-continue-as="false"></div>
           div.col.s3.modal-left-col-cont
-            img(src='/images/kyrie-drib.jpg')
-
-          
-              
-          
-      //- 
-      //- div.modal-footer
-      //-   a.modal-close.waves-effect.waves-green.btn-flat(href='#!')
-      //-     | Agree
-    
-      
+            img(src='/images/kyrie-drib.jpg')      
     div.spacer
       block content
         

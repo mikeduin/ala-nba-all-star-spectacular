@@ -44,7 +44,8 @@ app.use(passport.session());
 
 
 app.use(function (req, res, next) {
-  res.locals.user = req.user;
+  let user = Array.isArray(req.user) ? req.user[0] : req.user;
+  res.locals.user = user;
   next();
 })
 

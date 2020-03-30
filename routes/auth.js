@@ -21,27 +21,17 @@ router.get(
   }
 );
 
-// router.post('/login',
-//   passport.authenticate('local', { successRedirect: '/',
-//                                    failureRedirect: '/rules',
-//                                    failureFlash: true })
-// );
-
 router.post('/login', (req, res, next) => {
   if(!req.body.username || !req.body.password){
     return res.status(400).json({message: 'You forgot to include either your username or your password!'});
   };
-  // passport.authenticate('local', { successRedirect: '/',
-  //                                  failureRedirect: '/rules'});
   passport.authenticate('local', (err, user, info) => {
     if (err) { return next(err) }
     if (user) {
     // THIS FUNCTION WAS NEEDED TO CALL SERIALIZE USER!!
-    console.log('user in authenticate is ', user);
+    // console.log('user in authenticate is ', user);
     req.logIn(user, function(err) {
              if (err) { return res.send(err); }
-             // res.send([user]);
-             // res.render('index', {user: req.user});
              res.redirect('/');
           });
     } else {
@@ -87,9 +77,10 @@ router.post('/register', async (req, res, next) => {
       if (err) { return next(err) }
       if (user) {
       // THIS FUNCTION WAS NEEDED TO CALL SERIALIZE USER!!
+      // console.log('user in authenticate is ', user);
       req.logIn(user, function(err) {
                if (err) { return res.send(err); }
-               res.send([user]);
+               res.redirect('/');
             });
       } else {
         return res.status(401).json(info);

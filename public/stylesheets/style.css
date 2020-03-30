@@ -51,7 +51,7 @@ button.login-form.back {
 button.login-form.confirm {
   background-color: #00081e; }
 
-div.login-img-box {
+a.login-img-box {
   display: flex;
   justify-content: center; }
 
