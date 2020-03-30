@@ -1,15 +1,11 @@
-// Update with your config settings.
-
 module.exports = {
-
   development: {
-    client: 'pg',
+    client: 'postgresql',
     connection: process.env.USERS_DB_URI
   },
 
   production: {
-    client: 'pg',
+    client: 'postgresql',
     connection: process.env.USERS_DB_URI
   }
-
 };

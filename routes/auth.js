@@ -14,12 +14,41 @@ router.get('/google', passport.authenticate('google', {
 }));
 
 router.get(
-  '/auth/google/callback',
+  '/google/callback',
   passport.authenticate('google'),
   (req, res) => {
     res.redirect('/');
   }
 );
+
+// router.post('/login',
+//   passport.authenticate('local', { successRedirect: '/',
+//                                    failureRedirect: '/rules',
+//                                    failureFlash: true })
+// );
+
+router.post('/login', (req, res, next) => {
+  if(!req.body.username || !req.body.password){
+    return res.status(400).json({message: 'You forgot to include either your username or your password!'});
+  };
+  // passport.authenticate('local', { successRedirect: '/',
+  //                                  failureRedirect: '/rules'});
+  passport.authenticate('local', (err, user, info) => {
+    if (err) { return next(err) }
+    if (user) {
+    // THIS FUNCTION WAS NEEDED TO CALL SERIALIZE USER!!
+    console.log('user in authenticate is ', user);
+    req.logIn(user, function(err) {
+             if (err) { return res.send(err); }
+             // res.send([user]);
+             // res.render('index', {user: req.user});
+             res.redirect('/');
+          });
+    } else {
+      return res.status(401).json(info);
+    }
+  })(req, res, next);
+});
 
 router.post('/register', async (req, res, next) => {
   var salt = crypto.randomBytes(16).toString('hex');
@@ -68,25 +97,6 @@ router.post('/register', async (req, res, next) => {
     })(req, res, next);
   })
 })
-
-router.post('/login', (req, res, next) => {
-  if(!req.body.username || !req.body.password){
-    return res.status(400).json({message: 'You forgot to include either your username or your password!'});
-  };
-  passport.authenticate('local', (err, user, info) => {
-    if (err) { return next(err) }
-    if (user) {
-    // THIS FUNCTION WAS NEEDED TO CALL SERIALIZE USER!!
-    req.logIn(user, function(err) {
-             if (err) { return res.send(err); }
-             res.send([user]);
-          });
-    } else {
-      return res.status(401).json(info);
-    }
-  })(req, res, next);
-});
-
 
 router.get('/facebook',
   passport.authenticate('facebook', { scope: ['public_profile', 'email', 'user_hometown']})

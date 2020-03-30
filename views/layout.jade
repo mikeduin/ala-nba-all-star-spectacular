@@ -8,6 +8,8 @@ html
     link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css')
     link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css')
   body
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v6.0&appId=1838943476378104&autoLogAppEvents=1"></script>
     ul#dropdown.dropdown-content
       li
         a(href='/results')
@@ -33,11 +35,11 @@ html
             if user
               li='Welcome, ' + user.username
               li 
-                a(href='/logout')
+                a(href='/auth/logout')
                   | Logout
             else 
               li
-                a.modal-trigger(href='#modal1')
+                a.modal-trigger(href='#modal-login')
                   | Login
                 //- a(href='/auth/facebook')
                 //-   | Login
@@ -81,18 +83,59 @@ html
               a(href='http://www.alafantasysports.com' target='_blank')
                 | ALA Home
       
+    div#modal-login.modal
+      div.modal-content
+        div.row.modal-header
+          | Login to A Level Above
+        div.row
+          div.col.s3.modal-left-col-cont
+            img(src='/images/jordan-reb.jpg')
+          div.col.s6
+            form(action='/auth/login' method='post')
+              div.row
+                div.input-field.col.s10.offset-s1
+                  input#username(type='text' name='username')
+                  label(for="username")
+                    | Username
+              div.row
+                div.input-field.col.s10.offset-s1
+                  input#password.validate(type='password' name='password')
+                  label(for="password")
+                    | Password
+              div.row.center-align
+                button.btn.login-form.confirm(type="submit")
+                  | Login
+                button.btn.login-form.back
+                  | Back
+            div.row
+              div.col.s12.center-align
+                | First time here?
+                br
+                | Registering is quick and easy.
+            div.row
+              div.col.s12.center-align
+                | - or - 
+            div.row.center-align
+              div.login-img-box
+                img(src='/images/sign-in-with-google.svg')
+            div.row.center-align
+              <div class="fb-login-button" data-width="" data-size="large" data-button-type="continue_with" data-layout="default" data-auto-logout-link="false" data-use-continue-as="false"></div>
+          div.col.s3.modal-left-col-cont
+            img(src='/images/kyrie-drib.jpg')
+
+          
+              
+          
+      //- 
+      //- div.modal-footer
+      //-   a.modal-close.waves-effect.waves-green.btn-flat(href='#!')
+      //-     | Agree
+    
+      
     div.spacer
       block content
         
-    div#modal.modal
-      div.modal-content
-        h4
-          | Modal Header
-        p
-          | A bunch of text
-      div.modal-footer
-        a.modal-close.waves-effect.waves-green.btn-flat(href='#!')
-          | Agree
+
     
     script(src='https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js')
     script(src='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js')

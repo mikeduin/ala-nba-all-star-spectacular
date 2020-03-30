@@ -8,6 +8,7 @@ $(document).ready(function(){
   }, 4000);
 
   $('.parallax').parallax();
+  $('.modal').modal();
   $('.dropdown-button').dropdown({
     belowOrigin: true
   });

@@ -1,5 +1,5 @@
-var environment = process.env.NODE_ENV || 'development';
-var config = require('../knexfile.js')[environment];
+const environment = process.env.NODE_ENV || 'development';
+const config = require('../knexfile.js')[environment];
 const config_users = require('../knexfile_users.js')[environment];
 
 module.exports = {

@@ -4,7 +4,7 @@ body {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  font-family: 'Raleway', sans-serif; }
+  font-family: "Raleway", sans-serif; }
 
 a {
   color: #94C8EF; }
@@ -13,55 +13,15 @@ nav {
   background-color: #010F3C !important;
   font-weight: 600;
   padding-left: 10px; }
-  nav ul li {
-    color: #C2C2C2; }
-    nav ul li a:hover {
-      color: #B6102A; }
+
+nav ul li {
+  color: #C2C2C2; }
+
+nav ul li a:hover {
+  color: #B6102A; }
 
 .navbar-fixed {
   height: 0; }
-
-#modal-login {
-  width: 60%;
-  background-color: #f1f3f4; }
-  #modal-login .modal-content {
-    padding: 0 !important; }
-  #modal-login .modal-header {
-    background-color: #00081e;
-    color: white;
-    font-size: 2.1rem;
-    font-weight: 800;
-    display: flex;
-    align-items: center;
-    justify-content: center; }
-  #modal-login button {
-    margin-right: 5px; }
-  #modal-login div.input-field {
-    margin-bottom: -15px !important;
-    margin-top: -5px !important; }
-    #modal-login div.input-field label.active {
-      color: #00081e !important; }
-    #modal-login div.input-field input:focus {
-      border-bottom: 1px solid #00081e !important;
-      box-shadow: 0 1px 0 0 #00081e !important; }
-
-button.login-form.back {
-  background-color: #d95350; }
-
-button.login-form.confirm {
-  background-color: #00081e; }
-
-div.login-img-box {
-  display: flex;
-  justify-content: center; }
-
-.modal-left-col-cont {
-  height: 100%;
-  display: flex;
-  align-items: center; }
-  .modal-left-col-cont img {
-    max-width: 100%;
-    max-height: 100%; }
 
 @media screen and (min-width: 300px) {
   .page-footer {
@@ -70,10 +30,10 @@ div.login-img-box {
     text-align: center;
     color: white;
     font-size: 48px; }
-    .page-footer div {
-      margin-top: 20px; }
-    .page-footer a {
-      color: #B6102A; } }
+  .page-footer div {
+    margin-top: 20px; }
+  .page-footer a {
+    color: #B6102A; } }
 
 #sidenav-overlay {
   z-index: 0 !important; }
@@ -90,10 +50,12 @@ div.login-img-box {
 
 #dropdown {
   background-color: #010F3C; }
-  #dropdown a {
-    color: #C2C2C2; }
-    #dropdown a:hover {
-      color: black; }
+
+#dropdown a {
+  color: #C2C2C2; }
+
+#dropdown a:hover {
+  color: black; }
 
 .brand-logo {
   margin-top: 4px; }
@@ -126,17 +88,20 @@ div.login-img-box {
   font-size: 40px;
   font-weight: 800;
   color: #010F3C; }
-  @media screen and (min-width: 1060px) {
-    .home-box {
-      font-size: 48px; } }
+
+@media screen and (min-width: 1060px) {
+  .home-box {
+    font-size: 48px; } }
 
 .fa-star {
   font-size: 200px !important;
   color: #010F3C; }
-  .fa-star:hover {
-    color: #B6102A; }
-    .fa-star:hover + .splash {
-      color: #B6102A; }
+
+.fa-star:hover {
+  color: #B6102A; }
+
+.fa-star:hover + .splash {
+  color: #B6102A; }
 
 .splash {
   font-size: 36px;
@@ -162,28 +127,34 @@ div.login-img-box {
 
 #slideshow {
   position: relative; }
+
+#slideshow img {
+  margin-left: 3%;
+  max-height: 300px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  border: solid 8px #010F3C; }
+
+@media screen and (min-width: 1060px) {
   #slideshow img {
-    margin-left: 3%;
-    max-height: 300px;
-    position: absolute;
-    left: 0;
-    top: 0;
-    border: solid 8px #010F3C; }
-    @media screen and (min-width: 1060px) {
-      #slideshow img {
-        margin-left: 5%; } }
-    @media screen and (min-width: 1200px) {
-      #slideshow img {
-        margin-left: 8%; } }
-    @media screen and (min-width: 1250px) {
-      #slideshow img {
-        margin-left: 11%; } }
-    @media screen and (min-width: 1250px) {
-      #slideshow img {
-        margin-left: 14%; } }
-    @media screen and (min-width: 1350px) {
-      #slideshow img {
-        margin-left: 17%; } }
+    margin-left: 5%; } }
+
+@media screen and (min-width: 1200px) {
+  #slideshow img {
+    margin-left: 8%; } }
+
+@media screen and (min-width: 1250px) {
+  #slideshow img {
+    margin-left: 11%; } }
+
+@media screen and (min-width: 1250px) {
+  #slideshow img {
+    margin-left: 14%; } }
+
+@media screen and (min-width: 1350px) {
+  #slideshow img {
+    margin-left: 17%; } }
 
 .or {
   font-size: 24px;
@@ -193,15 +164,18 @@ div.login-img-box {
 .side-nav {
   z-index: 5;
   background-color: #010F3C !important; }
-  .side-nav li {
-    color: white !important;
-    font-size: 24px !important; }
-  .side-nav a {
-    color: #C2C2C2 !important;
-    font-size: 36px !important;
-    margin-bottom: 10px !important; }
-    .side-nav a:hover {
-      color: #B6102A !important; }
+
+.side-nav li {
+  color: white !important;
+  font-size: 24px !important; }
+
+.side-nav a {
+  color: #C2C2C2 !important;
+  font-size: 36px !important;
+  margin-bottom: 10px !important; }
+
+.side-nav a:hover {
+  color: #B6102A !important; }
 
 #rules-box {
   background-color: white;
@@ -216,8 +190,9 @@ div.login-img-box {
 
 .rules {
   font-size: 18px; }
-  .rules li {
-    margin-top: 10px; }
+
+.rules li {
+  margin-top: 10px; }
 
 .mj-kobe, .phx-jerseys {
   max-width: 300px;
@@ -262,37 +237,46 @@ div.login-img-box {
   border-collapse: collapse;
   border: solid 5px #010F3C;
   background-color: white; }
-  .wagerTable tr {
-    line-height: 20px;
-    height: 10px;
-    padding: 0;
-    margin: 0; }
-    .wagerTable tr .picks-desc {
-      color: black;
-      font-size: 14px;
-      font-weight: 400;
-      text-align: left;
-      line-height: 20px;
-      padding-top: 2px;
-      padding-bottom: 4px;
-      border-bottom: 1px transparent solid; }
-    .wagerTable tr #desc-bott {
-      padding-bottom: 8px;
-      border-bottom: dashed 2px #D0D0D0; }
-  .wagerTable th {
-    text-align: center;
-    padding: 0px 5px; }
-  .wagerTable td {
-    padding-top: 0;
-    padding-bottom: 0; }
-  .wagerTable .resultHead {
-    border-bottom: none; }
-    .wagerTable .resultHead th {
-      padding: 15px 5px; }
-  .wagerTable #results-body td {
-    text-align: center; }
-  .wagerTable #picks-header th {
-    text-align: left; }
+
+.wagerTable tr {
+  line-height: 20px;
+  height: 10px;
+  padding: 0;
+  margin: 0; }
+
+.wagerTable tr .picks-desc {
+  color: black;
+  font-size: 14px;
+  font-weight: 400;
+  text-align: left;
+  line-height: 20px;
+  padding-top: 2px;
+  padding-bottom: 4px;
+  border-bottom: 1px transparent solid; }
+
+.wagerTable tr #desc-bott {
+  padding-bottom: 8px;
+  border-bottom: dashed 2px #D0D0D0; }
+
+.wagerTable th {
+  text-align: center;
+  padding: 0px 5px; }
+
+.wagerTable td {
+  padding-top: 0;
+  padding-bottom: 0; }
+
+.wagerTable .resultHead {
+  border-bottom: none; }
+
+.wagerTable .resultHead th {
+  padding: 15px 5px; }
+
+.wagerTable #results-body td {
+  text-align: center; }
+
+.wagerTable #picks-header th {
+  text-align: left; }
 
 .rs-style {
   color: #630A1B;
@@ -330,8 +314,9 @@ div.login-img-box {
 
 .curr-col {
   width: 80px; }
-  .curr-col input {
-    width: 60px; }
+
+.curr-col input {
+  width: 60px; }
 
 .not-logged {
   margin-top: -15px; }
@@ -342,10 +327,11 @@ div.login-img-box {
   font-size: 10px;
   font-weight: 600;
   width: 120px; }
-  .pick-btn:hover {
-    color: white !important;
-    background-color: #B6102A !important;
-    width: 120px; }
+
+.pick-btn:hover {
+  color: white !important;
+  background-color: #B6102A !important;
+  width: 120px; }
 
 .header {
   margin-left: 20px;
@@ -394,24 +380,24 @@ div.login-img-box {
     position: fixed;
     overflow: scroll;
     width: inherit; }
-    #ticket #remaining {
-      margin-top: -20px;
-      font-size: 18px; }
-    #ticket #balance {
-      margin-left: 3px;
-      font-weight: 600; }
-    #ticket .wager-list {
-      display: inline; }
-    #ticket table {
-      border-collapse: collapse; }
-      #ticket table tr {
-        line-height: 20px;
-        height: 10px;
-        padding: 0;
-        margin: 0; }
-      #ticket table td, #ticket table th {
-        padding-top: 0;
-        padding-bottom: 0; } }
+  #ticket #remaining {
+    margin-top: -20px;
+    font-size: 18px; }
+  #ticket #balance {
+    margin-left: 3px;
+    font-weight: 600; }
+  #ticket .wager-list {
+    display: inline; }
+  #ticket table {
+    border-collapse: collapse; }
+  #ticket table tr {
+    line-height: 20px;
+    height: 10px;
+    padding: 0;
+    margin: 0; }
+  #ticket table td, #ticket table th {
+    padding-top: 0;
+    padding-bottom: 0; } }
 
 @media screen and (min-width: 1070px) {
   #ticket {
@@ -481,3 +467,5 @@ ul.dropdown-content.select-dropdown li span {
 
 #ins-row {
   border-bottom: dashed 2px black; }
+
+/*# sourceMappingURL=style.css.map */
