@@ -1,49 +1,45 @@
-var express = require('express');
-var router = express.Router();
-var knex = require('../db/knex')
-var fetch = require('node-fetch');
-var fs = require('fs');
+const express = require('express');
+const router = express.Router();
+const knex = require('../db/knex')
+const fetch = require('node-fetch');
+const fs = require('fs');
+const mainDb = knex.mainDb;
 
 function Wagers () {
-  return knex('wagers')
+  return mainDb('wagers')
 }
 
 function Lines () {
-  return knex('lines')
+  return mainDb('lines')
 }
 
-
-router.get('/', function(req, res, next){
-  Lines().orderBy('id').then(function(lines){
-    res.render('editlines', {lines: lines})
-  })
+router.get('/', async (req, res, next) => {
+  const lines = await Lines().orderBy('id');
+  res.render('editlines', {lines: lines})
 })
 
-router.post('/grade', function(req, res, next){
-  var id = req.body.id;
-  var result, payout, grade = req.body.grade;
+router.post('/grade', async (req, res, next) => {
+  const id = req.body.id;
+  let result, payout, grade = req.body.grade;
   grade === 'win' ? result = true : result = false;
-  Lines().where('id', id).update({
-    result: result
-  }).then(function(){
-    Wagers().where('api_id', id).then(function(wagers){
-      for (var i=0; i<wagers.length; i++){
-        var risk = wagers[i].risk;
-        var win = wagers[i].to_win;
-        var betId = wagers[i].api_id;
-        var wagerId = wagers[i].id;
-        result === true ? payout = win : payout = -risk;
-        Wagers().where('id', wagerId).update({
-          result: result,
-          net_total: payout
-        }).then(function(){
-          console.log('wager updated');
-        })
-      }
-    }).then(function(){
-      res.json({
-        success: true
+  await Lines().where('id', id).update({result: result});
+  Wagers().where('api_id', id).then(wagers => {
+    for (let i=0; i<wagers.length; i++){
+      const risk = wagers[i].risk;
+      const win = wagers[i].to_win;
+      const betId = wagers[i].api_id;
+      const wagerId = wagers[i].id;
+      result === true ? payout = win : payout = -risk;
+      Wagers().where('id', wagerId).update({
+        result: result,
+        net_total: payout
+      }).then(function(){
+        console.log('wager updated');
       })
+    }
+  }).then(function(){
+    res.json({
+      success: true
     })
   })
 })

@@ -1,6 +1,8 @@
-var express = require('express');
-var router = express.Router();
-var knex = require('../db/knex');
+const express = require('express');
+const router = express.Router();
+const knex = require('../db/knex');
+const mainDb = knex.mainDb;
+const userDb = knex.userDb;
 
 var checkLoggedIn = function(req, res, next) {
   if (!req.user) {
@@ -12,15 +14,11 @@ var checkLoggedIn = function(req, res, next) {
 };
 
 function Wagers() {
-  return knex('wagers');
+  return mainDb('wagers');
 }
 
-function Users() {
-  return knex('users');
-}
-
-router.get('/:username', function(req, res, next) {
-  Wagers().select().where('username', req.params.username).then(function(wagers){
+router.get('/:username', async (req, res, next) => {
+  Wagers().where('username', req.params.username).then(wagers => {
     res.render('user', {wagers: wagers})
   });
 });

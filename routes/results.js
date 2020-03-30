@@ -1,19 +1,21 @@
-var express = require('express');
-var router = express.Router();
-var knex = require('../db/knex');
+const express = require('express');
+const router = express.Router();
+const knex = require('../db/knex');
+const mainDb = knex.mainDb;
+const userDb = knex.userDb;
 
 function Wagers() {
-  return knex('wagers');
+  return mainDb('wagers');
 }
 
-function Users() {
-  return knex('users');
+function UserSeasons() {
+  return mainDb('user_seasons');
 }
 
 router.get('/', function(req, res, next){
   var resObj = {};
   var photoObj = {};
-  Users().then(function(users){
+  UserSeasons().then(function(users){
     // console.log('users are ', users);
     for (var i=0; i<users.length; i++) {
       var wag_rs = 1000 - users[i].balance - users[i].threept - users[i].dunk - users[i].skills - users[i].asg;
@@ -25,7 +27,6 @@ router.get('/', function(req, res, next){
       photoObj[users[i].username]['wag_skills'] = users[i].skills;
       photoObj[users[i].username]['wag_rs'] = wag_rs;
     };
-    console.log('photoObj is ', photoObj);
     Wagers().select('username', 'event').sum('net_total').groupBy('username', 'event').orderBy('event').then(function(results){
       for (var i=0; i<results.length; i++) {
         if (resObj[results[i].username] === undefined) {
