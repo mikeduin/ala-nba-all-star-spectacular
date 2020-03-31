@@ -1,0 +1,37 @@
+extends layout
+
+block content
+  div.row
+    form#regForm.col.s8.offset-s2(name='regForm' action='/register' method='post')
+      div.row.title
+        | Create Your ALA Account
+      div.row
+        div.input-field.col.s4.offset-s1
+          input.validate(name='username' type='text' id='regUsername' required)
+          label(for='regUsername')
+            | username
+        div.input-field.col.s4.offset-s2
+          input.validate(name='email' type='email' id='regEmail' required)
+          label(for='regEmail')
+            | email
+      div.row
+        div.input-field.col.s4.offset-s1
+          input.validate(name='password' type='password' id='regPassword' required)
+          label(for='regPassword')
+            | password
+        div.input-field.col.s4.offset-s2
+          input.validate(name='confirmPassword' type='password' id='regConfirmPassword' required)
+          label(for='regConfirmPassword')
+            | confirm password
+      div.row
+        div.input-field.col.s4.offset-s1
+          input.validate(name='firstName' type='text' id='regFirstName')
+          label(for='regFirstName')
+            | first name
+        div.input-field.col.s4.offset-s2
+          input.validate(name='lastName' type='text' id='regLastName')
+          label(for='regLastName')
+            | last name
+      div.row.right-align
+        button.btn(type='submit')
+          | Register

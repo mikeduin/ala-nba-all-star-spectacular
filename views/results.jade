@@ -54,7 +54,7 @@ block content
             td=i
             td
               div.chip
-                img(src=entrant.photo)
+                //- img(src=entrant.photo)
                 =entrant.username  
             if entrant.total < 0
               - var dol = entrant.total.toString().substring(1)

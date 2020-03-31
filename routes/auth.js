@@ -40,6 +40,10 @@ router.post('/login', (req, res, next) => {
   })(req, res, next);
 });
 
+router.get('/register', (req, res, next) => {
+  res.render('register');
+})
+
 router.post('/register', async (req, res, next) => {
   var salt = crypto.randomBytes(16).toString('hex');
   var hash = crypto.pbkdf2Sync(req.body.password, salt, 1000, 64, 'sha512').toString('hex');
