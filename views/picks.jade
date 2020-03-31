@@ -2,37 +2,43 @@ extends layout
 
 block content
   div.row
-    div.col.s9
-      table.bordered.wagerTable
+    div.col.s9.wagerTable.lineTable
+      div.row.resultHead
+        div(style='width: 60%; display: inline')
+          | :: NBA ALL-STAR WEEKEND LINES ::    
+        div.input-field(style='display: inline; float: right')
+          select#season-select
+            option(value='2017')
+              | 2017
+            option(value='2018')
+              | 2018
+            option(value='2019')
+              | 2019
+          label
+            | Select Season   
+      ul.a
+        li
+          | To make a pick: enter an amount in the Risk column for your selection. The 'To Win' column will display your bet's payout. Then click the 'Place Bet' button to finalize your pick.
+        li
+          | Remember: you MUST wager at least $100 on each of the All-Star Saturday Night events (Skills / 3PT / Dunk) and the All-Star Game. You can spread the remainder of your money out however you'd like.
+        li
+          | Rising Stars picks lock at 6 PM PST on Friday, 2/17. All other events lock at 5 PM PST on Saturday, 2/18.
+      table.bordered
         thead
-           tr.resultHead
-             th(colspan=7)
-               | :: NBA ALL-STAR WEEKEND LINES ::
-           tr
-             th(colspan=7).picks-desc
-               | To make a pick: enter an amount in the Risk column for your selection. The 'To Win' column will display your bet's payout. Then click the 'Place Bet' button to finalize your pick.
-               b 
-                | Once a bet is placed, it is final and cannot be taken back.
-          tr
-            th(colspan=7).picks-desc
-              | Remember: you MUST wager at least $100 on each of the All-Star Saturday Night events (Skills / 3PT / Dunk) and the All-Star Game. You can spread the remainder of your money out however you'd like.
-          tr
-            th(colspan=7).picks-desc#desc-bott
-              | Rising Stars picks lock at 6 PM PST on Friday, 2/17. All other events lock at 5 PM PST on Saturday, 2/18.
           tr#picks-header
-            th
+            th(style='width: 20%')
               | Event
-            th
+            th(style='width: 15%')
               | Type
-            th
+            th(style='width: 18%')
               | Wager
-            th
+            th(style='width: 10%')
               | Odds
-            th
+            th(style='width: 9%')
               | Risk
-            th
+            th(style='width: 12%')
               | To Win
-            th  
+            th(style='width: 10%')
               | Place Bet
         tbody
           for wager in wagers

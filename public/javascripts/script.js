@@ -1,23 +1,25 @@
 $(document).ready(function(){
+  $('.parallax').parallax();
   $('#slideshow img:gt(0)').hide();
   setInterval(function(){
     $('#slideshow :first-child').fadeOut(4000)
     .next('img').fadeIn(4000)
     .end().appendTo('#slideshow');
   }, 4000);
+  $('.sidenav').sidenav();
 
-  $('.parallax').parallax();
   $('.modal').modal();
   $('.dropdown-button').dropdown({
     belowOrigin: true
   });
-  $('select').material_select();
-  $('.button-collapse').sideNav({
-      menuWidth: 360,
-      edge: 'left',
-      closeOnClick: true,
-      draggable: true
-    });
+  // $('select').material_select();
+
+  // $('.button-collapse').sideNav({
+  //     menuWidth: 360,
+  //     edge: 'left',
+  //     closeOnClick: true,
+  //     draggable: true
+  //   });
 
   $('.risk-input').change(function(){
     var risk = $(this)[0].value;

@@ -5,7 +5,7 @@ html
     link(rel='icon', href='/images/icon.jpg')
     link(rel='stylesheet', href='/stylesheets/style.css')
     link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=Raleway:400,700,400italic,600')
-    link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css')
+    link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css')
     link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css')
   body
     <div id="fb-root"></div>
@@ -25,7 +25,7 @@ html
     div.navbar-fixed
       nav.z-depth-3
         div.nav-wrapper
-          a.button-collapse(href='#' data-activates='mobile-nav')
+          a.sidenav-trigger(href='#' data-target='mobile-nav')
             i.fa.fa-bars
           a.brand-logo(href='/').
             NBA All-Star Spectacular
@@ -48,45 +48,47 @@ html
               a(href='/picks')
                 | Make Picks
             li
-              a.dropdown-button(href='#!' data-activates='dropdown')
+              a.dropdown-button(href='#!' data-target='dropdown')
                 | Results 
             li
               a(href='http://www.alafantasysports.com')
                 | ALA Home
-          ul#mobile-nav.side-nav
-            li.nav-div
-              img#side-nav-logo(src='/images/all-star-17-logo.jpg')
-            if user
-              li.center-align='Welcome, ' + user.username
-              li 
-                a(href='/logout')
-                  | Logout
-            else 
-              li
-                a(href='/auth/facebook')
-                  | Login
-            li
-              a(href='/rules')
-                | Rules
-            li
-              a(href='/picks')
-                | Make Picks
-            li
-              a(href='/results')
-                | Standings
-            li
-              a(href='/allpicks')
-                | All Picks
-            li
-              a(href='http://www.alafantasysports.com' target='_blank')
-                | ALA Home
     include includes/loginModal.jade 
+    
+    ul#mobile-nav.sidenav
+      li.nav-div
+        img#side-nav-logo(src='/images/all-star-17-logo.jpg')
+      if user
+        li.center-align='Welcome, ' + user.username
+        li 
+          a(href='/logout')
+            | Logout
+      else 
+        li
+          a(href='/auth/facebook')
+            | Login
+      li
+        a(href='/rules')
+          | Rules
+      li
+        a(href='/picks')
+          | Make Picks
+      li
+        a(href='/results')
+          | Standings
+      li
+        a(href='/allpicks')
+          | All Picks
+      li
+        a(href='http://www.alafantasysports.com' target='_blank')
+          | ALA Home
+    
     div.spacer
       block content
         
     script(src='https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js')
     script(src='https://cdn.jsdelivr.net/jquery.validation/1.15.1/jquery.validate.min.js')
-    script(src='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js')
     script(src='../javascripts/script.js')
     script(src='../javascripts/formValidation.js')
     script(src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/moment.js')
