@@ -29,8 +29,8 @@ $(document).ready(() => {
         username: $('#regUsername').val(),
         email: $('#regEmail').val(),
         password: $('#regPassword').val(),
-        firstName: $('#regFirstName').val(),
-        lastName: $('#regLastName').val()
+        nameFirst: $('#regFirstName').val(),
+        nameLast: $('#regLastName').val()
       };
       $.ajax({
           url: "/auth/register",

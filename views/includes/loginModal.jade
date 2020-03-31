@@ -1,0 +1,41 @@
+div#modal-login.modal
+  div.modal-content
+    div.row.modal-header
+      | Login to A Level Above
+    div.row
+      div.col.s3.modal-left-col-cont
+        img(src='/images/jordan-reb.jpg')
+      div.col.s6
+        form(action='/auth/login' method='post')
+          div.row
+            div.input-field.col.s10.offset-s1
+              input#username(type='text' name='username')
+              label(for="username")
+                | Username
+          div.row
+            div.input-field.col.s10.offset-s1
+              input#password.validate(type='password' name='password')
+              label(for="password")
+                | Password
+          div.row.center-align
+            button.btn.login-form.confirm(type="submit")
+              | Login
+            button.btn.login-form.back
+              | Back
+        div.row
+          div.col.s12.center-align
+            | Need an ALA account?
+            br
+            a.reg-link(href='/auth/register')  
+              | Registering 
+            | is quick and easy.
+        div.row
+          div.col.s12.center-align
+            | - or - 
+        div.row.center-align
+          a.login-img-box(href='/auth/google')
+            img(src='/images/sign-in-with-google.svg')
+        div.row.center-align
+          <div class="fb-login-button" data-width="" data-size="large" data-button-type="continue_with" data-layout="default" data-auto-logout-link="false" data-use-continue-as="false"></div>
+      div.col.s3.modal-left-col-cont
+        img(src='/images/kyrie-drib.jpg')      

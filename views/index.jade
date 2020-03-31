@@ -11,7 +11,7 @@ block content
       div.top-footer
         | (...it's gotta be, right?)
     div.col.s4.center-align
-      a(href='/auth/facebook')
+      a.modal-trigger(href='#modal-login')
         i.fa.fa-star
         div.splash
           | LOGIN
@@ -39,3 +39,4 @@ block content
           a(href='http://www.alafantasysports.com' target='_blank')
             | A Level Above
           , 2017
+  include includes/loginModal.jade 
