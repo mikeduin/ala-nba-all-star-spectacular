@@ -47,19 +47,25 @@ nav {
 
 #regForm {
   margin-top: 40px;
-  border: solid 3px #010f3d;
+  border: solid 3px #010f3c;
   border-radius: 10px;
   background-color: #f1f3f4; }
   #regForm .title {
     font-size: 32px;
     text-align: center;
     font-weight: bold;
-    color: #010f3d; }
+    color: #010f3c; }
   #regForm .btn {
-    background-color: #010f3d; }
+    background-color: #010f3c; }
   #regForm em.error {
     color: #d95350;
     margin-top: -15px; }
+  #regForm .error-msg {
+    color: #d95350;
+    font-weight: bold;
+    text-align: center; }
+  #regForm .hidden {
+    visibility: hidden; }
 
 button.login-form.back {
   background-color: #d95350; }

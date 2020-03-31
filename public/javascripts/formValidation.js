@@ -1,19 +1,4 @@
 $(document).ready(() => {
-  console.log('validation script active');
-  // $.validator.setDefaults({
-  //   // messages: {
-  //   //   username: 'Username is required',
-  //   //   email: 'Please enter a valid email address',
-  //   //   firstName: 'First name is required',
-  //   //   lastName: 'Last name is required'
-  //   // },
-  //   errorPlacement: function(error, element) {
-  //     $(element)
-  //       .closest("form")
-  //       .find("label[for='" + element.attr("id") + "']")
-  //       .attr('data-error', error.text());
-  //   }
-  // });
   $("form[name='regForm']").validate({
     rules: {
       username: 'required',
@@ -39,8 +24,26 @@ $(document).ready(() => {
       confirmPassword: 'Passwords must match'
     },
     errorElement: 'em',
-    submitHandler: function (form) {
-      form.submit();
+    submitHandler: function () {
+      data = {
+        username: $('#regUsername').val(),
+        email: $('#regEmail').val(),
+        password: $('#regPassword').val(),
+        firstName: $('#regFirstName').val(),
+        lastName: $('#regLastName').val()
+      };
+      $.ajax({
+          url: "/auth/register",
+          data: data,
+          type: 'post',
+          success: function (res) {
+            window.location.href = '/';
+          },
+          error: function (res) {
+            $('.error-msg').removeClass('hidden');
+            $('.error-msg').text(res.responseJSON.message);
+          }
+      });
     }
   })
 })

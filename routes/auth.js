@@ -50,17 +50,16 @@ router.post('/register', async (req, res, next) => {
 
   const usernames = await Users().pluck('username');
   if (usernames.indexOf(req.body.username) !== -1) {
-    console.log('username already taken');
     return res.status(400).json({message: 'This username has already been taken.'});
   }
   const emails = await Users().pluck('email');
   if (emails.indexOf(req.body.email) !== -1) {
-    console.log('email already taken');
     return res.status(400).json({message: 'This email is already in use.'});
   }
 
   let photoUrl = req.body.profilePhoto || null;
-  let bonus = req.body.bonus || 0;
+
+  console.log(req.body);
 
   let increment = 0;
   const idFetch = await Users().max('id');
@@ -81,11 +80,10 @@ router.post('/register', async (req, res, next) => {
       if (err) { return next(err) }
       if (user) {
       // THIS FUNCTION WAS NEEDED TO CALL SERIALIZE USER!!
-      // console.log('user in authenticate is ', user);
       req.logIn(user, function(err) {
-               if (err) { return res.send(err); }
-               res.redirect('/');
-            });
+           if (err) { return res.send(err); }
+           res.sendStatus(200);
+        });
       } else {
         return res.status(401).json(info);
       }

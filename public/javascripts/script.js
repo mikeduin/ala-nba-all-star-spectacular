@@ -1,5 +1,4 @@
 $(document).ready(function(){
-
   $('#slideshow img:gt(0)').hide();
   setInterval(function(){
     $('#slideshow :first-child').fadeOut(4000)
