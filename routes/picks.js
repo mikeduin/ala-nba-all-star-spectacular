@@ -19,6 +19,10 @@ function Lines() {
   return mainDb('lines');
 }
 
+function Deadlines() {
+  return mainDb('deadlines');
+}
+
 const year = moment().year();
 
 router.post('/submit', function(req, res, next){
@@ -57,6 +61,7 @@ router.post('/submit', function(req, res, next){
 router.get('/:year', async (req, res, next) => {
   const user = Array.isArray(req.user) ? req.user[0] : req.user;
   const lines = await Lines().orderBy('time').orderBy('id');
+  const deadlines = await Deadlines().where({season: req.params.year});
   if (user) {
     const userSeasons = await UserSeasons().where({
       username: user.username,
@@ -66,12 +71,12 @@ router.get('/:year', async (req, res, next) => {
       const userData = await UserSeasons().where({username: user.username}).select('balance', 'asg', 'threept', 'skills', 'dunk');
       const { balance, asg, dunk, skills, threept } = userData[0];
       const bets = await Wagers().select('event', 'wager', 'odds', 'risk', 'net_total').where({username: user.username}).orderBy('event');
-      res.render('picks', {wagers: lines, user, bets, balance, asgBal: asg, dunkBal: dunk, skillsBal: skills, threeptBal: threept, userActive: true});
+      res.render('picks', {wagers: lines, user, bets, balance, asgBal: asg, dunkBal: dunk, skillsBal: skills, threeptBal: threept, userActive: true, deadlines});
     } else {
-      res.render('picks', {wagers: lines, user, userActive: false})
+      res.render('picks', {wagers: lines, user, userActive: false, deadlines})
     }
   } else {
-    res.render('picks', {wagers: lines, user, userActive: false})
+    res.render('picks', {wagers: lines, user, userActive: false, deadlines})
   }
 })
 

@@ -1,7 +1,5 @@
-// this one does not work - originally built without returning promise, and then voided
-
 exports.up = function(knex) {
-  return knex.schema.createTable('deadlines', t => {
+  return knex.schema.createTable('deadlinestz', t => {
     t.increments();
     t.integer('season');
     t.timestamp('reg');
@@ -14,5 +12,5 @@ exports.up = function(knex) {
 };
 
 exports.down = function(knex) {
-  return knex.schema.dropTable('deadlines');
+  return knex.schema.dropTable('deadlinestz');
 };
