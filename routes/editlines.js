@@ -14,10 +14,16 @@ function Lines () {
   return mainDb('lines')
 }
 
+function Deadlines () {
+  return mainDb('deadlines')
+}
+
 router.get('/all/:year', async (req, res, next) => {
   const maxyear = moment().year();
+  const deadlines = await Deadlines().where({season: req.params.year});
+  const dStr = JSON.stringify(deadlines[0]);
   const lines = await Lines().where({season: req.params.year}).orderBy('id');
-  res.render('editlines', {lines, year: req.params.year, maxyear})
+  res.render('editlines', {lines, year: req.params.year, maxyear, deadlines: dStr})
 })
 
 router.post('/grade', async (req, res, next) => {
@@ -53,7 +59,8 @@ router.post('/add', function(req, res, next){
     time: req.body.time,
     type: req.body.type,
     side: req.body.side,
-    odds: req.body.odds
+    odds: req.body.odds,
+    season: req.body.season
   }).then(function(){
     res.json(line)
   })

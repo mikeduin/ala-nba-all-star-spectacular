@@ -19,6 +19,10 @@ $(document).ready(function(){
     window.location.href = `/editlines/all/${e.target.value}`;
   })
 
+  $('#allPicksSelect').change(e => {
+    window.location.href = `/allPicks/${e.target.value}`;
+  })
+
   // $('.button-collapse').sideNav({
   //     menuWidth: 360,
   //     edge: 'left',
@@ -136,39 +140,34 @@ $(document).ready(function(){
   })
 
   $('.add-btn').click(function(){
-    var event = $('#ins-event')[0].value;
-    var type = $('#ins-type')[0].value;
-    var side = $('#ins-side')[0].value;
-    var odds = parseInt($('#ins-odds')[0].value);
-    var time;
+    const deadlines = JSON.parse($('#ins-deadlines')[0].value) || null;
+    const season = $('#ins-season')[0].value;
+    const event = $('#ins-event')[0].value;
+    const type = $('#ins-type')[0].value;
+    const side = $('#ins-side')[0].value;
+    const odds = parseInt($('#ins-odds')[0].value);
+    let time;
     if (event === 'Rising Stars Game') {
-      time = '2017-02-18T02:00:00'
-    } else if (event === 'All-Star Game') {
-      time = '2017-02-20T01:00:00'
+      time = deadlines['rising_stars']
     } else {
-      time = '2017-02-19T01:00:00'
+      time = deadlines['reg']
     };
     $.ajax({
       method: 'POST',
       url: '/editlines/add',
-      data: {
-        event: event,
-        time: time,
-        type: type,
-        side: side,
-        odds: odds
-      },
+      data: {event, time, type, side, odds, season},
       success: function(){
         $('#ins-event').val('');
         $('#ins-type').val('');
         $('#ins-side').val('');
         $('#ins-odds').val('');
-        Materialize.toast('Event successfully added!', 4000, 'toasted');
+        M.toast({html: 'Event successfully added!', classes: 'toasted'});
       }
     })
   })
 
   $('.update-btn').click(function(){
+    const deadlines = JSON.parse($('#ins-deadlines')[0].value);
     var id = $(this).parent().prevAll().eq(6)[0].innerHTML;
     var event = $(this).parent().prevAll().eq(5)[0].children[0].value;
     var type = $(this).parent().prevAll().eq(4)[0].children[0].value;
@@ -176,9 +175,9 @@ $(document).ready(function(){
     var odds = $(this).parent().prevAll().eq(2)[0].children[0].value;
     var time;
     if (event === 'Rising Stars Game') {
-      time = '2017-02-18T02:00:00'
+      time = deadlines['rising_stars']
     } else {
-      time = '2017-02-19T01:00:00'
+      time = deadlines['reg']
     };
     $.ajax({
       method: 'PUT',
@@ -192,7 +191,7 @@ $(document).ready(function(){
         odds: odds
       },
       success: function(res){
-        Materialize.toast('Event updated!', 4000, 'toasted');
+        M.toast({html: 'Event updated!', classes: 'toasted'});
       }
     })
   })
@@ -247,9 +246,10 @@ $(document).ready(function(){
     var user = $('#user-filter')[0].value;
     var event = $('#event-filter')[0].value;
     var table = $('#allPicksBody');
+    var season = $('#allPicksSelect')[0].value;
     $.ajax({
       method: 'GET',
-      url: '/allpicks/user/' + user + '/event/' + event,
+      url: `/allpicks/user/${user}/event/${event}/${season}`,
       success: function(bets){
         wagers = bets.wagers;
         table.empty();

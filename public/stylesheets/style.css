@@ -343,8 +343,6 @@ div.lineTable > div > div.input-field > div > input {
     padding-bottom: 0; }
   .wagerTable .resultHead {
     border-bottom: none; }
-    .wagerTable .resultHead th {
-      padding: 15px 5px; }
   .wagerTable #results-body td {
     text-align: center; }
   .wagerTable #picks-header th {

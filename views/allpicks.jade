@@ -6,8 +6,17 @@ block content
       table.wagerTable
         thead
           tr.resultHead
-            th(colspan=8).
-              :: ALL PICKS ::
+            th(colspan=8)
+              div(style="display: inline-block; width: 60%; margin-left: 20%; text-align: center; padding-top: 15px")
+                | :: ALL PICKS ::
+              div.input-field(style="display: inline-block; width: 20%; margin-top: 15px; margin-bottom: -20px")
+                select#allPicksSelect(style="padding-top: -15px")
+                  option(value=year selected)=year
+                  for season in seasons
+                    if season != year
+                      option(value=season)=season
+                label
+                  | Select Season
           tr.subHead.center-align
             th(colspan=8)
               i
