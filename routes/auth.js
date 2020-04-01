@@ -92,7 +92,7 @@ router.post('/register', async (req, res, next) => {
 })
 
 router.get('/facebook',
-  passport.authenticate('facebook', { scope: ['public_profile', 'email', 'user_hometown']})
+  passport.authenticate('facebook', { scope: ['public_profile', 'email']})
 );
 
 router.get('/facebook/callback',
