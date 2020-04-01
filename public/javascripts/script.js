@@ -23,6 +23,10 @@ $(document).ready(function(){
     window.location.href = `/allPicks/${e.target.value}`;
   })
 
+  $('#standingsSelect').change(e => {
+    window.location.href = `/results/${e.target.value}`;
+  })
+
   // $('.button-collapse').sideNav({
   //     menuWidth: 360,
   //     edge: 'left',

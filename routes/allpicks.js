@@ -14,8 +14,8 @@ function Deadlines () {
 
 router.get('/:season', async (req, res, next) => {
   const wagers = await Wagers().where({season: req.params.season}).orderBy('username');
-  // const seasons = await Deadlines().pluck('season');
-  const seasons = [2017, 2020];
+  const seasons = await Deadlines().pluck('season');
+  // const seasons = [2017, 2020];
   const users = await Wagers().where({season: req.params.season}).distinct('username').orderBy('username');
   res.render('allpicks', {wagers, users, seasons, year: req.params.season});
 })

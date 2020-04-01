@@ -5,8 +5,17 @@ block content
     table.col.s10.offset-s1.wagerTable
       thead
         tr.resultHead
-          th(colspan=13).
-            :: STANDINGS :: 
+          th(colspan=13)
+            div(style="display: inline-block; width: 60%; margin-left: 20%; text-align: center; padding-top: 15px")
+              | :: STANDINGS :: 
+            div.input-field(style="display: inline-block; width: 20%; margin-top: 15px")
+              select#standingsSelect(style="padding-top: -15px")
+                option(value=year selected)=year
+                for season in seasons
+                  if season != year
+                    option(value=season)=season
+              label
+                | Select Season
         tr
           th(rowspan=2).
             Rank

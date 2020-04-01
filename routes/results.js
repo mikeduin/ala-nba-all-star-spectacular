@@ -12,11 +12,15 @@ function UserSeasons() {
   return mainDb('user_seasons');
 }
 
-router.get('/', function(req, res, next){
+function Deadlines () {
+  return mainDb('deadlines');
+}
+
+router.get('/:season', async (req, res, next) => {
   var resObj = {};
   var photoObj = {};
-  UserSeasons().then(function(users){
-    // console.log('users are ', users);
+  const seasons = await Deadlines().pluck('season');
+  UserSeasons().where({season: req.params.season}).then(function(users){
     for (var i=0; i<users.length; i++) {
       var wag_rs = 1000 - users[i].balance - users[i].threept - users[i].dunk - users[i].skills - users[i].asg;
       photoObj[users[i].username] = {};
@@ -27,7 +31,13 @@ router.get('/', function(req, res, next){
       photoObj[users[i].username]['wag_skills'] = users[i].skills;
       photoObj[users[i].username]['wag_rs'] = wag_rs;
     };
-    Wagers().select('username', 'event').sum('net_total').groupBy('username', 'event').orderBy('event').then(function(results){
+    Wagers()
+      .where({season: req.params.season})
+      .select('username', 'event')
+      .sum('net_total')
+      .groupBy('username', 'event')
+      .orderBy('event')
+      .then(function(results){
       for (var i=0; i<results.length; i++) {
         if (resObj[results[i].username] === undefined) {
           resObj[results[i].username] = {
@@ -66,7 +76,7 @@ router.get('/', function(req, res, next){
         sortedRes.push({username: key, photo: photoObj[key]['photo'], rising_stars: rsTotal, skills: skTotal, three_pt: tpTotal, dunk: dunkTotal, all_star: asgTotal, total: total, wag_rs: photoObj[key]['wag_rs'], wag_skills: photoObj[key]['wag_skills'], wag_threept: photoObj[key]['wag_threept'], wag_dunk: photoObj[key]['wag_dunk'], wag_asg: photoObj[key]['wag_asg']})
       };
       sortedRes.sort(function(x, y){return y.total - x.total});
-      res.render('results', {results: sortedRes});
+      res.render('results', {results: sortedRes, seasons, year: req.params.season});
     })
   })
 })

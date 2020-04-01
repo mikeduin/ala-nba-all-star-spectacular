@@ -12,10 +12,12 @@ html
     <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v6.0&appId=1838943476378104&autoLogAppEvents=1"></script>
     ul#dropdown.dropdown-content
       li
-        a(href='/results')
+        //- a(href=`/results/${year}`)
+        a(href='/results/2017')
           | Standings
       li
-        a(href='/allpicks')
+        //- a(href=`/allpicks/${year}`)
+        a(href=`/allpicks/2017`)
           | All Picks
       if user
         if user.admin === true
@@ -72,13 +74,15 @@ html
         a(href='/rules')
           | Rules
       li
-        a(href='/picks')
+        //- a(href=`/picks/${year}`)
+        a(href=`/picks/2017`)
           | Make Picks
       li
-        a(href='/results')
+        //- a(href=`/results/${year}`)
+        a(href='/results/2017')
           | Standings
       li
-        a(href='/allpicks')
+        a(href=`/allpicks/${year}`)
           | All Picks
       li
         a(href='http://www.alafantasysports.com' target='_blank')
