@@ -1,6 +1,7 @@
 extends layout
 
 block content
+  include includes/regModal.jade 
   div.row
     div.col.s9.wagerTable.lineTable
       div.row.resultHead
@@ -123,7 +124,7 @@ block content
             if moment().isBefore(deadlines[0].reg)
               | Registration has closed for this season.
             else
-              a(href='#')
+              a.modal-trigger.reg-link(href='#modal-reg')
                 | Click here 
               | to register.
         else
@@ -138,6 +139,16 @@ block content
           if user && userActive
             | DOLLARS REMAINING:
             span#balance= '$' + balance
+          else if user && !userActive
+            div.center-align.not-logged
+              | You are logged in but are not registered!
+            div.center-align
+              if moment().isBefore(deadlines[0].reg)
+                | Registration has closed for this season.
+              else
+                a.modal-trigger.reg-link(href='#modal-reg')
+                  | Click here 
+                | to register.
           else 
             | You are not logged in!
         br
