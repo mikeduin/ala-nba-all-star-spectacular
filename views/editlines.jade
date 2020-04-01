@@ -3,10 +3,17 @@ extends layout
 block content
   div.row
     div.col.s12
-      table.wagerTable
+      table#editLinesTable.wagerTable
         thead
           tr.resultHead
-            th(colspan=8)
+            th(colspan=1)
+              select#editLinesSelect
+                option(value=year selected)=year
+                - for (i=maxyear; i>2016; i--)
+                  option(value=i)=i
+              label
+                | Select Season
+            th(colspan=7)
               | :: EDIT LINES ::
           tr
             th

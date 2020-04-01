@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const knex = require('../db/knex')
 const fetch = require('node-fetch');
+const moment = require('moment');
 const fs = require('fs');
 const mainDb = knex.mainDb;
 
@@ -13,9 +14,10 @@ function Lines () {
   return mainDb('lines')
 }
 
-router.get('/', async (req, res, next) => {
-  const lines = await Lines().orderBy('id');
-  res.render('editlines', {lines: lines})
+router.get('/all/:year', async (req, res, next) => {
+  const maxyear = moment().year();
+  const lines = await Lines().where({season: req.params.year}).orderBy('id');
+  res.render('editlines', {lines, year: req.params.year, maxyear})
 })
 
 router.post('/grade', async (req, res, next) => {

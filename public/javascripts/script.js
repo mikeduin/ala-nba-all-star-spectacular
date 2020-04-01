@@ -15,6 +15,10 @@ $(document).ready(function(){
   });
   $('select').formSelect();
 
+  $('#editLinesSelect').change(e => {
+    window.location.href = `/editlines/all/${e.target.value}`;
+  })
+
   // $('.button-collapse').sideNav({
   //     menuWidth: 360,
   //     edge: 'left',
