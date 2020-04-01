@@ -1,5 +1,5 @@
 exports.up = function(knex) {
-  knex.schema.createTable('deadlines', t => {
+  return knex.schema.createTable('deadlines', t => {
     t.increments();
     t.integer('season');
     t.timestamp('reg');
@@ -12,5 +12,5 @@ exports.up = function(knex) {
 };
 
 exports.down = function(knex) {
-  knex.schema.dropTable('deadlines');
+  return knex.schema.dropTable('deadlines');
 };
