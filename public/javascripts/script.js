@@ -1,4 +1,5 @@
 $(document).ready(function(){
+  const formatDollars = d => d >= 0 ? `$${(d).toFixed(2)}` : `-$${(Math.abs(d)).toFixed(2)}`;
   $('.parallax').parallax();
   $('#slideshow img:gt(0)').hide();
   setInterval(function(){
@@ -9,10 +10,10 @@ $(document).ready(function(){
   $('.sidenav').sidenav();
 
   $('.modal').modal();
-  $('.dropdown-button').dropdown({
-    belowOrigin: true
+  $('.dropdown-trigger').dropdown({
+    coverTrigger: false
   });
-  // $('select').material_select();
+  $('select').formSelect();
 
   // $('.button-collapse').sideNav({
   //     menuWidth: 360,
@@ -27,9 +28,11 @@ $(document).ready(function(){
     var toWin = $(this).parent().next();
     var payout = 0;
     if (odds > 0) {
-      payout = Math.round((risk * parseInt(odds)/100)*100)/100;
+      number = Math.round((risk * parseInt(odds)/100)*100)/100;
+      payout = formatDollars(number);
     } else {
-      payout = Math.round((risk * 100/-parseInt(odds))*100)/100;
+      number = Math.round((risk * 100/-parseInt(odds))*100)/100;
+      payout = formatDollars(number);
     };
     toWin.text(payout);
   });
@@ -185,7 +188,6 @@ $(document).ready(function(){
         odds: odds
       },
       success: function(res){
-        // console.log(res)
         Materialize.toast('Event updated!', 4000, 'toasted');
       }
     })

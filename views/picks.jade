@@ -8,12 +8,8 @@ block content
           | :: NBA ALL-STAR WEEKEND LINES ::    
         div.input-field(style='display: inline; float: right')
           select#season-select
-            option(value='2017')
+            option(value='2017' selected)
               | 2017
-            option(value='2018')
-              | 2018
-            option(value='2019')
-              | 2019
           label
             | Select Season   
       ul.a
@@ -75,7 +71,7 @@ block content
         div.center-align.min-header
           | $100 MINIMUMS MET?
         br
-        if user  
+        if user && userActive
           div.row#minrow
             div.col.s6
               div
@@ -111,6 +107,9 @@ block content
                 else
                   span.min-met
                     | YES
+        else if user && !userActive
+          div.center-align.not-logged
+            | You are logged in but have not registered!
         else
           div.center-align.not-logged
             | You are not logged in! 
@@ -120,13 +119,13 @@ block content
           | YOUR TICKET
         br
         div#remaining.center-align
-          if user
+          if user && userActive
             | DOLLARS REMAINING:
             span#balance= '$' + balance
           else 
             | You are not logged in!
         br
-        if user
+        if user && userActive
           div.wager-list  
             table
               thead

@@ -45,10 +45,11 @@ html
               a(href='/rules')
                 | Rules
             li
-              a(href='/picks')
+              //- a(href=`/picks/${year}`)
+              a(href=`/picks/2017`)
                 | Make Picks
             li
-              a.dropdown-button(href='#!' data-target='dropdown')
+              a.dropdown-trigger(href='#!' data-target='dropdown')
                 | Results 
             li
               a(href='http://www.alafantasysports.com')
