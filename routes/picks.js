@@ -71,12 +71,12 @@ router.get('/:year', async (req, res, next) => {
       const userData = await UserSeasons().where({username: user.username}).select('balance', 'asg', 'threept', 'skills', 'dunk');
       const { balance, asg, dunk, skills, threept } = userData[0];
       const bets = await Wagers().select('event', 'wager', 'odds', 'risk', 'net_total').where({username: user.username}).orderBy('event');
-      res.render('picks', {wagers: lines, user, bets, balance, asgBal: asg, dunkBal: dunk, skillsBal: skills, threeptBal: threept, userActive: true, deadlines});
+      res.render('picks', {wagers: lines, user, bets, balance, asgBal: asg, dunkBal: dunk, skillsBal: skills, threeptBal: threept, userActive: true, deadlines, year: req.params.year});
     } else {
-      res.render('picks', {wagers: lines, user, userActive: false, deadlines})
+      res.render('picks', {wagers: lines, user, userActive: false, deadlines, year: req.params.year})
     }
   } else {
-    res.render('picks', {wagers: lines, user, userActive: false, deadlines})
+    res.render('picks', {wagers: lines, user, userActive: false, deadlines, year: req.params.year})
   }
 })
 

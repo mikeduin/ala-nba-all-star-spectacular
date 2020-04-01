@@ -8,8 +8,9 @@ block content
           | :: NBA ALL-STAR WEEKEND LINES ::    
         div.input-field(style='display: inline; float: right')
           select#season-select
-            option(value='2017' selected)
-              | 2017
+            for deadline in deadlines
+              option(value=deadline.season)
+                !=deadline.season
           label
             | Select Season   
       ul.a
@@ -18,8 +19,15 @@ block content
         li
           | Remember: you MUST wager at least $100 on each of the All-Star Saturday Night events (Skills / 3PT / Dunk) and the All-Star Game. You can spread the remainder of your money out however you'd like.
         li
-          | Rising Stars picks lock at 6 PM PST on Friday, 2/17. All other events lock at 5 PM PST on Saturday, 2/18.
-        li=moment(deadlines[0].reg).utc()
+          | Rising Stars picks lock at 
+          != moment(deadlines[0].rising_stars).format("h A") 
+          |  on 
+          != moment(deadlines[0].rising_stars).format("dddd, M/D") 
+          | . All other events lock at 
+          != moment(deadlines[0].skills).format("h A") 
+          |  on 
+          != moment(deadlines[0].skills).format("dddd, M/D") 
+          | .
       table.bordered
         thead
           tr#picks-header
@@ -110,7 +118,14 @@ block content
                     | YES
         else if user && !userActive
           div.center-align.not-logged
-            | You are logged in but have not registered!
+            | You are logged in but are not registered!
+          div.center-align
+            if moment().isBefore(deadlines[0].reg)
+              | Registration has closed for this season.
+            else
+              a(href='#')
+                | Click here 
+              | to register.
         else
           div.center-align.not-logged
             | You are not logged in! 
