@@ -2,12 +2,12 @@ exports.up = function(knex) {
   return knex.schema.createTable('deadlinestz', t => {
     t.increments();
     t.integer('season');
-    t.timestamp('reg');
-    t.timestamp('rising_stars');
-    t.timestamp('skills');
-    t.timestamp('three_pt');
-    t.timestamp('dunk');
-    t.timestamp('asg');
+    t.timestamptz('reg');
+    t.timestamptz('rising_stars');
+    t.timestamptz('skills');
+    t.timestamptz('three_pt');
+    t.timestamptz('dunk');
+    t.timestamptz('asg');
   })
 };
 
