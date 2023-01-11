@@ -18,7 +18,7 @@
     "fetch": "^1.1.0",
     "jade": "~1.11.0",
     "jquery-validation": "^1.19.1",
-    "knex": "^0.20.13",
+    "knex": "^2.4.0",
     "moment": "^2.17.1",
     "morgan": "^1.10.0",
     "node-fetch": "^1.6.3",
